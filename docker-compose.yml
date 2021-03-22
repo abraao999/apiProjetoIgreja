@@ -1,0 +1,21 @@
+version: "3"
+services:
+  proj_igreja:
+    container_name: proj_igreja
+    hostname: proj_igreja
+    image: mysql
+    restart: always
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --innodb_force_recovery=0
+    volumes:
+      - ~/.MySQLDBData/mysqlonly/proj_igreja:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: senha
+      MYSQL_DATABASE: proj_igreja
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: senha
