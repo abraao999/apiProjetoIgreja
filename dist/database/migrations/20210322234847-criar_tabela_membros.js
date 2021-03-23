@@ -31,6 +31,10 @@
         type: Sequelize.STRING,
         allowNull: false,
       },
+      estado_civil: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       email: {
         type: Sequelize.STRING,
         allowNull: false,
