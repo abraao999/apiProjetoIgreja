@@ -12,6 +12,7 @@ var _setorRoutes = require('./routes/setorRoutes'); var _setorRoutes2 = _interop
 var _departamentoRoutes = require('./routes/departamentoRoutes'); var _departamentoRoutes2 = _interopRequireDefault(_departamentoRoutes);
 var _contaRoutes = require('./routes/contaRoutes'); var _contaRoutes2 = _interopRequireDefault(_contaRoutes);
 var _caixaRoutes = require('./routes/caixaRoutes'); var _caixaRoutes2 = _interopRequireDefault(_caixaRoutes);
+var _membroRoutes = require('./routes/membroRoutes'); var _membroRoutes2 = _interopRequireDefault(_membroRoutes);
 
 const whiteList = [
   // dados do servidor
@@ -47,6 +48,7 @@ class App {
     this.app.use("/departamento/", _departamentoRoutes2.default);
     this.app.use("/conta/", _contaRoutes2.default);
     this.app.use("/caixa/", _caixaRoutes2.default);
+    this.app.use("/membro/", _membroRoutes2.default);
   }
 }
 exports. default = new App().app;

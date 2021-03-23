@@ -7,8 +7,9 @@ var _Setor = require('../models/Setor'); var _Setor2 = _interopRequireDefault(_S
 var _Departamento = require('../models/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
 var _Conta = require('../models/Conta'); var _Conta2 = _interopRequireDefault(_Conta);
 var _Caixa = require('../models/Caixa'); var _Caixa2 = _interopRequireDefault(_Caixa);
+var _Membro = require('../models/Membro'); var _Membro2 = _interopRequireDefault(_Membro);
 
-const models = [_Function2.default, _Cargo2.default, _Setor2.default, _Departamento2.default, _Conta2.default, _Caixa2.default];
+const models = [_Function2.default, _Cargo2.default, _Setor2.default, _Departamento2.default, _Conta2.default, _Caixa2.default, _Membro2.default];
 const connection = new (0, _sequelize2.default)(_database2.default);
 models.forEach((model) => model.init(connection));
 models.forEach(
