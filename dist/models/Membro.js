@@ -25,13 +25,23 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
             },
           },
         },
+        cpf: {
+          type: _sequelize2.default.STRING,
+          defaultValue: "",
+          validate: {
+            len: {
+              args: [3, 12],
+              msg: "Campo CPF deve ter entre 3 e 12 caracteres",
+            },
+          },
+        },
         telefone: {
           type: _sequelize2.default.STRING,
           defaultValue: "",
           validate: {
             len: {
               args: [3, 20],
-              msg: "Campo descrição deve ter entre 3 e 20 caracteres",
+              msg: "Campo telefone deve ter entre 3 e 20 caracteres",
             },
           },
         },
@@ -126,8 +136,8 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
     return this;
   }
 
-  static associate(models) {
-    this.hasMany(models.Caixa, { foreignKey: "departamento_id" });
-    this.belongsTo(models.Setor, { foreignKey: "setor_id" });
-  }
+  // // static associate(models) {
+  // //   this.hasMany(models.Caixa, { foreignKey: "departamento_id" });
+  // //   this.belongsTo(models.Setor, { foreignKey: "setor_id" });
+  // }
 } exports.default = Membro;

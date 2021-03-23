@@ -1,6 +1,6 @@
 "use strict";module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable("mebros", {
+    queryInterface.createTable("membros", {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -40,7 +40,7 @@
         allowNull: false,
         unique: true,
       },
-      password: {
+      password_hash: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -75,5 +75,5 @@
       },
     }),
 
-  down: (queryInterface, Sequelize) => queryInterface.dropTable("mebros"),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable("membros"),
 };

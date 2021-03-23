@@ -25,13 +25,23 @@ export default class Membro extends Model {
             },
           },
         },
+        cpf: {
+          type: Sequelize.STRING,
+          defaultValue: "",
+          validate: {
+            len: {
+              args: [3, 12],
+              msg: "Campo CPF deve ter entre 3 e 12 caracteres",
+            },
+          },
+        },
         telefone: {
           type: Sequelize.STRING,
           defaultValue: "",
           validate: {
             len: {
               args: [3, 20],
-              msg: "Campo descrição deve ter entre 3 e 20 caracteres",
+              msg: "Campo telefone deve ter entre 3 e 20 caracteres",
             },
           },
         },
@@ -126,8 +136,8 @@ export default class Membro extends Model {
     return this;
   }
 
-  static associate(models) {
-    this.hasMany(models.Caixa, { foreignKey: "departamento_id" });
-    this.belongsTo(models.Setor, { foreignKey: "setor_id" });
-  }
+  // // static associate(models) {
+  // //   this.hasMany(models.Caixa, { foreignKey: "departamento_id" });
+  // //   this.belongsTo(models.Setor, { foreignKey: "setor_id" });
+  // }
 }

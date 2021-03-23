@@ -4,12 +4,16 @@ class MembroController {
   async storage(req, res) {
     try {
       const dado = await Membro.create(req.body);
+      // const dado = req.body;
+      // console.log(dado);
       if (!dado) {
         return res.status(400).json({ erros: ["dado ja existe"] });
       }
 
       return res.json(dado);
     } catch (er) {
+      console.log(er);
+      // return res.status(400);
       return res
         .status(400)
         .json({ erros: er.errors.map((erro) => erro.message) });
