@@ -1,10 +1,10 @@
 import Departamento from "../models/Departamento";
-import Caixa from "../models/Caixa";
+import Classe from "../models/Classe";
 
-class CaixaController {
+class ClasseController {
   async storage(req, res) {
     try {
-      const dados = await Caixa.create(req.body);
+      const dados = await Classe.create(req.body);
       if (!dados) {
         return res.status(400).json({ erros: ["departamento ja existe"] });
       }
@@ -18,7 +18,7 @@ class CaixaController {
   }
 
   async index(req, res) {
-    const dados = await Caixa.findAll();
+    const dados = await Classe.findAll();
     res.json(dados);
   }
 
@@ -29,7 +29,7 @@ class CaixaController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await Caixa.findByPk(id, {
+      const dados = await Classe.findByPk(id, {
         include: { model: Departamento, attributes: ["descricao"] },
       });
       if (!dados) {
@@ -51,7 +51,7 @@ class CaixaController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await Caixa.findByPk(id);
+      const dados = await Classe.findByPk(id);
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
@@ -71,7 +71,7 @@ class CaixaController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await Caixa.findByPk(id);
+      const dados = await Classe.findByPk(id);
       if (!dados) {
         return res.status(400).json({ erros: ["departamento nao existe"] });
       }
@@ -84,4 +84,4 @@ class CaixaController {
     }
   }
 }
-export default new CaixaController();
+export default new ClasseController();

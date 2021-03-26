@@ -1,10 +1,7 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _sequelize = require('sequelize'); var _sequelize2 = _interopRequireDefault(_sequelize);
-var _Departamento = require('../models/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
-var _Conta = require('../models/Conta'); var _Conta2 = _interopRequireDefault(_Conta);
-var _Setor = require('../models/Setor'); var _Setor2 = _interopRequireDefault(_Setor);
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Departamento = require('../models/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
 var _Caixa = require('../models/Caixa'); var _Caixa2 = _interopRequireDefault(_Caixa);
 
-class ContasController {
+class CaixaController {
   async storage(req, res) {
     try {
       const dados = await _Caixa2.default.create(req.body);
@@ -87,4 +84,4 @@ class ContasController {
     }
   }
 }
-exports. default = new ContasController();
+exports. default = new CaixaController();

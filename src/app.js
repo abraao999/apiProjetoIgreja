@@ -13,6 +13,7 @@ import departamentoRoutes from "./routes/departamentoRoutes";
 import contaRoutes from "./routes/contaRoutes";
 import caixaRoutes from "./routes/caixaRoutes";
 import membroRoutes from "./routes/membroRoutes";
+import classeRoutes from "./routes/classeRoutes";
 
 const whiteList = [
   // dados do servidor
@@ -49,6 +50,7 @@ class App {
     this.app.use("/conta/", contaRoutes);
     this.app.use("/caixa/", caixaRoutes);
     this.app.use("/membro/", membroRoutes);
+    this.app.use("/classe/", classeRoutes);
   }
 }
 export default new App().app;
