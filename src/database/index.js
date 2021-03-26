@@ -8,8 +8,18 @@ import Departamento from "../models/Departamento";
 import Conta from "../models/Conta";
 import Caixa from "../models/Caixa";
 import Membro from "../models/Membro";
+import Classe from "../models/Classe";
 
-const models = [Function, Cargo, Setor, Departamento, Conta, Caixa, Membro];
+const models = [
+  Function,
+  Cargo,
+  Setor,
+  Departamento,
+  Conta,
+  Caixa,
+  Membro,
+  Classe,
+];
 const connection = new Sequelize(databaseConfig);
 models.forEach((model) => model.init(connection));
 models.forEach(
