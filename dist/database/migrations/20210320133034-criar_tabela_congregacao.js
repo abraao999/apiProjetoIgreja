@@ -21,5 +21,5 @@
       },
     }),
 
-  down: (queryInterface, Sequelize) => queryInterface.dropTable("setores"),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable("setors"),
 };

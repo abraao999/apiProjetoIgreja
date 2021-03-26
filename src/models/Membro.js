@@ -136,8 +136,9 @@ export default class Membro extends Model {
     return this;
   }
 
-  // // static associate(models) {
-  // //   this.hasMany(models.Caixa, { foreignKey: "departamento_id" });
-  // //   this.belongsTo(models.Setor, { foreignKey: "setor_id" });
-  // }
+  static associate(models) {
+    this.hasMany(models.Caixa, { foreignKey: "departamento_id" });
+    this.belongsTo(models.Setor, { foreignKey: "setor_id" });
+    // this.hasOne(models.Setor, { foreignKey: "setor_id" });
+  }
 }

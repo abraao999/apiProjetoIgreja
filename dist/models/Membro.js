@@ -136,8 +136,9 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
     return this;
   }
 
-  // // static associate(models) {
-  // //   this.hasMany(models.Caixa, { foreignKey: "departamento_id" });
-  // //   this.belongsTo(models.Setor, { foreignKey: "setor_id" });
-  // }
+  static associate(models) {
+    this.hasMany(models.Caixa, { foreignKey: "departamento_id" });
+    this.belongsTo(models.Setor, { foreignKey: "setor_id" });
+    // this.hasOne(models.Setor, { foreignKey: "setor_id" });
+  }
 } exports.default = Membro;
