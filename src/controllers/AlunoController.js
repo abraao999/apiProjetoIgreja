@@ -1,10 +1,10 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Departamento = require('../models/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
-var _Aluno = require('../models/Aluno'); var _Aluno2 = _interopRequireDefault(_Aluno);
+import Departamento from "../models/Departamento";
+import Aluno from "../models/Aluno";
 
 class AlunoController {
   async storage(req, res) {
     try {
-      const dados = await _Aluno2.default.create(req.body);
+      const dados = await Aluno.create(req.body);
       if (!dados) {
         return res.status(400).json({ erros: ["departamento ja existe"] });
       }
@@ -18,7 +18,7 @@ class AlunoController {
   }
 
   async index(req, res) {
-    const dados = await _Aluno2.default.findAll();
+    const dados = await Aluno.findAll();
     res.json(dados);
   }
 
@@ -29,8 +29,8 @@ class AlunoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await _Aluno2.default.findByPk(id, {
-        include: { model: _Departamento2.default, attributes: ["descricao"] },
+      const dados = await Aluno.findByPk(id, {
+        include: { model: Departamento, attributes: ["descricao"] },
       });
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
@@ -51,7 +51,7 @@ class AlunoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await _Aluno2.default.findByPk(id);
+      const dados = await Aluno.findByPk(id);
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
@@ -71,7 +71,7 @@ class AlunoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await _Aluno2.default.findByPk(id);
+      const dados = await Aluno.findByPk(id);
       if (!dados) {
         return res.status(400).json({ erros: ["departamento nao existe"] });
       }
@@ -84,4 +84,4 @@ class AlunoController {
     }
   }
 }
-exports. default = new AlunoController();
+export default new AlunoController();

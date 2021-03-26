@@ -19,4 +19,8 @@
     );
     return this;
   }
+
+  static associate(models) {
+    this.hasMany(models.Aluno, { foreignKey: "classe_id" });
+  }
 } exports.default = Classe;

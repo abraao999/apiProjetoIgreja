@@ -9,6 +9,7 @@ import Conta from "../models/Conta";
 import Caixa from "../models/Caixa";
 import Membro from "../models/Membro";
 import Classe from "../models/Classe";
+import Aluno from "../models/Aluno";
 
 const models = [
   Function,
@@ -19,6 +20,7 @@ const models = [
   Caixa,
   Membro,
   Classe,
+  Aluno,
 ];
 const connection = new Sequelize(databaseConfig);
 models.forEach((model) => model.init(connection));

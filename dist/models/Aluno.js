@@ -2,71 +2,12 @@
 
  class Aluno extends _sequelize.Model {
   static init(sequelize) {
-    super.init({
-      nome: {
-        type: _sequelize2.default.STRING,
-        defaultValue: '',
-        validate: {
-          len: {
-            args: [3, 255],
-            msg: 'Campo nome deve ter entre 3 e 255 caracteres',
-          },
-        },
-      },
-      sobrenome: {
-        type: _sequelize2.default.STRING,
-        defaultValue: '',
-        validate: {
-          len: {
-            args: [3, 255],
-            msg: 'Campo sobrenome deve ter entre 3 e 255 caracteres',
-          },
-        },
-      },
-      email: {
-        type: _sequelize2.default.STRING,
-        defaultValue: '',
-        unique: {
-          msg: 'E-mail ja cadastrado',
-        },
-        validate: {
-          isEmail: {
-            msg: 'E-mail invalido ',
-          },
-        },
-      },
-      idade: {
-        type: _sequelize2.default.INTEGER,
-        defaultValue: '',
-        validate: {
-          isInt: {
-            msg: 'Idade precisa ser um numero inteiro ',
-          },
-        },
-      },
-      peso: {
-        type: _sequelize2.default.FLOAT,
-        defaultValue: '',
-        validate: {
-          isFloat: {
-            msg: 'peso invalido ',
-          },
-        },
-      },
-      altura: {
-        type: _sequelize2.default.FLOAT,
-        defaultValue: '',
-        validate: {
-          isFloat: {
-            msg: 'altura invalida ',
-          },
-        },
-      },
-    }, { sequelize });
+    super.init({}, { sequelize });
     return this;
   }
 
   static associate(models) {
-    this.hasMany(models.Foto, { foreignKey: 'aluno_id' });
+    this.belongsTo(models.Classe, { foreignKey: "classe_id" });
+    this.belongsTo(models.Membro, { foreignKey: "membro_id" });
   }
 } exports.default = Aluno;
