@@ -18,13 +18,6 @@ class DepartamentoController {
     }
   }
 
-  // async index(req, res) {
-  //   const departamento = await Departamento.findAll({
-  //     attributes: ["descricao", "id", "setor_id"],
-  //     include: { model: Setor, attributes: ["descricao"] },
-  //   });
-  //   res.json(departamento);
-  // }
   async index(req, res) {
     const response = await _knexfile2.default
       .select("")
