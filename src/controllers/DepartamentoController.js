@@ -1,3 +1,4 @@
+import knex from "../config/knexfile";
 import Departamento from "../models/Departamento";
 import Setor from "../models/Setor";
 
@@ -17,11 +18,21 @@ class DepartamentoController {
     }
   }
 
+  // async index(req, res) {
+  //   const departamento = await Departamento.findAll({
+  //     attributes: ["descricao", "id", "setor_id"],
+  //     include: { model: Setor, attributes: ["descricao"] },
+  //   });
+  //   res.json(departamento);
+  // }
   async index(req, res) {
-    const departamento = await Departamento.findAll({
-      include: { model: Setor, attributes: ["descricao"] },
-    });
-    res.json(departamento);
+    const response = await knex
+      .select("")
+      .from("departamentos")
+      .join("setors", function () {
+        this.on("departamentos.setor_id", "=", "setors.id");
+      });
+    return res.json(response);
   }
 
   async show(req, res) {

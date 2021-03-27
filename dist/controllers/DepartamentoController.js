@@ -1,4 +1,5 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Departamento = require('../models/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _knexfile = require('../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
+var _Departamento = require('../models/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
 var _Setor = require('../models/Setor'); var _Setor2 = _interopRequireDefault(_Setor);
 
 class DepartamentoController {
@@ -17,11 +18,21 @@ class DepartamentoController {
     }
   }
 
+  // async index(req, res) {
+  //   const departamento = await Departamento.findAll({
+  //     attributes: ["descricao", "id", "setor_id"],
+  //     include: { model: Setor, attributes: ["descricao"] },
+  //   });
+  //   res.json(departamento);
+  // }
   async index(req, res) {
-    const departamento = await _Departamento2.default.findAll({
-      include: { model: _Setor2.default, attributes: ["descricao"] },
-    });
-    res.json(departamento);
+    const response = await _knexfile2.default
+      .select("")
+      .from("departamentos")
+      .join("setors", function () {
+        this.on("departamentos.setor_id", "=", "setors.id");
+      });
+    return res.json(response);
   }
 
   async show(req, res) {
