@@ -19,15 +19,14 @@ class DepartamentoController {
   }
 
   async total(req, res) {
-    const response = await knex("departamentos")
-      .join("setors", "departamentos.setor_id", "=", "setors.id")
-      .select(
-        "departamentos.id",
-        "departamentos.descricao",
-        "setors.descricao"
-      );
-    //return res.json(response);
-    return res.send("banana");
+    const response = await knex
+      .select("*")
+      .from("departamentos", "setors")
+      .join("setors", function () {
+        this.on("departamentos.setor_id", "=", "setors.id");
+      });
+
+    return res.json(response);
   }
 
   async show(req, res) {
