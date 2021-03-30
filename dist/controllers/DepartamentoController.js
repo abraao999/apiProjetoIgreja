@@ -18,13 +18,16 @@ class DepartamentoController {
     }
   }
 
-  async index(req, res) {
-    const response = await _knexfile2.default
-      .select("")
-      .from("departamentos")
-      .join("setors", function () {
-        this.on("departamentos.setor_id", "=", "setors.id");
-      });
+  async total(req, res) {
+    const response = await _knexfile2.default.call(void 0, "departamentos")
+      .join("setors", "departamentos.setor_id", "=", "setors.id")
+      .select(
+        "departamentos.id as dep_id",
+        "departamentos.descricao as dep_descricao",
+        "setors.id as setor_id",
+        "setors.descricao as setor_descricao"
+      );
+
     return res.json(response);
   }
 

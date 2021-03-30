@@ -22,10 +22,10 @@ class DepartamentoController {
     const response = await knex("departamentos")
       .join("setors", "departamentos.setor_id", "=", "setors.id")
       .select(
-        "departamentos.id as iddep",
-        "departamentos.descricao as depdesc",
-        "setors.id as idsetors",
-        "setors.descricao as setdesc"
+        "departamentos.id as dep_id",
+        "departamentos.descricao as dep_descricao",
+        "setors.id as setor_id",
+        "setors.descricao as setor_descricao"
       );
 
     return res.json(response);

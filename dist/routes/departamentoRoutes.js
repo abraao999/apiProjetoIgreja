@@ -6,7 +6,7 @@ const router = new (0, _express.Router)();
 
 router.put("/:id", _DepartamentoController2.default.update);
 router.post("/", _DepartamentoController2.default.storage);
-router.get("/", _DepartamentoController2.default.index);
+router.get("/", _DepartamentoController2.default.total);
 router.get("/:id", _DepartamentoController2.default.show);
 router.delete("/:id", _DepartamentoController2.default.delete);
 exports. default = router;
