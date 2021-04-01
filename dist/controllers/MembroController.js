@@ -1,4 +1,5 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Membro = require('../models/Membro'); var _Membro2 = _interopRequireDefault(_Membro);
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _knexfile = require('../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
+var _Membro = require('../models/Membro'); var _Membro2 = _interopRequireDefault(_Membro);
 
 class MembroController {
   async storage(req, res) {
@@ -21,8 +22,18 @@ class MembroController {
   }
 
   async index(req, res) {
-    const dado = await _Membro2.default.findAll();
-    res.json(dado);
+    const response = await _knexfile2.default.call(void 0, "membros")
+      .join("setors", "setor_id", "=", "setors.id")
+      .join("functions", "function_id", "=", "functions.id")
+      .join("cargos", "cargo_id", "=", "cargos.id")
+      .select(
+        "membros.*",
+        "setors.descricao as desc_setor",
+        "functions.descricao as desc_function",
+        "cargos.descricao as desc_cargo"
+      );
+
+    return res.json(response);
   }
 
   async show(req, res) {

@@ -18,7 +18,7 @@ class DepartamentoController {
     }
   }
 
-  async total(req, res) {
+  async index(req, res) {
     const response = await knex("departamentos")
       .join("setors", "departamentos.setor_id", "=", "setors.id")
       .select(

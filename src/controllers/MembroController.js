@@ -1,3 +1,4 @@
+import knex from "../config/knexfile";
 import Membro from "../models/Membro";
 
 class MembroController {
@@ -21,8 +22,18 @@ class MembroController {
   }
 
   async index(req, res) {
-    const dado = await Membro.findAll();
-    res.json(dado);
+    const response = await knex("membros")
+      .join("setors", "setor_id", "=", "setors.id")
+      .join("functions", "function_id", "=", "functions.id")
+      .join("cargos", "cargo_id", "=", "cargos.id")
+      .select(
+        "membros.*",
+        "setors.descricao as desc_setor",
+        "functions.descricao as desc_function",
+        "cargos.descricao as desc_cargo"
+      );
+
+    return res.json(response);
   }
 
   async show(req, res) {
