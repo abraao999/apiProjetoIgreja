@@ -30,8 +30,8 @@ export default class Membro extends Model {
           defaultValue: "",
           validate: {
             len: {
-              args: [3, 12],
-              msg: "Campo CPF deve ter entre 3 e 12 caracteres",
+              args: [3, 16],
+              msg: "Campo CPF deve ter entre 3 e 16 caracteres",
             },
           },
         },
