@@ -31,7 +31,8 @@ class MembroController {
         "setors.descricao as desc_setor",
         "functions.descricao as desc_function",
         "cargos.descricao as desc_cargo"
-      );
+      )
+      .orderBy("membros.nome");
 
     return res.json(response);
   }

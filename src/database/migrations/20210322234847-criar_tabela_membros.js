@@ -25,7 +25,7 @@ module.exports = {
       },
       data_batismo: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       profissao: {
         type: Sequelize.STRING,
