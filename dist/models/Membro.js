@@ -141,4 +141,8 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
     this.belongsTo(models.Setor, { foreignKey: "setor_id" });
     // this.hasOne(models.Setor, { foreignKey: "setor_id" });
   }
+
+  passwordIsValid(password) {
+    return _bcryptjs2.default.compare(password, this.password_hash);
+  }
 } exports.default = Membro;

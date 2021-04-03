@@ -1,12 +1,12 @@
 import { Router } from "express";
 import MembroController from "../controllers/MembroController";
-// import loginRequered from "../middlewares/loginRequered";
+import loginRequered from "../middlewares/loginRequered";
 
 const router = new Router();
 
-router.put("/:id", MembroController.update);
-router.post("/", MembroController.storage);
+router.put("/:id", loginRequered, MembroController.update);
+router.post("/", loginRequered, MembroController.storage);
 router.get("/", MembroController.index);
 router.get("/:id", MembroController.show);
-router.delete("/:id", MembroController.delete);
+router.delete("/:id", loginRequered, MembroController.delete);
 export default router;

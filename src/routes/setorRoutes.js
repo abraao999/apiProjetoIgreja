@@ -1,12 +1,12 @@
 import { Router } from "express";
 import SetorController from "../controllers/SetorController";
-// import loginRequered from "../middlewares/loginRequered";
+import loginRequered from "../middlewares/loginRequered";
 
 const router = new Router();
 
-router.put("/:id", SetorController.update);
-router.post("/", SetorController.storage);
+router.put("/:id", loginRequered, SetorController.update);
+router.post("/", loginRequered, SetorController.storage);
 router.get("/", SetorController.index);
 router.get("/:id", SetorController.show);
-router.delete("/:id", SetorController.delete);
+router.delete("/:id", loginRequered, SetorController.delete);
 export default router;

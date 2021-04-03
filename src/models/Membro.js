@@ -141,4 +141,8 @@ export default class Membro extends Model {
     this.belongsTo(models.Setor, { foreignKey: "setor_id" });
     // this.hasOne(models.Setor, { foreignKey: "setor_id" });
   }
+
+  passwordIsValid(password) {
+    return bcryptjs.compare(password, this.password_hash);
+  }
 }
