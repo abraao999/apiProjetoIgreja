@@ -23,7 +23,7 @@ class DepartamentoController {
       .join("setors", "departamentos.setor_id", "=", "setors.id")
       .select(
         "departamentos.id as id",
-        "departamentos.descricao as dep_descricao",
+        "departamentos.descricao as descricao",
         "setors.id as setor_id",
         "setors.descricao as setor_descricao"
       );
