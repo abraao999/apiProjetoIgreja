@@ -1,5 +1,6 @@
 import Departamento from "../models/Departamento";
 import Caixa from "../models/Caixa";
+import knex from "../config/knexfile";
 
 class CaixaController {
   async storage(req, res) {
@@ -18,7 +19,16 @@ class CaixaController {
   }
 
   async index(req, res) {
-    const dados = await Caixa.findAll();
+    const dados = await knex("caixas")
+      .join("setors", "setor_id", "=", "setors.id")
+      .join("departamentos", "departamento_id", "=", "departamentos.id")
+      .select(
+        "caixas.*",
+        "setors.descricao as desc_setor",
+        "departamentos.descricao as desc_departamento"
+      )
+      .orderBy("caixas.data_operacao");
+
     res.json(dados);
   }
 

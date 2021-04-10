@@ -1,4 +1,4 @@
-module.exports = {
+"use strict";module.exports = {
   up: (queryInterface, Sequelize) =>
     queryInterface.createTable("caixas", {
       id: {
@@ -7,6 +7,22 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
+      tipo: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
+      descricao: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      data_operacao: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      valor: {
+        type: Sequelize.FLOAT,
+        allowNull: false,
+      },
       departamento_id: {
         type: Sequelize.INTEGER,
         allowNull: true,
@@ -14,10 +30,10 @@ module.exports = {
         onDelete: "SET NULL",
         onUpdate: "CASCADE",
       },
-      conta_id: {
+      setor_id: {
         type: Sequelize.INTEGER,
         allowNull: true,
-        references: { model: "conta", key: "id" },
+        references: { model: "setors", key: "id" },
         onDelete: "SET NULL",
         onUpdate: "CASCADE",
       },

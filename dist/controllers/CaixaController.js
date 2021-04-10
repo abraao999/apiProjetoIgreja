@@ -1,5 +1,6 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Departamento = require('../models/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
 var _Caixa = require('../models/Caixa'); var _Caixa2 = _interopRequireDefault(_Caixa);
+var _knexfile = require('../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
 
 class CaixaController {
   async storage(req, res) {
@@ -18,7 +19,16 @@ class CaixaController {
   }
 
   async index(req, res) {
-    const dados = await _Caixa2.default.findAll();
+    const dados = await _knexfile2.default.call(void 0, "caixas")
+      .join("setors", "setor_id", "=", "setors.id")
+      .join("departamentos", "departamento_id", "=", "departamentos.id")
+      .select(
+        "caixas.*",
+        "setors.descricao as desc_setor",
+        "departamentos.descricao as desc_departamento"
+      )
+      .orderBy("caixas.data_operacao");
+
     res.json(dados);
   }
 

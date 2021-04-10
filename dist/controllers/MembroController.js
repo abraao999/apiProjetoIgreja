@@ -24,8 +24,8 @@ class MembroController {
   async index(req, res) {
     const response = await _knexfile2.default.call(void 0, "membros")
       .join("setors", "setor_id", "=", "setors.id")
-      .join("functions", "function_id", "=", "functions.id")
       .join("cargos", "cargo_id", "=", "cargos.id")
+      .join("functions", "function_id", "=", "functions.id")
       .select(
         "membros.*",
         "setors.descricao as desc_setor",

@@ -5,7 +5,6 @@ import Function from "../models/Function";
 import Cargo from "../models/Cargo";
 import Setor from "../models/Setor";
 import Departamento from "../models/Departamento";
-import Conta from "../models/Conta";
 import Caixa from "../models/Caixa";
 import Membro from "../models/Membro";
 import Classe from "../models/Classe";
@@ -16,7 +15,6 @@ const models = [
   Cargo,
   Setor,
   Departamento,
-  Conta,
   Caixa,
   Membro,
   Classe,

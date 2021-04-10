@@ -2,12 +2,48 @@
 
  class Caixa extends _sequelize.Model {
   static init(sequelize) {
-    super.init({}, { sequelize });
+    super.init(
+      {
+        descricao: {
+          type: _sequelize2.default.STRING,
+          defaultValue: "",
+          validate: {
+            len: {
+              args: [3, 50],
+              msg: "Campo descrição deve ter entre 3 e 50 caracteres",
+            },
+          },
+        },
+        valor: {
+          type: _sequelize2.default.FLOAT,
+          defaultValue: "",
+          validate: {
+            isFloat: {
+              msg: "Campo descrição deve ser real ou decimal",
+            },
+          },
+        },
+        data_operacao: {
+          type: _sequelize2.default.DATE,
+          defaultValue: "",
+          validate: {
+            isDate: {
+              msg: "Insira uma data validas",
+            },
+          },
+        },
+        tipo: {
+          type: _sequelize2.default.BOOLEAN,
+          defaultValue: "",
+        },
+      },
+      { sequelize }
+    );
     return this;
   }
 
   static associate(models) {
-    this.belongsTo(models.Conta, { foreignKey: "conta_id" });
+    this.belongsTo(models.Setor, { foreignKey: "setor_id" });
     this.belongsTo(models.Departamento, { foreignKey: "departamento_id" });
   }
 } exports.default = Caixa;

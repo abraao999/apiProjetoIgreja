@@ -5,7 +5,6 @@ var _Function = require('../models/Function'); var _Function2 = _interopRequireD
 var _Cargo = require('../models/Cargo'); var _Cargo2 = _interopRequireDefault(_Cargo);
 var _Setor = require('../models/Setor'); var _Setor2 = _interopRequireDefault(_Setor);
 var _Departamento = require('../models/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
-var _Conta = require('../models/Conta'); var _Conta2 = _interopRequireDefault(_Conta);
 var _Caixa = require('../models/Caixa'); var _Caixa2 = _interopRequireDefault(_Caixa);
 var _Membro = require('../models/Membro'); var _Membro2 = _interopRequireDefault(_Membro);
 var _Classe = require('../models/Classe'); var _Classe2 = _interopRequireDefault(_Classe);
@@ -16,7 +15,6 @@ const models = [
   _Cargo2.default,
   _Setor2.default,
   _Departamento2.default,
-  _Conta2.default,
   _Caixa2.default,
   _Membro2.default,
   _Classe2.default,

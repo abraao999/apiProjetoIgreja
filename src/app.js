@@ -10,7 +10,6 @@ import funcaoRoutes from "./routes/funcaoRoutes";
 import cargoRoutes from "./routes/cargoRoutes";
 import setorRoutes from "./routes/setorRoutes";
 import departamentoRoutes from "./routes/departamentoRoutes";
-import contaRoutes from "./routes/contaRoutes";
 import caixaRoutes from "./routes/caixaRoutes";
 import membroRoutes from "./routes/membroRoutes";
 import classeRoutes from "./routes/classeRoutes";
@@ -49,7 +48,6 @@ class App {
     this.app.use("/cargo/", cargoRoutes);
     this.app.use("/setor/", setorRoutes);
     this.app.use("/departamento/", departamentoRoutes);
-    this.app.use("/conta/", contaRoutes);
     this.app.use("/caixa/", caixaRoutes);
     this.app.use("/membro/", membroRoutes);
     this.app.use("/classe/", classeRoutes);

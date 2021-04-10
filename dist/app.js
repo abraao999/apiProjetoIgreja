@@ -10,7 +10,6 @@ var _funcaoRoutes = require('./routes/funcaoRoutes'); var _funcaoRoutes2 = _inte
 var _cargoRoutes = require('./routes/cargoRoutes'); var _cargoRoutes2 = _interopRequireDefault(_cargoRoutes);
 var _setorRoutes = require('./routes/setorRoutes'); var _setorRoutes2 = _interopRequireDefault(_setorRoutes);
 var _departamentoRoutes = require('./routes/departamentoRoutes'); var _departamentoRoutes2 = _interopRequireDefault(_departamentoRoutes);
-var _contaRoutes = require('./routes/contaRoutes'); var _contaRoutes2 = _interopRequireDefault(_contaRoutes);
 var _caixaRoutes = require('./routes/caixaRoutes'); var _caixaRoutes2 = _interopRequireDefault(_caixaRoutes);
 var _membroRoutes = require('./routes/membroRoutes'); var _membroRoutes2 = _interopRequireDefault(_membroRoutes);
 var _classeRoutes = require('./routes/classeRoutes'); var _classeRoutes2 = _interopRequireDefault(_classeRoutes);
@@ -49,7 +48,6 @@ class App {
     this.app.use("/cargo/", _cargoRoutes2.default);
     this.app.use("/setor/", _setorRoutes2.default);
     this.app.use("/departamento/", _departamentoRoutes2.default);
-    this.app.use("/conta/", _contaRoutes2.default);
     this.app.use("/caixa/", _caixaRoutes2.default);
     this.app.use("/membro/", _membroRoutes2.default);
     this.app.use("/classe/", _classeRoutes2.default);
