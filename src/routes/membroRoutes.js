@@ -7,6 +7,7 @@ const router = new Router();
 router.put("/:id", loginRequered, MembroController.update);
 router.post("/", loginRequered, MembroController.storage);
 router.get("/", MembroController.index);
+router.get("/maxId", MembroController.maxId);
 router.get("/:id", MembroController.show);
 router.delete("/:id", loginRequered, MembroController.delete);
 export default router;
