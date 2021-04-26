@@ -60,7 +60,16 @@ export default class Membro extends Model {
           defaultValue: "",
           validate: {
             isDate: {
-              msg: "Campo estado civíl deve ter entre 3 e 50 caracteres",
+              msg: "Insita uma data valida",
+            },
+          },
+        },
+        data_nascimento: {
+          type: Sequelize.DATE,
+          defaultValue: "",
+          validate: {
+            isDate: {
+              msg: "Insita uma data valida",
             },
           },
         },

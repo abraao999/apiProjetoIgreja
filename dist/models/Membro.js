@@ -60,7 +60,16 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
           defaultValue: "",
           validate: {
             isDate: {
-              msg: "Campo estado civíl deve ter entre 3 e 50 caracteres",
+              msg: "Insita uma data valida",
+            },
+          },
+        },
+        data_nascimento: {
+          type: _sequelize2.default.DATE,
+          defaultValue: "",
+          validate: {
+            isDate: {
+              msg: "Insita uma data valida",
             },
           },
         },
