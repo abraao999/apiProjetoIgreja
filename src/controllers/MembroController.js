@@ -96,5 +96,19 @@ class MembroController {
         .json({ erros: error.erros.map((es) => es.message) });
     }
   }
+
+  async maxId(req, res) {
+    try {
+      const dado = await Membro.max("id");
+      if (!dado) {
+        return res.status(400).json({ erros: ["Tabela vazia"] });
+      }
+      return res.json(dado);
+    } catch (error) {
+      return res
+        .status(400)
+        .json({ erros: error.erros.map((es) => es.message) });
+    }
+  }
 }
 export default new MembroController();
