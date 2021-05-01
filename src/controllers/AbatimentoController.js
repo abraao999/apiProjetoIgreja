@@ -1,4 +1,3 @@
-import Departamento from "../models/Departamento";
 import Abatimento from "../models/Abatimento";
 import knex from "../config/knexfile";
 
@@ -21,12 +20,7 @@ class AbatimentoController {
   async index(req, res) {
     const dados = await knex("abatimentos")
       .join("setors", "setor_id", "=", "setors.id")
-      .join("departamentos", "departamento_id", "=", "departamentos.id")
-      .select(
-        "abatimentos.*",
-        "setors.descricao as desc_setor",
-        "departamentos.descricao as desc_departamento"
-      )
+      .select("abatimentos.*", "setors.descricao as desc_setor")
       .orderBy("abatimentos.data_operacao");
 
     res.json(dados);
@@ -39,9 +33,7 @@ class AbatimentoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await Abatimento.findByPk(id, {
-        include: { model: Departamento, attributes: ["descricao"] },
-      });
+      const dados = await Abatimento.findByPk(id);
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
@@ -83,7 +75,7 @@ class AbatimentoController {
 
       const dados = await Abatimento.findByPk(id);
       if (!dados) {
-        return res.status(400).json({ erros: ["departamento nao existe"] });
+        return res.status(400).json({ erros: ["abatimento nao existe"] });
       }
       await dados.destroy();
       return res.json({ apagado: true });

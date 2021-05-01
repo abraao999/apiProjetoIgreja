@@ -20,13 +20,6 @@ module.exports = {
         type: Sequelize.FLOAT,
         allowNull: false,
       },
-      departamento_id: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: { model: "departamentos", key: "id" },
-        onDelete: "SET NULL",
-        onUpdate: "CASCADE",
-      },
       setor_id: {
         type: Sequelize.INTEGER,
         allowNull: true,

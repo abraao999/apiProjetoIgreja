@@ -1,5 +1,4 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Departamento = require('../models/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
-var _Abatimento = require('../models/Abatimento'); var _Abatimento2 = _interopRequireDefault(_Abatimento);
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Abatimento = require('../models/Abatimento'); var _Abatimento2 = _interopRequireDefault(_Abatimento);
 var _knexfile = require('../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
 
 class AbatimentoController {
@@ -21,12 +20,7 @@ class AbatimentoController {
   async index(req, res) {
     const dados = await _knexfile2.default.call(void 0, "abatimentos")
       .join("setors", "setor_id", "=", "setors.id")
-      .join("departamentos", "departamento_id", "=", "departamentos.id")
-      .select(
-        "abatimentos.*",
-        "setors.descricao as desc_setor",
-        "departamentos.descricao as desc_departamento"
-      )
+      .select("abatimentos.*", "setors.descricao as desc_setor")
       .orderBy("abatimentos.data_operacao");
 
     res.json(dados);
@@ -39,9 +33,7 @@ class AbatimentoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await _Abatimento2.default.findByPk(id, {
-        include: { model: _Departamento2.default, attributes: ["descricao"] },
-      });
+      const dados = await _Abatimento2.default.findByPk(id);
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
@@ -83,7 +75,7 @@ class AbatimentoController {
 
       const dados = await _Abatimento2.default.findByPk(id);
       if (!dados) {
-        return res.status(400).json({ erros: ["departamento nao existe"] });
+        return res.status(400).json({ erros: ["abatimento nao existe"] });
       }
       await dados.destroy();
       return res.json({ apagado: true });

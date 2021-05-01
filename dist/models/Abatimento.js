@@ -40,6 +40,5 @@
 
   static associate(models) {
     this.belongsTo(models.Setor, { foreignKey: "setor_id" });
-    this.belongsTo(models.Departamento, { foreignKey: "departamento_id" });
   }
 } exports.default = Abatimento;
