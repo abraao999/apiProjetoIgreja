@@ -7,6 +7,7 @@ const router = new (0, _express.Router)();
 router.put("/:id", _loginRequered2.default, _CaixaController2.default.update);
 router.post("/", _loginRequered2.default, _CaixaController2.default.storage);
 router.get("/", _CaixaController2.default.index);
+router.get("/maxId", _CaixaController2.default.maxId);
 router.get("/:id", _CaixaController2.default.show);
 router.delete("/:id", _loginRequered2.default, _CaixaController2.default.delete);
 exports. default = router;
