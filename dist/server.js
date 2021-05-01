@@ -2,3 +2,4 @@
 
 const port = process.env.PORT;
 _app2.default.listen(port);
+_app2.default.keepAliveTimeout = 61 * 1000;

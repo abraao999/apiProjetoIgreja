@@ -9,6 +9,7 @@ var _Caixa = require('../models/Caixa'); var _Caixa2 = _interopRequireDefault(_C
 var _Membro = require('../models/Membro'); var _Membro2 = _interopRequireDefault(_Membro);
 var _Classe = require('../models/Classe'); var _Classe2 = _interopRequireDefault(_Classe);
 var _Aluno = require('../models/Aluno'); var _Aluno2 = _interopRequireDefault(_Aluno);
+var _Abatimento = require('../models/Abatimento'); var _Abatimento2 = _interopRequireDefault(_Abatimento);
 
 const models = [
   _Function2.default,
@@ -19,6 +20,7 @@ const models = [
   _Membro2.default,
   _Classe2.default,
   _Aluno2.default,
+  _Abatimento2.default,
 ];
 const connection = new (0, _sequelize2.default)(_database2.default);
 models.forEach((model) => model.init(connection));
