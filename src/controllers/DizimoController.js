@@ -20,8 +20,8 @@ class DizimoController {
   async index(req, res) {
     const dados = await knex("dizimos")
       .join("membros", "membro_id", "=", "membros.id")
-      .select("dizimo.*", "membros.nome as nome")
-      .orderBy("dizimo.data_operacao");
+      .select("dizimos.*", "membros.nome as nome")
+      .orderBy("dizimos.data_operacao");
 
     res.json(dados);
   }
