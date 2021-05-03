@@ -16,6 +16,7 @@ import classeRoutes from "./routes/classeRoutes";
 import alunoRoutes from "./routes/alunoRoutes";
 import tokemRoutes from "./routes/tokemRoutes";
 import abatimentoRoutes from "./routes/abatimentoRoutes";
+import dizimoRoutes from "./routes/dizimoRoutes";
 
 const whiteList = [
   // dados do servidor
@@ -55,6 +56,7 @@ class App {
     this.app.use("/aluno/", alunoRoutes);
     this.app.use("/tokem/", tokemRoutes);
     this.app.use("/abatimento/", abatimentoRoutes);
+    this.app.use("/dizimo/", dizimoRoutes);
   }
 }
 export default new App().app;

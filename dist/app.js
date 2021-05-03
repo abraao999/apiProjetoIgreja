@@ -16,6 +16,7 @@ var _classeRoutes = require('./routes/classeRoutes'); var _classeRoutes2 = _inte
 var _alunoRoutes = require('./routes/alunoRoutes'); var _alunoRoutes2 = _interopRequireDefault(_alunoRoutes);
 var _tokemRoutes = require('./routes/tokemRoutes'); var _tokemRoutes2 = _interopRequireDefault(_tokemRoutes);
 var _abatimentoRoutes = require('./routes/abatimentoRoutes'); var _abatimentoRoutes2 = _interopRequireDefault(_abatimentoRoutes);
+var _dizimoRoutes = require('./routes/dizimoRoutes'); var _dizimoRoutes2 = _interopRequireDefault(_dizimoRoutes);
 
 const whiteList = [
   // dados do servidor
@@ -55,6 +56,7 @@ class App {
     this.app.use("/aluno/", _alunoRoutes2.default);
     this.app.use("/tokem/", _tokemRoutes2.default);
     this.app.use("/abatimento/", _abatimentoRoutes2.default);
+    this.app.use("/dizimo/", _dizimoRoutes2.default);
   }
 }
 exports. default = new App().app;

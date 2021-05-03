@@ -10,6 +10,7 @@ import Membro from "../models/Membro";
 import Classe from "../models/Classe";
 import Aluno from "../models/Aluno";
 import Abatimento from "../models/Abatimento";
+import Dizimo from "../models/Dizimo";
 
 const models = [
   Function,
@@ -21,6 +22,7 @@ const models = [
   Classe,
   Aluno,
   Abatimento,
+  Dizimo,
 ];
 const connection = new Sequelize(databaseConfig);
 models.forEach((model) => model.init(connection));

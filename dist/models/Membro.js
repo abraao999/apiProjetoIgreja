@@ -147,8 +147,8 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
 
   static associate(models) {
     this.hasMany(models.Caixa, { foreignKey: "departamento_id" });
+    this.hasMany(models.Dizimo, { foreignKey: "membro_id" });
     this.belongsTo(models.Setor, { foreignKey: "setor_id" });
-    // this.hasOne(models.Setor, { foreignKey: "setor_id" });
   }
 
   passwordIsValid(password) {
