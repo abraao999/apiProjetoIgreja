@@ -5,7 +5,7 @@ var _loginRequered = require('../middlewares/loginRequered'); var _loginRequered
 const router = new (0, _express.Router)();
 
 router.put("/:id", _loginRequered2.default, _MembroController2.default.update);
-router.post("/", _loginRequered2.default, _MembroController2.default.storage);
+router.post("/", _MembroController2.default.storage);
 router.get("/", _MembroController2.default.index);
 router.get("/maxId", _MembroController2.default.maxId);
 router.get("/:id", _MembroController2.default.show);

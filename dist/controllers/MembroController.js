@@ -44,12 +44,24 @@ class MembroController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const funcoes = await _Membro2.default.findByPk(id);
-      if (!funcoes) {
+      const response = await _knexfile2.default.call(void 0, "membros")
+        .join("setors", "setor_id", "=", "setors.id")
+        .join("cargos", "cargo_id", "=", "cargos.id")
+        .join("functions", "function_id", "=", "functions.id")
+        .where("membros.id", id)
+        .first()
+        .select(
+          "membros.*",
+          "setors.descricao as desc_setor",
+          "functions.descricao as desc_function",
+          "cargos.descricao as desc_cargo"
+        )
+        .orderBy("membros.nome");
+      if (!response) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
 
-      return res.json(funcoes);
+      return res.json(response);
     } catch (error) {
       return res
         .status(400)

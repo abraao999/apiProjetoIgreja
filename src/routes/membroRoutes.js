@@ -5,7 +5,7 @@ import loginRequered from "../middlewares/loginRequered";
 const router = new Router();
 
 router.put("/:id", loginRequered, MembroController.update);
-router.post("/", loginRequered, MembroController.storage);
+router.post("/", MembroController.storage);
 router.get("/", MembroController.index);
 router.get("/maxId", MembroController.maxId);
 router.get("/:id", MembroController.show);
