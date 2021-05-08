@@ -20,7 +20,13 @@ class DizimoController {
   async index(req, res) {
     const dados = await _knexfile2.default.call(void 0, "dizimos")
       .join("membros", "membro_id", "=", "membros.id")
-      .select("dizimos.*", "membros.nome as nome")
+      .join("setors", "setor_id", "=", "setors.id")
+      .select(
+        "dizimos.*",
+        "membros.nome as nome",
+        "membros.setor_id as setorId",
+        "setors.descricao as setorDesc"
+      )
       .orderBy("dizimos.data_operacao");
 
     res.json(dados);
@@ -33,7 +39,36 @@ class DizimoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await _Dizimo2.default.findByPk(id);
+      const dados = await _knexfile2.default.call(void 0, "dizimos")
+        .join("membros", "membro_id", "=", "membros.id")
+        .select("dizimos.*", "membros.nome as nome")
+        .where("dizimos.id", id)
+        .orderBy("dizimos.data_operacao")
+        .first();
+      if (!dados) {
+        return res.status(400).json({ erros: ["Dizimo não existe"] });
+      }
+
+      return res.json(dados);
+    } catch (error) {
+      return res
+        .status(400)
+        .json({ erros: error.erros.map((es) => es.message) });
+    }
+  }
+
+  async pesquisaData(req, res) {
+    try {
+      const { id, inicio, final } = req.params;
+      if (!id) {
+        return res.status(400).json({ erros: ["faltando id"] });
+      }
+
+      const dados = await _knexfile2.default.call(void 0, "dizimos")
+        .select()
+        .whereBetween("data_operacao", [inicio, final])
+        .where("membro_id", id);
+
       if (!dados) {
         return res.status(400).json({ erros: ["Dizimo não existe"] });
       }

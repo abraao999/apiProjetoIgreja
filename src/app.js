@@ -6,6 +6,7 @@ import "./database";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import delay from "express-delay";
 import funcaoRoutes from "./routes/funcaoRoutes";
 import cargoRoutes from "./routes/cargoRoutes";
 import setorRoutes from "./routes/setorRoutes";
@@ -40,6 +41,7 @@ class App {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
     // this.app.use(cors(corsOptions));
+    // this.app.use(delay(2000));
     this.app.use(cors());
     this.app.use(helmet());
     this.app.use(express.static(resolve(__dirname, "..", "uploads")));
