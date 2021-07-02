@@ -11,6 +11,7 @@ import Classe from "../models/Classe";
 import Aluno from "../models/Aluno";
 import Abatimento from "../models/Abatimento";
 import Dizimo from "../models/Dizimo";
+import Chamada from "../models/Chamada";
 
 const models = [
   Function,
@@ -23,6 +24,7 @@ const models = [
   Aluno,
   Abatimento,
   Dizimo,
+  Chamada
 ];
 const connection = new Sequelize(databaseConfig);
 models.forEach((model) => model.init(connection));

@@ -1,20 +1,20 @@
-"use strict";module.exports = {
+module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable("classes", {
+    queryInterface.createTable("chamadas", {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      descricao: {
-        type: Sequelize.STRING,
+      data_aula: {
+        type: Sequelize.DATE,
         allowNull: false,
       },
-      setor_id: {
+      aluno_id: {
         type: Sequelize.INTEGER,
         allowNull: true,
-        references: { model: "setors", key: "id" },
+        references: { model: "alunos", key: "id" },
         onDelete: "SET NULL",
         onUpdate: "CASCADE",
       },
@@ -28,5 +28,5 @@
       },
     }),
 
-  down: (queryInterface, Sequelize) => queryInterface.dropTable("classes"),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable("chamadas"),
 };

@@ -1,16 +1,15 @@
-import Departamento from "../models/Departamento";
-import Aluno from "../models/Aluno";
+import Chamada from "../models/Chamada";
 import knex from "../config/knexfile";
 
-class AlunoController {
+class ChamadaController {
   async storage(req, res) {
     try {
-      const dados = await Aluno.create(req.body);
-      if (!dados) {
-        return res.status(400).json({ erros: ["departamento ja existe"] });
+      const dado = await Chamada.create(req.body);
+      if (!dado) {
+        return res.status(400).json({ erros: ["Chamada ja existe"] });
       }
 
-      return res.json(dados);
+      return res.json(dado);
     } catch (er) {
       return res
         .status(400)
@@ -19,17 +18,18 @@ class AlunoController {
   }
 
   async index(req, res) {
-    const response = await knex("alunos")
+    const dado = await knex("chamadas")
+      .join("alunos", "aluno_id", "=", "alunos.id")
       .join("classes", "classe_id", "=", "classes.id")
-      .join("setors", "setor_id", "=", "setors.id")
       .select(
-        "alunos.*",
+        "chamadas.*",
         "classes.descricao as desc_classes",
-        "setors.descricao as desc_setor",
+        "classes.id as id_classe",
+        "alunos.nome as desc_aluno",
       )
-      .orderBy("alunos.nome");
+      .orderBy("chamadas.data_aula");
 
-    return res.json(response);
+    res.json(dado);
   }
 
   async show(req, res) {
@@ -39,22 +39,24 @@ class AlunoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await knex("alunos")
-        .join("setors", "setor_id", "=", "setors.id")
+      const dado = await knex("chamadas")
+        .join("alunos", "aluno_id", "=", "alunos.id")
         .join("classes", "classe_id", "=", "classes.id")
-        .where("alunos.id", id)
-        .first()
+        .where("chadamas.id", id)
+
         .select(
-          "alunos.*",
-          "setors.descricao as desc_setor",
-          "classes.descricao as desc_classe"
+          "chamadas.*",
+          "classes.descricao as desc_classes",
+          "classes.id as id_classe",
+          "alunos.nome as desc_aluno",
         )
-        .orderBy("alunos.nome");
-      if (!dados) {
-        return res.status(400).json({ erros: ["Função não existe"] });
+        .orderBy("chamadas.data_aula");
+
+      if (!dado) {
+        return res.status(400).json({ erros: ["dado não existe"] });
       }
 
-      return res.json(dados);
+      return res.json(dado);
     } catch (error) {
       return res
         .status(400)
@@ -69,11 +71,11 @@ class AlunoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await Aluno.findByPk(id);
-      if (!dados) {
+      const chamada = await Chamada.findByPk(id);
+      if (!chamada) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
-      const novosDados = await dados.update(req.body);
+      const novosDados = await Chamada.update(req.body);
       return res.json(novosDados);
     } catch (error) {
       return res
@@ -89,11 +91,11 @@ class AlunoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await Aluno.findByPk(id);
-      if (!dados) {
-        return res.status(400).json({ erros: ["departamento nao existe"] });
+      const chamada = await Chamada.findByPk(id);
+      if (!chamada) {
+        return res.status(400).json({ erros: ["Chamada nao existe"] });
       }
-      await dados.destroy();
+      await Chamada.destroy();
       return res.json({ apagado: true });
     } catch (error) {
       return res
@@ -102,4 +104,4 @@ class AlunoController {
     }
   }
 }
-export default new AlunoController();
+export default new ChamadaController();

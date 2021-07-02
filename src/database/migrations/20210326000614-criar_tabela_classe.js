@@ -11,6 +11,13 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      setor_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: { model: "setors", key: "id" },
+        onDelete: "SET NULL",
+        onUpdate: "CASCADE",
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,

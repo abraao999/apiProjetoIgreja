@@ -1,3 +1,4 @@
+import knex from "../config/knexfile";
 import Setor from "../models/Setor";
 
 class SetorController {
@@ -17,7 +18,7 @@ class SetorController {
   }
 
   async index(req, res) {
-    const setor = await Setor.findAll();
+    const setor = await knex('setors');
     res.json(setor);
   }
 

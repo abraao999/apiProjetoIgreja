@@ -11,6 +11,7 @@ var _Classe = require('../models/Classe'); var _Classe2 = _interopRequireDefault
 var _Aluno = require('../models/Aluno'); var _Aluno2 = _interopRequireDefault(_Aluno);
 var _Abatimento = require('../models/Abatimento'); var _Abatimento2 = _interopRequireDefault(_Abatimento);
 var _Dizimo = require('../models/Dizimo'); var _Dizimo2 = _interopRequireDefault(_Dizimo);
+var _Chamada = require('../models/Chamada'); var _Chamada2 = _interopRequireDefault(_Chamada);
 
 const models = [
   _Function2.default,
@@ -23,6 +24,7 @@ const models = [
   _Aluno2.default,
   _Abatimento2.default,
   _Dizimo2.default,
+  _Chamada2.default
 ];
 const connection = new (0, _sequelize2.default)(_database2.default);
 models.forEach((model) => model.init(connection));

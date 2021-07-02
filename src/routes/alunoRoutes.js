@@ -1,12 +1,12 @@
 import { Router } from "express";
-import CaixaController from "../controllers/CaixaController";
-// import loginRequered from "../middlewares/loginRequered";
+import AlunoController from "../controllers/AlunoController";
+import loginRequered from "../middlewares/loginRequered";
 
 const router = new Router();
 
-router.put("/:id", CaixaController.update);
-router.post("/", CaixaController.storage);
-router.get("/", CaixaController.index);
-router.get("/:id", CaixaController.show);
-router.delete("/:id", CaixaController.delete);
+router.put("/:id", loginRequered, AlunoController.update);
+router.post("/", loginRequered, AlunoController.storage);
+router.get("/", AlunoController.index);
+router.get("/:id", AlunoController.show);
+router.delete("/:id", loginRequered, AlunoController.delete);
 export default router;

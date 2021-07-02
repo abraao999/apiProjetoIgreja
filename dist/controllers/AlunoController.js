@@ -1,5 +1,6 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Departamento = require('../models/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
 var _Aluno = require('../models/Aluno'); var _Aluno2 = _interopRequireDefault(_Aluno);
+var _knexfile = require('../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
 
 class AlunoController {
   async storage(req, res) {
@@ -18,8 +19,17 @@ class AlunoController {
   }
 
   async index(req, res) {
-    const dados = await _Aluno2.default.findAll();
-    res.json(dados);
+    const response = await _knexfile2.default.call(void 0, "alunos")
+      .join("classes", "classe_id", "=", "classes.id")
+      .join("setors", "setor_id", "=", "setors.id")
+      .select(
+        "alunos.*",
+        "classes.descricao as desc_classes",
+        "setors.descricao as desc_setor",
+      )
+      .orderBy("alunos.nome");
+
+    return res.json(response);
   }
 
   async show(req, res) {
@@ -29,9 +39,17 @@ class AlunoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await _Aluno2.default.findByPk(id, {
-        include: { model: _Departamento2.default, attributes: ["descricao"] },
-      });
+      const dados = await _knexfile2.default.call(void 0, "alunos")
+        .join("setors", "setor_id", "=", "setors.id")
+        .join("classes", "classe_id", "=", "classes.id")
+        .where("alunos.id", id)
+        .first()
+        .select(
+          "alunos.*",
+          "setors.descricao as desc_setor",
+          "classes.descricao as desc_classe"
+        )
+        .orderBy("alunos.nome");
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }

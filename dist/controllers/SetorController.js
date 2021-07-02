@@ -1,4 +1,5 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Setor = require('../models/Setor'); var _Setor2 = _interopRequireDefault(_Setor);
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _knexfile = require('../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
+var _Setor = require('../models/Setor'); var _Setor2 = _interopRequireDefault(_Setor);
 
 class SetorController {
   async storage(req, res) {
@@ -17,7 +18,7 @@ class SetorController {
   }
 
   async index(req, res) {
-    const setor = await _Setor2.default.findAll();
+    const setor = await _knexfile2.default.call(void 0, 'setors');
     res.json(setor);
   }
 
