@@ -1,5 +1,6 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Departamento = require('../models/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
 var _Classe = require('../models/Classe'); var _Classe2 = _interopRequireDefault(_Classe);
+var _knexfile = require('../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
 
 class ClasseController {
   async storage(req, res) {
@@ -18,7 +19,7 @@ class ClasseController {
   }
 
   async index(req, res) {
-    const dados = await _Classe2.default.findAll();
+    const dados = await _knexfile2.default.call(void 0, 'classes');
     res.json(dados);
   }
 
@@ -29,9 +30,7 @@ class ClasseController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await _Classe2.default.findByPk(id, {
-        include: { model: _Departamento2.default, attributes: ["descricao"] },
-      });
+      const dados = await _knexfile2.default.call(void 0, 'classes').where('classes.id', id).first();
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }

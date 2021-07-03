@@ -29,12 +29,12 @@ class SetorController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const funcoes = await Setor.findByPk(id);
-      if (!funcoes) {
+      const dado = await knex('setors').where('setors.id', id).first();
+      if (!dado) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
 
-      return res.json(funcoes);
+      return res.json(dado);
     } catch (error) {
       return res
         .status(400)

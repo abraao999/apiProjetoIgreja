@@ -1,6 +1,7 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Departamento = require('../models/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
 var _Aluno = require('../models/Aluno'); var _Aluno2 = _interopRequireDefault(_Aluno);
 var _knexfile = require('../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
+var _Membro = require('../models/Membro'); var _Membro2 = _interopRequireDefault(_Membro);
 
 class AlunoController {
   async storage(req, res) {
@@ -21,11 +22,9 @@ class AlunoController {
   async index(req, res) {
     const response = await _knexfile2.default.call(void 0, "alunos")
       .join("classes", "classe_id", "=", "classes.id")
-      .join("setors", "setor_id", "=", "setors.id")
       .select(
         "alunos.*",
         "classes.descricao as desc_classes",
-        "setors.descricao as desc_setor",
       )
       .orderBy("alunos.nome");
 
@@ -65,16 +64,23 @@ class AlunoController {
   async update(req, res) {
     try {
       const { id } = req.params;
+      const {
+        nome, telefone, cpf, data_aniversario, setor_id, classe_id
+      } = req.body;
       if (!id) {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await _Aluno2.default.findByPk(id);
+      const dados = await _knexfile2.default.call(void 0, 'alunos').where('alunos.id', id);
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
-      const novosDados = await dados.update(req.body);
-      return res.json(novosDados);
+      const novosDados = await _knexfile2.default.call(void 0, 'alunos').where('alunos.id', id).update({
+        nome, telefone, cpf, data_aniversario, setor_id, classe_id
+      });
+      return res.json({
+        nome, telefone, cpf, data_aniversario, setor_id, classe_id
+      });
     } catch (error) {
       return res
         .status(400)
@@ -89,11 +95,11 @@ class AlunoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await _Aluno2.default.findByPk(id);
+      const dados = await _knexfile2.default.call(void 0, 'alunos').where('alunos.id', id);
       if (!dados) {
-        return res.status(400).json({ erros: ["departamento nao existe"] });
+        return res.status(400).json({ erros: ["aluno nao existe"] });
       }
-      await dados.destroy();
+      await _knexfile2.default.call(void 0, 'alunos').where('alunos.id', id).del();
       return res.json({ apagado: true });
     } catch (error) {
       return res

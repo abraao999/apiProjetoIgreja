@@ -1,5 +1,6 @@
 import Departamento from "../models/Departamento";
 import Classe from "../models/Classe";
+import knex from '../config/knexfile';
 
 class ClasseController {
   async storage(req, res) {
@@ -18,7 +19,7 @@ class ClasseController {
   }
 
   async index(req, res) {
-    const dados = await Classe.findAll();
+    const dados = await knex('classes');
     res.json(dados);
   }
 
@@ -29,9 +30,7 @@ class ClasseController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await Classe.findByPk(id, {
-        include: { model: Departamento, attributes: ["descricao"] },
-      });
+      const dados = await knex('classes').where('classes.id', id).first();
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }

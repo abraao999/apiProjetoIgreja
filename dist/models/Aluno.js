@@ -50,8 +50,8 @@
   }
 
   static associate(models) {
+    this.hasMany(models.Chamada, { foreignKey: "aluno_id" });
     this.hasOne(models.Setor, { foreignKey: "setor_id" });
     this.hasOne(models.Classe, { foreignKey: "classe_id" });
-    this.hasMany(models.Chamada, { foreignKey: "aluno_id" });
   }
 } exports.default = Aluno;
