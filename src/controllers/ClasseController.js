@@ -46,15 +46,17 @@ class ClasseController {
   async update(req, res) {
     try {
       const { id } = req.params;
+      const { descricao, setor_id } = req.body;
       if (!id) {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await Classe.findByPk(id);
+      const dados = await knex('classes').where('classes.id', id).first();
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
-      const novosDados = await dados.update(req.body);
+      const novosDados = await knex('classes').where('classes.id', id)
+        .update({ descricao, setor_id });
       return res.json(novosDados);
     } catch (error) {
       return res
