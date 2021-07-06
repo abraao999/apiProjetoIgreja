@@ -91,11 +91,11 @@ class ChamadaController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const chamada = await Chamada.findByPk(id);
-      if (!chamada) {
-        return res.status(400).json({ erros: ["Chamada nao existe"] });
+      const dados = await knex('chamadas').where('chamadas.id', id);
+      if (!dados) {
+        return res.status(400).json({ erros: ["aluno nao existe"] });
       }
-      await Chamada.destroy();
+      await knex('chamadas').where('chamadas.id', id).del();
       return res.json({ apagado: true });
     } catch (error) {
       return res
