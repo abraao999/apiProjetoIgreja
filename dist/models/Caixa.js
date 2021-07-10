@@ -36,6 +36,10 @@
           type: _sequelize2.default.BOOLEAN,
           defaultValue: "",
         },
+        investimento: {
+          type: _sequelize2.default.BOOLEAN,
+          defaultValue: "",
+        },
       },
       { sequelize }
     );

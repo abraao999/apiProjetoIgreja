@@ -15,6 +15,10 @@
         type: Sequelize.STRING,
         allowNull: false,
       },
+      investimento: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
       data_operacao: {
         type: Sequelize.DATE,
         allowNull: false,
