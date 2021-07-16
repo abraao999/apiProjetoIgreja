@@ -44,6 +44,11 @@
         allowNull: false,
         unique: true,
       },
+      observacao: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+      },
       password_hash: {
         type: Sequelize.STRING,
         allowNull: false,

@@ -83,6 +83,16 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
             },
           },
         },
+        observacao: {
+          type: _sequelize2.default.STRING,
+          defaultValue: "",
+          validate: {
+            len: {
+              args: [3, 200],
+              msg: "Campo observaçäo deve ter entre 3 e 50 caracteres",
+            },
+          },
+        },
         email: {
           type: _sequelize2.default.STRING,
           defaultValue: "",
