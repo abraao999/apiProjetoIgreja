@@ -46,7 +46,7 @@
       },
       observacao: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
         unique: true,
       },
       password_hash: {
