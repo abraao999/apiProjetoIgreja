@@ -83,16 +83,16 @@ export default class Membro extends Model {
             },
           },
         },
-        observacao: {
-          type: Sequelize.STRING,
-          defaultValue: "",
-          validate: {
-            len: {
-              args: [3, 200],
-              msg: "Campo observaçäo deve ter entre 3 e 50 caracteres",
-            },
-          },
-        },
+        // observacao: {
+        //   type: Sequelize.STRING,
+        //   defaultValue: "",
+        //   validate: {
+        //     len: {
+        //       args: [3, 200],
+        //       msg: "Campo observaçäo deve ter entre 3 e 50 caracteres",
+        //     },
+        //   },
+        // },
         email: {
           type: Sequelize.STRING,
           defaultValue: "",
