@@ -89,7 +89,67 @@ export default class Membro extends Model {
           validate: {
             len: {
               args: [3, 200],
-              msg: "Campo observaçäo deve ter entre 3 e 50 caracteres",
+              msg: "Campo observaçäo deve ter entre 3 e 200 caracteres",
+            },
+          },
+        },
+        rua: {
+          type: Sequelize.STRING,
+          defaultValue: "",
+          validate: {
+            len: {
+              args: [3, 100],
+              msg: "Campo rua deve ter entre 3 e 100 caracteres",
+            },
+          },
+        },
+        numero: {
+          type: Sequelize.STRING,
+          defaultValue: "",
+          validate: {
+            len: {
+              args: [3, 6],
+              msg: "Campo numero deve ter entre 3 e 6 caracteres",
+            },
+          },
+        },
+        complemento: {
+          type: Sequelize.STRING,
+          defaultValue: "",
+          validate: {
+            len: {
+              args: [3, 50],
+              msg: "Campo complemento deve ter entre 3 e 50 caracteres",
+            },
+          },
+        },
+        bairro: {
+          type: Sequelize.STRING,
+          defaultValue: "",
+          validate: {
+            len: {
+              args: [3, 50],
+              msg: "Campo bairro deve ter entre 3 e 50 caracteres",
+            },
+          },
+        },
+        cidade: {
+          type: Sequelize.STRING,
+          defaultValue: "",
+          validate: {
+            len: {
+              args: [3, 50],
+              msg: "Campo cidade deve ter entre 3 e 50 caracteres",
+            },
+          },
+        },
+        cep: {
+          type: Sequelize.STRING,
+          defaultValue: "",
+          validate: {
+            len: {
+              args: [3, 10],
+              msg: "Campo CEP deve ter entre 3 e 10 caracteres",
             },
           },
         },
