@@ -108,8 +108,8 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
           defaultValue: "",
           validate: {
             len: {
-              args: [3, 6],
-              msg: "Campo numero deve ter entre 3 e 6 caracteres",
+              args: [1, 6],
+              msg: "Campo numero deve ter entre 1 e 6 caracteres",
             },
           },
         },

@@ -108,8 +108,8 @@ export default class Membro extends Model {
           defaultValue: "",
           validate: {
             len: {
-              args: [3, 6],
-              msg: "Campo numero deve ter entre 3 e 6 caracteres",
+              args: [1, 6],
+              msg: "Campo numero deve ter entre 1 e 6 caracteres",
             },
           },
         },
