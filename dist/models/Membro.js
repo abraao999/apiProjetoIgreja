@@ -86,12 +86,7 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
         observacao: {
           type: _sequelize2.default.STRING,
           defaultValue: "",
-          validate: {
-            len: {
-              args: [3, 200],
-              msg: "Campo observaçäo deve ter entre 3 e 200 caracteres",
-            },
-          },
+
         },
         rua: {
           type: _sequelize2.default.STRING,
@@ -116,12 +111,7 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
         complemento: {
           type: _sequelize2.default.STRING,
           defaultValue: "",
-          validate: {
-            len: {
-              args: [3, 50],
-              msg: "Campo complemento deve ter entre 3 e 50 caracteres",
-            },
-          },
+
         },
         bairro: {
           type: _sequelize2.default.STRING,

@@ -86,12 +86,7 @@ export default class Membro extends Model {
         observacao: {
           type: Sequelize.STRING,
           defaultValue: "",
-          validate: {
-            len: {
-              args: [3, 200],
-              msg: "Campo observaçäo deve ter entre 3 e 200 caracteres",
-            },
-          },
+
         },
         rua: {
           type: Sequelize.STRING,
@@ -116,12 +111,7 @@ export default class Membro extends Model {
         complemento: {
           type: Sequelize.STRING,
           defaultValue: "",
-          validate: {
-            len: {
-              args: [3, 50],
-              msg: "Campo complemento deve ter entre 3 e 50 caracteres",
-            },
-          },
+
         },
         bairro: {
           type: Sequelize.STRING,
