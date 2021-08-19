@@ -19,6 +19,7 @@ import tokemRoutes from "./routes/tokemRoutes";
 import abatimentoRoutes from "./routes/abatimentoRoutes";
 import dizimoRoutes from "./routes/dizimoRoutes";
 import chamadaRoutes from "./routes/chamadaRoutes";
+import caixaEbdRoutes from "./routes/caixaEbdRoutes";
 
 const whiteList = [
   // dados do servidor
@@ -54,6 +55,7 @@ class App {
     this.app.use("/setor/", setorRoutes);
     this.app.use("/departamento/", departamentoRoutes);
     this.app.use("/caixa/", caixaRoutes);
+    this.app.use("/caixaEbd/", caixaEbdRoutes);
     this.app.use("/membro/", membroRoutes);
     this.app.use("/classe/", classeRoutes);
     this.app.use("/aluno/", alunoRoutes);

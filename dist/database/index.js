@@ -12,6 +12,7 @@ var _Aluno = require('../models/Aluno'); var _Aluno2 = _interopRequireDefault(_A
 var _Abatimento = require('../models/Abatimento'); var _Abatimento2 = _interopRequireDefault(_Abatimento);
 var _Dizimo = require('../models/Dizimo'); var _Dizimo2 = _interopRequireDefault(_Dizimo);
 var _Chamada = require('../models/Chamada'); var _Chamada2 = _interopRequireDefault(_Chamada);
+var _CaixaEbd = require('../models/CaixaEbd'); var _CaixaEbd2 = _interopRequireDefault(_CaixaEbd);
 
 const models = [
   _Function2.default,
@@ -19,6 +20,7 @@ const models = [
   _Setor2.default,
   _Departamento2.default,
   _Caixa2.default,
+  _CaixaEbd2.default,
   _Membro2.default,
   _Classe2.default,
   _Aluno2.default,

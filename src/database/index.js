@@ -12,6 +12,7 @@ import Aluno from "../models/Aluno";
 import Abatimento from "../models/Abatimento";
 import Dizimo from "../models/Dizimo";
 import Chamada from "../models/Chamada";
+import CaixaEbd from "../models/CaixaEbd";
 
 const models = [
   Function,
@@ -19,6 +20,7 @@ const models = [
   Setor,
   Departamento,
   Caixa,
+  CaixaEbd,
   Membro,
   Classe,
   Aluno,
