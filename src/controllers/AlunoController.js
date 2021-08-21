@@ -50,7 +50,7 @@ class AlunoController {
         )
         .orderBy("alunos.nome");
       if (!dados) {
-        return res.status(400).json({ erros: ["Função não existe"] });
+        return res.status(400).json({ erros: ["Aluno não existe"] });
       }
 
       return res.json(dados);

@@ -34,6 +34,10 @@ export default class Aluno extends Model {
             },
           },
         },
+        visitante: {
+          type: Sequelize.BOOLEAN,
+          defaultValue: "",
+        },
         data_aniversario: {
           type: Sequelize.DATE,
           defaultValue: "",
@@ -51,7 +55,7 @@ export default class Aluno extends Model {
 
   static associate(models) {
     this.hasMany(models.Chamada, { foreignKey: "aluno_id" });
-    this.hasOne(models.Setor, { foreignKey: "setor_id" });
-    this.hasOne(models.Classe, { foreignKey: "classe_id" });
+    this.belongsTo(models.Setor, { foreignKey: "setor_id" });
+    this.belongsTo(models.Classe, { foreignKey: "classe_id" });
   }
 }

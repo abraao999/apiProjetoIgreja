@@ -20,6 +20,6 @@
   }
 
   static associate(models) {
-    this.hasOne(models.Aluno, { foreignKey: "aluno_id" });
+    this.belongsTo(models.Aluno, { foreignKey: "aluno_id" });
   }
 } exports.default = Chamada;
