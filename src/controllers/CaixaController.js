@@ -27,7 +27,7 @@ class CaixaController {
         "setors.descricao as desc_setor",
         "departamentos.descricao as desc_departamento"
       )
-      .orderBy("caixas.data_operacao");
+      .orderBy("caixas.data_operacao", "desc");
 
     res.json(dados);
   }

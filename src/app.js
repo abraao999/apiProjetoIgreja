@@ -20,6 +20,8 @@ import abatimentoRoutes from "./routes/abatimentoRoutes";
 import dizimoRoutes from "./routes/dizimoRoutes";
 import chamadaRoutes from "./routes/chamadaRoutes";
 import caixaEbdRoutes from "./routes/caixaEbdRoutes";
+import familiaVisitanteRoutes from "./routes/familiaVisitanteRoutes";
+import nomesVisitanteRoutes from "./routes/nomesVisitanteRoutes";
 
 const whiteList = [
   // dados do servidor
@@ -63,6 +65,8 @@ class App {
     this.app.use("/abatimento/", abatimentoRoutes);
     this.app.use("/dizimo/", dizimoRoutes);
     this.app.use("/chamada/", chamadaRoutes);
+    this.app.use("/familiaVisitante/", familiaVisitanteRoutes);
+    this.app.use("/nomesVisitante/", nomesVisitanteRoutes);
   }
 }
 export default new App().app;

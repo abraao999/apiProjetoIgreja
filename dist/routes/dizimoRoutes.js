@@ -8,6 +8,6 @@ router.put("/:id", _loginRequered2.default, _DizimoController2.default.update);
 router.post("/", _loginRequered2.default, _DizimoController2.default.storage);
 router.get("/", _DizimoController2.default.index);
 router.get("/:id", _DizimoController2.default.show);
-router.get("/:id/:inicio/:final", _DizimoController2.default.pesquisaData);
+router.get("/pesquisaData/:id", _DizimoController2.default.pesquisaData);
 router.delete("/:id", _loginRequered2.default, _DizimoController2.default.delete);
 exports. default = router;

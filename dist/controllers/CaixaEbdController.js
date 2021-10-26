@@ -21,11 +21,8 @@ class CaixaEbdController {
   async index(req, res) {
     const dados = await _knexfile2.default.call(void 0, "caixa_ebds")
       .join("setors", "setor_id", "=", "setors.id")
-      .select(
-        "caixa_ebds.*",
-        "setors.descricao as desc_setor",
-      )
-      .orderBy("caixa_ebds.data_operacao");
+      .select("caixa_ebds.*", "setors.descricao as desc_setor")
+      .orderBy("asc caixa_ebds.data_operacao");
 
     res.json(dados);
   }

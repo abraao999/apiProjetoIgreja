@@ -13,6 +13,8 @@ var _Abatimento = require('../models/Abatimento'); var _Abatimento2 = _interopRe
 var _Dizimo = require('../models/Dizimo'); var _Dizimo2 = _interopRequireDefault(_Dizimo);
 var _Chamada = require('../models/Chamada'); var _Chamada2 = _interopRequireDefault(_Chamada);
 var _CaixaEbd = require('../models/CaixaEbd'); var _CaixaEbd2 = _interopRequireDefault(_CaixaEbd);
+var _FamiliaVisitante = require('../models/FamiliaVisitante'); var _FamiliaVisitante2 = _interopRequireDefault(_FamiliaVisitante);
+var _NomeVisitantes = require('../models/NomeVisitantes'); var _NomeVisitantes2 = _interopRequireDefault(_NomeVisitantes);
 
 const models = [
   _Function2.default,
@@ -26,7 +28,9 @@ const models = [
   _Aluno2.default,
   _Abatimento2.default,
   _Dizimo2.default,
-  _Chamada2.default
+  _Chamada2.default,
+  _FamiliaVisitante2.default,
+  _NomeVisitantes2.default,
 ];
 const connection = new (0, _sequelize2.default)(_database2.default);
 models.forEach((model) => model.init(connection));

@@ -59,20 +59,19 @@ class DizimoController {
 
   async pesquisaData(req, res) {
     try {
-      const { id, inicio, final } = req.params;
+      const { id } = req.params;
       if (!id) {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
       const dados = await _knexfile2.default.call(void 0, "dizimos")
-        .select()
-        .whereBetween("data_operacao", [inicio, final])
-        .where("membro_id", id);
-
+        .join("membros", "membro_id", "=", "membros.id")
+        .select("dizimos.*", "membros.nome as nome")
+        .where("dizimos.membro_id", id)
+        .orderBy("dizimos.data_operacao");
       if (!dados) {
         return res.status(400).json({ erros: ["Dizimo não existe"] });
       }
-
       return res.json(dados);
     } catch (error) {
       return res

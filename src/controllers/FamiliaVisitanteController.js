@@ -1,17 +1,21 @@
-import Departamento from "../models/Departamento";
-import CaixaEbd from "../models/CaixaEbd";
 import knex from "../config/knexfile";
+import Membro from "../models/Membro";
+import FamiliaVisitante from "../models/FamiliaVisitante";
 
-class CaixaEbdController {
+class FamiliaVisitanteController {
   async storage(req, res) {
     try {
-      const dados = await CaixaEbd.create(req.body);
-      if (!dados) {
-        return res.status(400).json({ erros: ["departamento ja existe"] });
+      const dado = await FamiliaVisitante.create(req.body);
+      // const dado = req.body;
+      // console.log(dado);
+      if (!dado) {
+        return res.status(400).json({ erros: ["dado ja existe"] });
       }
 
-      return res.json(dados);
+      return res.json(dado);
     } catch (er) {
+      console.log(er);
+      // return res.status(400);
       return res
         .status(400)
         .json({ erros: er.errors.map((erro) => erro.message) });
@@ -19,12 +23,9 @@ class CaixaEbdController {
   }
 
   async index(req, res) {
-    const dados = await knex("caixa_ebds")
-      .join("setors", "setor_id", "=", "setors.id")
-      .select("caixa_ebds.*", "setors.descricao as desc_setor")
-      .orderBy("asc caixa_ebds.data_operacao");
+    const response = await knex("familia_visitantes");
 
-    res.json(dados);
+    return res.json(response);
   }
 
   async show(req, res) {
@@ -34,14 +35,24 @@ class CaixaEbdController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await CaixaEbd.findByPk(id, {
-        include: { model: Departamento, attributes: ["descricao"] },
-      });
-      if (!dados) {
+      const response = await knex("membros")
+        .join("setors", "setor_id", "=", "setors.id")
+        .join("cargos", "cargo_id", "=", "cargos.id")
+        .join("functions", "function_id", "=", "functions.id")
+        .where("membros.id", id)
+        .first()
+        .select(
+          "membros.*",
+          "setors.descricao as desc_setor",
+          "functions.descricao as desc_function",
+          "cargos.descricao as desc_cargo"
+        )
+        .orderBy("membros.nome");
+      if (!response) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
 
-      return res.json(dados);
+      return res.json(response);
     } catch (error) {
       return res
         .status(400)
@@ -56,11 +67,11 @@ class CaixaEbdController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await CaixaEbd.findByPk(id);
-      if (!dados) {
+      const dado = await Membro.findByPk(id);
+      if (!dado) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
-      const novosDados = await dados.update(req.body);
+      const novosDados = await dado.update(req.body);
       return res.json(novosDados);
     } catch (error) {
       return res
@@ -76,11 +87,11 @@ class CaixaEbdController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await CaixaEbd.findByPk(id);
-      if (!dados) {
-        return res.status(400).json({ erros: ["departamento nao existe"] });
+      const dado = await Membro.findByPk(id);
+      if (!dado) {
+        return res.status(400).json({ erros: ["dado nao existe"] });
       }
-      await dados.destroy();
+      await dado.destroy();
       return res.json({ apagado: true });
     } catch (error) {
       return res
@@ -91,7 +102,7 @@ class CaixaEbdController {
 
   async maxId(req, res) {
     try {
-      const dado = await CaixaEbd.max("id");
+      const dado = await Membro.max("id");
       if (!dado) {
         return res.status(400).json({ erros: ["Tabela vazia"] });
       }
@@ -103,4 +114,4 @@ class CaixaEbdController {
     }
   }
 }
-export default new CaixaEbdController();
+export default new FamiliaVisitanteController();

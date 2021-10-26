@@ -20,6 +20,8 @@ var _abatimentoRoutes = require('./routes/abatimentoRoutes'); var _abatimentoRou
 var _dizimoRoutes = require('./routes/dizimoRoutes'); var _dizimoRoutes2 = _interopRequireDefault(_dizimoRoutes);
 var _chamadaRoutes = require('./routes/chamadaRoutes'); var _chamadaRoutes2 = _interopRequireDefault(_chamadaRoutes);
 var _caixaEbdRoutes = require('./routes/caixaEbdRoutes'); var _caixaEbdRoutes2 = _interopRequireDefault(_caixaEbdRoutes);
+var _familiaVisitanteRoutes = require('./routes/familiaVisitanteRoutes'); var _familiaVisitanteRoutes2 = _interopRequireDefault(_familiaVisitanteRoutes);
+var _nomesVisitanteRoutes = require('./routes/nomesVisitanteRoutes'); var _nomesVisitanteRoutes2 = _interopRequireDefault(_nomesVisitanteRoutes);
 
 const whiteList = [
   // dados do servidor
@@ -63,6 +65,8 @@ class App {
     this.app.use("/abatimento/", _abatimentoRoutes2.default);
     this.app.use("/dizimo/", _dizimoRoutes2.default);
     this.app.use("/chamada/", _chamadaRoutes2.default);
+    this.app.use("/familiaVisitante/", _familiaVisitanteRoutes2.default);
+    this.app.use("/nomesVisitante/", _nomesVisitanteRoutes2.default);
   }
 }
 exports. default = new App().app;
