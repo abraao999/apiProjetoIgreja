@@ -34,10 +34,6 @@
             },
           },
         },
-        visitante: {
-          type: _sequelize2.default.BOOLEAN,
-          defaultValue: "",
-        },
         data_aniversario: {
           type: _sequelize2.default.DATE,
           defaultValue: "",
@@ -55,7 +51,7 @@
 
   static associate(models) {
     this.hasMany(models.Chamada, { foreignKey: "aluno_id" });
-    this.belongsTo(models.Setor, { foreignKey: "setor_id" });
-    this.belongsTo(models.Classe, { foreignKey: "classe_id" });
+    this.hasOne(models.Setor, { foreignKey: "setor_id" });
+    this.hasOne(models.Classe, { foreignKey: "classe_id" });
   }
 } exports.default = Aluno;

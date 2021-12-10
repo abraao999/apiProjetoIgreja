@@ -20,6 +20,6 @@ export default class Chamada extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Aluno, { foreignKey: "aluno_id" });
+    this.hasOne(models.Aluno, { foreignKey: "aluno_id" });
   }
 }
