@@ -1,3 +1,4 @@
+import knex from "../config/knexfile";
 import DescLancamento from "../models/DescLancamento";
 
 class DescCaixaController {
@@ -17,7 +18,10 @@ class DescCaixaController {
   }
 
   async index(req, res) {
-    const descCaixa = await DescLancamento.findAll();
+    const descCaixa = await knex("desc_caixas").orderBy(
+      "desc_caixas.descricao",
+      "asc"
+    );
     res.json(descCaixa);
   }
 

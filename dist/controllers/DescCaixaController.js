@@ -1,4 +1,5 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _DescLancamento = require('../models/DescLancamento'); var _DescLancamento2 = _interopRequireDefault(_DescLancamento);
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _knexfile = require('../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
+var _DescLancamento = require('../models/DescLancamento'); var _DescLancamento2 = _interopRequireDefault(_DescLancamento);
 
 class DescCaixaController {
   async storage(req, res) {
@@ -17,7 +18,10 @@ class DescCaixaController {
   }
 
   async index(req, res) {
-    const descCaixa = await _DescLancamento2.default.findAll();
+    const descCaixa = await _knexfile2.default.call(void 0, "desc_caixas").orderBy(
+      "desc_caixas.descricao",
+      "asc"
+    );
     res.json(descCaixa);
   }
 
