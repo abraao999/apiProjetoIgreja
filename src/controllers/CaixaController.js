@@ -22,10 +22,12 @@ class CaixaController {
     const dados = await knex("caixas")
       .join("setors", "setor_id", "=", "setors.id")
       .join("departamentos", "departamento_id", "=", "departamentos.id")
+      .join("desc_caixas", "desc_id", "=", "desc_caixas.id")
       .select(
         "caixas.*",
         "setors.descricao as desc_setor",
-        "departamentos.descricao as desc_departamento"
+        "departamentos.descricao as desc_departamento",
+        "desc_caixas.descricao as descricao"
       )
       .orderBy("caixas.data_operacao", "desc");
 
