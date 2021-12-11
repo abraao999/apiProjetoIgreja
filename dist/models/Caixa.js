@@ -4,16 +4,6 @@
   static init(sequelize) {
     super.init(
       {
-        descricao: {
-          type: _sequelize2.default.STRING,
-          defaultValue: "",
-          validate: {
-            len: {
-              args: [3, 50],
-              msg: "Campo descrição deve ter entre 3 e 50 caracteres",
-            },
-          },
-        },
         valor: {
           type: _sequelize2.default.FLOAT,
           defaultValue: "",
@@ -49,5 +39,6 @@
   static associate(models) {
     this.belongsTo(models.Setor, { foreignKey: "setor_id" });
     this.belongsTo(models.Departamento, { foreignKey: "departamento_id" });
+    this.belongsTo(models.DescCaixa, { foreignKey: "desc_id" });
   }
 } exports.default = Caixa;

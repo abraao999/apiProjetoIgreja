@@ -1,0 +1,17 @@
+DATABASE=proj_igreja
+DATABASE_HOST=127.0.0.1
+DATABASE_PORT=3306
+DATABASE_USERNAME=usuario
+DATABASE_PASSWORD=senha
+
+TOKEN_SECRET=dasfnjeksdfhnjkwefnsnejknovnsknweofnnl
+TOKEN_EXPIRATION=365d
+APP_URL=http://localhost
+PORT=3001
+
+
+DATABASE=yt3f4ng12xqhfhqk
+DATABASE_HOST=ohunm00fjsjs1uzy.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
+DATABASE_PORT=3306
+DATABASE_USERNAME=mzm997mejpkedqd2
+DATABASE_PASSWORD=je9cjp9uubcvs279

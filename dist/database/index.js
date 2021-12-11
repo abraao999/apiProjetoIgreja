@@ -15,6 +15,7 @@ var _Chamada = require('../models/Chamada'); var _Chamada2 = _interopRequireDefa
 var _CaixaEbd = require('../models/CaixaEbd'); var _CaixaEbd2 = _interopRequireDefault(_CaixaEbd);
 var _FamiliaVisitante = require('../models/FamiliaVisitante'); var _FamiliaVisitante2 = _interopRequireDefault(_FamiliaVisitante);
 var _NomeVisitantes = require('../models/NomeVisitantes'); var _NomeVisitantes2 = _interopRequireDefault(_NomeVisitantes);
+var _DescLancamento = require('../models/DescLancamento'); var _DescLancamento2 = _interopRequireDefault(_DescLancamento);
 
 const models = [
   _Function2.default,
@@ -31,6 +32,7 @@ const models = [
   _Chamada2.default,
   _FamiliaVisitante2.default,
   _NomeVisitantes2.default,
+  _DescLancamento2.default,
 ];
 const connection = new (0, _sequelize2.default)(_database2.default);
 models.forEach((model) => model.init(connection));

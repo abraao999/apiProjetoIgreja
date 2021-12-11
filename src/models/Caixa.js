@@ -4,16 +4,6 @@ export default class Caixa extends Model {
   static init(sequelize) {
     super.init(
       {
-        descricao: {
-          type: Sequelize.STRING,
-          defaultValue: "",
-          validate: {
-            len: {
-              args: [3, 50],
-              msg: "Campo descrição deve ter entre 3 e 50 caracteres",
-            },
-          },
-        },
         valor: {
           type: Sequelize.FLOAT,
           defaultValue: "",
@@ -49,5 +39,6 @@ export default class Caixa extends Model {
   static associate(models) {
     this.belongsTo(models.Setor, { foreignKey: "setor_id" });
     this.belongsTo(models.Departamento, { foreignKey: "departamento_id" });
+    this.belongsTo(models.DescCaixa, { foreignKey: "desc_id" });
   }
 }
