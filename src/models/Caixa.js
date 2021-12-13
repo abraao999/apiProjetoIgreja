@@ -13,6 +13,10 @@ export default class Caixa extends Model {
             },
           },
         },
+        n_nota: {
+          type: Sequelize.STRING,
+          defaultValue: "",
+        },
         data_operacao: {
           type: Sequelize.DATE,
           defaultValue: "",

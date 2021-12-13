@@ -13,6 +13,10 @@
             },
           },
         },
+        n_nota: {
+          type: _sequelize2.default.STRING,
+          defaultValue: "",
+        },
         data_operacao: {
           type: _sequelize2.default.DATE,
           defaultValue: "",
