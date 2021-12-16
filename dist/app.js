@@ -23,6 +23,7 @@ var _caixaEbdRoutes = require('./routes/caixaEbdRoutes'); var _caixaEbdRoutes2 =
 var _familiaVisitanteRoutes = require('./routes/familiaVisitanteRoutes'); var _familiaVisitanteRoutes2 = _interopRequireDefault(_familiaVisitanteRoutes);
 var _nomesVisitanteRoutes = require('./routes/nomesVisitanteRoutes'); var _nomesVisitanteRoutes2 = _interopRequireDefault(_nomesVisitanteRoutes);
 var _descCaixaRoutes = require('./routes/descCaixaRoutes'); var _descCaixaRoutes2 = _interopRequireDefault(_descCaixaRoutes);
+var _pedidoRoutes = require('./routes/pedidoRoutes'); var _pedidoRoutes2 = _interopRequireDefault(_pedidoRoutes);
 
 const whiteList = [
   // dados do servidor
@@ -69,6 +70,7 @@ class App {
     this.app.use("/familiaVisitante/", _familiaVisitanteRoutes2.default);
     this.app.use("/nomesVisitante/", _nomesVisitanteRoutes2.default);
     this.app.use("/descCaixa/", _descCaixaRoutes2.default);
+    this.app.use("/pedido/", _pedidoRoutes2.default);
   }
 }
 exports. default = new App().app;

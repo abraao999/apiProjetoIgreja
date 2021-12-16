@@ -41,9 +41,18 @@ class CaixaController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await Caixa.findByPk(id, {
-        include: { model: Departamento, attributes: ["descricao"] },
-      });
+      const dados = await knex("caixas")
+        .join("setors", "setor_id", "=", "setors.id")
+        .join("departamentos", "departamento_id", "=", "departamentos.id")
+        .join("desc_caixas", "desc_id", "=", "desc_caixas.id")
+        .select(
+          "caixas.*",
+          "setors.descricao as desc_setor",
+          "departamentos.descricao as desc_departamento",
+          "desc_caixas.descricao as descricao"
+        )
+        .where("caixas.id", id)
+        .first();
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }

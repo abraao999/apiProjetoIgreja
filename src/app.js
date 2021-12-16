@@ -23,6 +23,7 @@ import caixaEbdRoutes from "./routes/caixaEbdRoutes";
 import familiaVisitanteRoutes from "./routes/familiaVisitanteRoutes";
 import nomesVisitanteRoutes from "./routes/nomesVisitanteRoutes";
 import descCaixaRoutes from "./routes/descCaixaRoutes";
+import pedidoRoutes from "./routes/pedidoRoutes";
 
 const whiteList = [
   // dados do servidor
@@ -69,6 +70,7 @@ class App {
     this.app.use("/familiaVisitante/", familiaVisitanteRoutes);
     this.app.use("/nomesVisitante/", nomesVisitanteRoutes);
     this.app.use("/descCaixa/", descCaixaRoutes);
+    this.app.use("/pedido/", pedidoRoutes);
   }
 }
 export default new App().app;
