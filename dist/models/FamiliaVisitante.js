@@ -7,12 +7,6 @@
         crente: {
           type: _sequelize2.default.BOOLEAN,
           defaultValue: "",
-          validate: {
-            len: {
-              args: [3, 50],
-              msg: "Campo descrição deve ter entre 3 e 50 caracteres",
-            },
-          },
         },
         observacao: {
           type: _sequelize2.default.STRING,
@@ -20,7 +14,17 @@
           validate: {
             len: {
               args: [3, 50],
-              msg: "Campo descrição deve ter entre 3 e 50 caracteres",
+              msg: "Campo observação deve ter entre 3 e 50 caracteres",
+            },
+          },
+        },
+        igreja: {
+          type: _sequelize2.default.STRING,
+          defaultValue: "",
+          validate: {
+            len: {
+              args: [3, 50],
+              msg: "Campo igreja deve ter entre 3 e 50 caracteres",
             },
           },
         },
@@ -30,7 +34,7 @@
           validate: {
             len: {
               args: [3, 50],
-              msg: "Campo descrição deve ter entre 3 e 50 caracteres",
+              msg: "Campo telefone deve ter entre 3 e 50 caracteres",
             },
           },
         },

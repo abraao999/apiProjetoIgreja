@@ -7,12 +7,6 @@ export default class FamiliaVisitante extends Model {
         crente: {
           type: Sequelize.BOOLEAN,
           defaultValue: "",
-          validate: {
-            len: {
-              args: [3, 50],
-              msg: "Campo descrição deve ter entre 3 e 50 caracteres",
-            },
-          },
         },
         observacao: {
           type: Sequelize.STRING,
@@ -20,7 +14,17 @@ export default class FamiliaVisitante extends Model {
           validate: {
             len: {
               args: [3, 50],
-              msg: "Campo descrição deve ter entre 3 e 50 caracteres",
+              msg: "Campo observação deve ter entre 3 e 50 caracteres",
+            },
+          },
+        },
+        igreja: {
+          type: Sequelize.STRING,
+          defaultValue: "",
+          validate: {
+            len: {
+              args: [3, 50],
+              msg: "Campo igreja deve ter entre 3 e 50 caracteres",
             },
           },
         },
@@ -30,7 +34,7 @@ export default class FamiliaVisitante extends Model {
           validate: {
             len: {
               args: [3, 50],
-              msg: "Campo descrição deve ter entre 3 e 50 caracteres",
+              msg: "Campo telefone deve ter entre 3 e 50 caracteres",
             },
           },
         },
