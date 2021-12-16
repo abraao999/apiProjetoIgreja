@@ -31,7 +31,7 @@ export default class Caixa extends Model {
           defaultValue: "",
         },
         investimento: {
-          type: Sequelize.BOOLEAN,
+          type: Sequelize.STRING,
           defaultValue: "",
         },
       },
