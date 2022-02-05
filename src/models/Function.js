@@ -19,4 +19,8 @@ export default class Function extends Model {
     );
     return this;
   }
+
+  static associate(models) {
+    this.hasMany(models.ControleAcesso, { foreignKey: "function_id" });
+  }
 }

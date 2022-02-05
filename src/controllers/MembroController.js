@@ -25,14 +25,13 @@ class MembroController {
     const response = await knex("membros")
       .join("setors", "setor_id", "=", "setors.id")
       .join("cargos", "cargo_id", "=", "cargos.id")
-      .join("functions", "function_id", "=", "functions.id")
       .select(
         "membros.*",
         "setors.descricao as desc_setor",
-        "functions.descricao as desc_function",
         "cargos.descricao as desc_cargo"
       )
       .orderBy("membros.nome");
+    // const response = await Membro.findAll();
 
     return res.json(response);
   }
@@ -47,13 +46,11 @@ class MembroController {
       const response = await knex("membros")
         .join("setors", "setor_id", "=", "setors.id")
         .join("cargos", "cargo_id", "=", "cargos.id")
-        .join("functions", "function_id", "=", "functions.id")
         .where("membros.id", id)
         .first()
         .select(
           "membros.*",
           "setors.descricao as desc_setor",
-          "functions.descricao as desc_function",
           "cargos.descricao as desc_cargo"
         )
         .orderBy("membros.nome");

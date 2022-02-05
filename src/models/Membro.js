@@ -86,7 +86,6 @@ export default class Membro extends Model {
         observacao: {
           type: Sequelize.STRING,
           defaultValue: "",
-
         },
         rua: {
           type: Sequelize.STRING,
@@ -111,7 +110,6 @@ export default class Membro extends Model {
         complemento: {
           type: Sequelize.STRING,
           defaultValue: "",
-
         },
         bairro: {
           type: Sequelize.STRING,
@@ -167,33 +165,6 @@ export default class Membro extends Model {
             },
           },
         },
-        cargo_id: {
-          type: Sequelize.INTEGER,
-          defaultValue: "",
-          validate: {
-            isInt: {
-              msg: "Campo cargo deve ser um inteiro",
-            },
-          },
-        },
-        function_id: {
-          type: Sequelize.INTEGER,
-          defaultValue: "",
-          validate: {
-            isInt: {
-              msg: "Campo função deve ser um inteiro",
-            },
-          },
-        },
-        setor_id: {
-          type: Sequelize.INTEGER,
-          defaultValue: "",
-          validate: {
-            isInt: {
-              msg: "Campo setor deve ser um inteiro",
-            },
-          },
-        },
       },
       { sequelize }
     );
@@ -208,6 +179,7 @@ export default class Membro extends Model {
   static associate(models) {
     this.hasMany(models.Caixa, { foreignKey: "departamento_id" });
     this.hasMany(models.Dizimo, { foreignKey: "membro_id" });
+    this.hasMany(models.ControleAcesso, { foreignKey: "membro_id" });
     this.belongsTo(models.Setor, { foreignKey: "setor_id" });
   }
 

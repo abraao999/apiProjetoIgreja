@@ -86,7 +86,6 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
         observacao: {
           type: _sequelize2.default.STRING,
           defaultValue: "",
-
         },
         rua: {
           type: _sequelize2.default.STRING,
@@ -111,7 +110,6 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
         complemento: {
           type: _sequelize2.default.STRING,
           defaultValue: "",
-
         },
         bairro: {
           type: _sequelize2.default.STRING,
@@ -167,33 +165,6 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
             },
           },
         },
-        cargo_id: {
-          type: _sequelize2.default.INTEGER,
-          defaultValue: "",
-          validate: {
-            isInt: {
-              msg: "Campo cargo deve ser um inteiro",
-            },
-          },
-        },
-        function_id: {
-          type: _sequelize2.default.INTEGER,
-          defaultValue: "",
-          validate: {
-            isInt: {
-              msg: "Campo função deve ser um inteiro",
-            },
-          },
-        },
-        setor_id: {
-          type: _sequelize2.default.INTEGER,
-          defaultValue: "",
-          validate: {
-            isInt: {
-              msg: "Campo setor deve ser um inteiro",
-            },
-          },
-        },
       },
       { sequelize }
     );
@@ -208,6 +179,7 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
   static associate(models) {
     this.hasMany(models.Caixa, { foreignKey: "departamento_id" });
     this.hasMany(models.Dizimo, { foreignKey: "membro_id" });
+    this.hasMany(models.ControleAcesso, { foreignKey: "membro_id" });
     this.belongsTo(models.Setor, { foreignKey: "setor_id" });
   }
 
