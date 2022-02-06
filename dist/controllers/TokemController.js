@@ -1,5 +1,6 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _jsonwebtoken = require('jsonwebtoken'); var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
 var _Membro = require('../models/Membro'); var _Membro2 = _interopRequireDefault(_Membro);
+var _ControleAcesso = require('../models/ControleAcesso'); var _ControleAcesso2 = _interopRequireDefault(_ControleAcesso);
 // import Tokem from '../models/Tokem';
 
 class TokenController {
@@ -25,7 +26,10 @@ class TokenController {
     const tokem = _jsonwebtoken2.default.sign({ id, email }, process.env.TOKEN_SECRET, {
       expiresIn: process.env.TOKEN_EXPIRATION,
     });
-    return res.json({ tokem, user });
+    const function_id = await _ControleAcesso2.default.findAll({
+      where: { membro_id: id },
+    });
+    return res.json({ tokem, user, function_id });
   }
 }
 exports. default = new TokenController();

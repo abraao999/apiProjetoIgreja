@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import Membro from "../models/Membro";
+import ControleAcesso from "../models/ControleAcesso";
 // import Tokem from '../models/Tokem';
 
 class TokenController {
@@ -25,7 +26,10 @@ class TokenController {
     const tokem = jwt.sign({ id, email }, process.env.TOKEN_SECRET, {
       expiresIn: process.env.TOKEN_EXPIRATION,
     });
-    return res.json({ tokem, user });
+    const function_id = await ControleAcesso.findAll({
+      where: { membro_id: id },
+    });
+    return res.json({ tokem, user, function_id });
   }
 }
 export default new TokenController();
