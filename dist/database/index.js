@@ -18,6 +18,7 @@ var _NomeVisitantes = require('../models/NomeVisitantes'); var _NomeVisitantes2 
 var _DescLancamento = require('../models/DescLancamento'); var _DescLancamento2 = _interopRequireDefault(_DescLancamento);
 var _Pedido = require('../models/Pedido'); var _Pedido2 = _interopRequireDefault(_Pedido);
 var _ControleAcesso = require('../models/ControleAcesso'); var _ControleAcesso2 = _interopRequireDefault(_ControleAcesso);
+var _ControleCarterinha = require('../models/ControleCarterinha'); var _ControleCarterinha2 = _interopRequireDefault(_ControleCarterinha);
 
 const models = [
   _Function2.default,
@@ -37,6 +38,7 @@ const models = [
   _DescLancamento2.default,
   _Pedido2.default,
   _ControleAcesso2.default,
+  _ControleCarterinha2.default,
 ];
 const connection = new (0, _sequelize2.default)(_database2.default);
 models.forEach((model) => model.init(connection));

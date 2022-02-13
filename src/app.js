@@ -25,6 +25,7 @@ import nomesVisitanteRoutes from "./routes/nomesVisitanteRoutes";
 import descCaixaRoutes from "./routes/descCaixaRoutes";
 import pedidoRoutes from "./routes/pedidoRoutes";
 import controleAcessoRoutes from "./routes/controleAcessoRoutes";
+import controleCarterinhaRoutes from "./routes/controleCarterinhaRoutes";
 
 const whiteList = [
   // dados do servidor
@@ -73,6 +74,7 @@ class App {
     this.app.use("/descCaixa/", descCaixaRoutes);
     this.app.use("/pedido/", pedidoRoutes);
     this.app.use("/controleAcesso/", controleAcessoRoutes);
+    this.app.use("/controleCarterinha/", controleCarterinhaRoutes);
   }
 }
 export default new App().app;

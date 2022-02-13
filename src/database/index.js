@@ -18,6 +18,7 @@ import NomesVisitante from "../models/NomeVisitantes";
 import DescLancamento from "../models/DescLancamento";
 import Pedido from "../models/Pedido";
 import ControleAcesso from "../models/ControleAcesso";
+import ControleCarterinha from "../models/ControleCarterinha";
 
 const models = [
   Function,
@@ -37,6 +38,7 @@ const models = [
   DescLancamento,
   Pedido,
   ControleAcesso,
+  ControleCarterinha,
 ];
 const connection = new Sequelize(databaseConfig);
 models.forEach((model) => model.init(connection));

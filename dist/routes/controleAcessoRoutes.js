@@ -8,5 +8,6 @@ router.put("/:id", _loginRequered2.default, _ControleAcessoController2.default.u
 router.post("/", _ControleAcessoController2.default.storage);
 router.get("/", _ControleAcessoController2.default.index);
 router.get("/:id", _ControleAcessoController2.default.show);
+router.get("/getPermicoes/:id", _ControleAcessoController2.default.getPermicoes);
 router.delete("/:id", _loginRequered2.default, _ControleAcessoController2.default.delete);
 exports. default = router;

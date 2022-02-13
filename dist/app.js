@@ -25,6 +25,7 @@ var _nomesVisitanteRoutes = require('./routes/nomesVisitanteRoutes'); var _nomes
 var _descCaixaRoutes = require('./routes/descCaixaRoutes'); var _descCaixaRoutes2 = _interopRequireDefault(_descCaixaRoutes);
 var _pedidoRoutes = require('./routes/pedidoRoutes'); var _pedidoRoutes2 = _interopRequireDefault(_pedidoRoutes);
 var _controleAcessoRoutes = require('./routes/controleAcessoRoutes'); var _controleAcessoRoutes2 = _interopRequireDefault(_controleAcessoRoutes);
+var _controleCarterinhaRoutes = require('./routes/controleCarterinhaRoutes'); var _controleCarterinhaRoutes2 = _interopRequireDefault(_controleCarterinhaRoutes);
 
 const whiteList = [
   // dados do servidor
@@ -73,6 +74,7 @@ class App {
     this.app.use("/descCaixa/", _descCaixaRoutes2.default);
     this.app.use("/pedido/", _pedidoRoutes2.default);
     this.app.use("/controleAcesso/", _controleAcessoRoutes2.default);
+    this.app.use("/controleCarterinha/", _controleCarterinhaRoutes2.default);
   }
 }
 exports. default = new App().app;

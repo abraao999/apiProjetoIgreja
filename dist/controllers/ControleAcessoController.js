@@ -41,6 +41,28 @@ class ControleAcessoController {
     }
   }
 
+  async getPermicoes(req, res) {
+    try {
+      const { id } = req.params;
+      if (!id) {
+        return res.status(400).json({ erros: ["faltando id"] });
+      }
+
+      const funcoes = await _ControleAcesso2.default.findAll({
+        where: { membro_id: id },
+      });
+      if (!funcoes) {
+        return res.status(400).json({ erros: ["dado não existe"] });
+      }
+
+      return res.json(funcoes);
+    } catch (error) {
+      return res
+        .status(400)
+        .json({ erros: error.erros.map((es) => es.message) });
+    }
+  }
+
   async update(req, res) {
     try {
       const { id } = req.params;

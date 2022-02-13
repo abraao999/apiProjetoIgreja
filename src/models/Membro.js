@@ -180,6 +180,7 @@ export default class Membro extends Model {
     this.hasMany(models.Caixa, { foreignKey: "departamento_id" });
     this.hasMany(models.Dizimo, { foreignKey: "membro_id" });
     this.hasMany(models.ControleAcesso, { foreignKey: "membro_id" });
+    this.hasMany(models.ControleCarterinha, { foreignKey: "membro_id" });
     this.belongsTo(models.Setor, { foreignKey: "setor_id" });
   }
 

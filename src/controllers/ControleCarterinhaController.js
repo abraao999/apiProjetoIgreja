@@ -1,14 +1,14 @@
-import ControleAcesso from "../models/ControleAcesso";
+import ControleCarterinha from "../models/ControleCarterinha";
 
-class ControleAcessoController {
+class ControleCarterinhaController {
   async storage(req, res) {
     try {
-      const controleAcesso = await ControleAcesso.create(req.body);
-      if (!controleAcesso) {
+      const controleCarterinha = await ControleCarterinha.create(req.body);
+      if (!controleCarterinha) {
         return res.status(400).json({ erros: ["dado ja existe"] });
       }
 
-      return res.json(controleAcesso);
+      return res.json(controleCarterinha);
     } catch (er) {
       return res
         .status(400)
@@ -17,8 +17,8 @@ class ControleAcessoController {
   }
 
   async index(req, res) {
-    const controleAcesso = await ControleAcesso.findAll();
-    res.json(controleAcesso);
+    const controleCarterinha = await ControleCarterinha.findAll();
+    res.json(controleCarterinha);
   }
 
   async show(req, res) {
@@ -28,12 +28,12 @@ class ControleAcessoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const funcoes = await ControleAcesso.findByPk(id);
-      if (!funcoes) {
+      const controleCarterinha = await ControleCarterinha.findByPk(id);
+      if (!controleCarterinha) {
         return res.status(400).json({ erros: ["dado não existe"] });
       }
 
-      return res.json(funcoes);
+      return res.json(controleCarterinha);
     } catch (error) {
       return res
         .status(400)
@@ -41,14 +41,14 @@ class ControleAcessoController {
     }
   }
 
-  async getPermicoes(req, res) {
+  async getEntregues(req, res) {
     try {
       const { id } = req.params;
       if (!id) {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const funcoes = await ControleAcesso.findAll({
+      const funcoes = await ControleCarterinha.findOne({
         where: { membro_id: id },
       });
       if (!funcoes) {
@@ -70,11 +70,11 @@ class ControleAcessoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const controleAcesso = await ControleAcesso.findByPk(id);
-      if (!controleAcesso) {
+      const controleCarterinha = await ControleCarterinha.findByPk(id);
+      if (!controleCarterinha) {
         return res.status(400).json({ erros: ["dado não existe"] });
       }
-      const novosDados = await controleAcesso.update(req.body);
+      const novosDados = await ControleCarterinha.update(req.body);
       return res.json(novosDados);
     } catch (error) {
       return res
@@ -90,11 +90,11 @@ class ControleAcessoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const controleAcesso = await ControleAcesso.findByPk(id);
-      if (!controleAcesso) {
+      const controleCarterinha = await ControleCarterinha.findByPk(id);
+      if (!controleCarterinha) {
         return res.status(400).json({ erros: ["dado nao existe"] });
       }
-      await controleAcesso.destroy();
+      await controleCarterinha.destroy();
       return res.json({ apagado: true });
     } catch (error) {
       return res
@@ -103,4 +103,4 @@ class ControleAcessoController {
     }
   }
 }
-export default new ControleAcessoController();
+export default new ControleCarterinhaController();
