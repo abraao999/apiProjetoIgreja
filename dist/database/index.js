@@ -21,6 +21,7 @@ var _ControleAcesso = require('../models/ControleAcesso'); var _ControleAcesso2 
 var _ControleCarterinha = require('../models/ControleCarterinha'); var _ControleCarterinha2 = _interopRequireDefault(_ControleCarterinha);
 var _TeologiaAluno = require('../models/TeologiaAluno'); var _TeologiaAluno2 = _interopRequireDefault(_TeologiaAluno);
 var _TeologiaClasse = require('../models/TeologiaClasse'); var _TeologiaClasse2 = _interopRequireDefault(_TeologiaClasse);
+var _TeologiaChamada = require('../models/TeologiaChamada'); var _TeologiaChamada2 = _interopRequireDefault(_TeologiaChamada);
 
 const models = [
   _Function2.default,
@@ -43,6 +44,7 @@ const models = [
   _ControleCarterinha2.default,
   _TeologiaAluno2.default,
   _TeologiaClasse2.default,
+  _TeologiaChamada2.default,
 ];
 const connection = new (0, _sequelize2.default)(_database2.default);
 models.forEach((model) => model.init(connection));

@@ -29,6 +29,7 @@ import controleCarterinhaRoutes from "./routes/controleCarterinhaRoutes";
 import teologiaAlunoRoutes from "./routes/teologiaAlunoRoutes";
 import correioRoutes from "./routes/correioRoutes";
 import teologiaClasseRoutes from "./routes/teologiaClasseRoutes";
+import teologiaChamadaRoutes from "./routes/teologiaChamadaRoutes";
 
 const whiteList = [
   // dados do servidor
@@ -81,6 +82,7 @@ class App {
     this.app.use("/teologiaAluno/", teologiaAlunoRoutes);
     this.app.use("/correio/", correioRoutes);
     this.app.use("/teologiaClasse/", teologiaClasseRoutes);
+    this.app.use("/teologiaChamada/", teologiaChamadaRoutes);
   }
 }
 export default new App().app;

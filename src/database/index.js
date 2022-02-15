@@ -21,6 +21,7 @@ import ControleAcesso from "../models/ControleAcesso";
 import ControleCarterinha from "../models/ControleCarterinha";
 import TeologiaAluno from "../models/TeologiaAluno";
 import TeologiaClasse from "../models/TeologiaClasse";
+import TeologiaChamada from "../models/TeologiaChamada";
 
 const models = [
   Function,
@@ -43,6 +44,7 @@ const models = [
   ControleCarterinha,
   TeologiaAluno,
   TeologiaClasse,
+  TeologiaChamada,
 ];
 const connection = new Sequelize(databaseConfig);
 models.forEach((model) => model.init(connection));

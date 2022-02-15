@@ -131,5 +131,6 @@ export default class TeologiaAluno extends Model {
 
   static associate(models) {
     this.belongsTo(models.TeologiaClasse, { foreignKey: "classe_id" });
+    this.hasMany(models.TeologiaChamada, { foreignKey: "aluno_id" });
   }
 }
