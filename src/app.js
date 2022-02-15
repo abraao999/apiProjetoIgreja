@@ -26,6 +26,9 @@ import descCaixaRoutes from "./routes/descCaixaRoutes";
 import pedidoRoutes from "./routes/pedidoRoutes";
 import controleAcessoRoutes from "./routes/controleAcessoRoutes";
 import controleCarterinhaRoutes from "./routes/controleCarterinhaRoutes";
+import teologiaAlunoRoutes from "./routes/teologiaAlunoRoutes";
+import correioRoutes from "./routes/correioRoutes";
+import teologiaClasseRoutes from "./routes/teologiaClasseRoutes";
 
 const whiteList = [
   // dados do servidor
@@ -75,6 +78,9 @@ class App {
     this.app.use("/pedido/", pedidoRoutes);
     this.app.use("/controleAcesso/", controleAcessoRoutes);
     this.app.use("/controleCarterinha/", controleCarterinhaRoutes);
+    this.app.use("/teologiaAluno/", teologiaAlunoRoutes);
+    this.app.use("/correio/", correioRoutes);
+    this.app.use("/teologiaClasse/", teologiaClasseRoutes);
   }
 }
 export default new App().app;

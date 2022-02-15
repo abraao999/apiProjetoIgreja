@@ -26,6 +26,9 @@ var _descCaixaRoutes = require('./routes/descCaixaRoutes'); var _descCaixaRoutes
 var _pedidoRoutes = require('./routes/pedidoRoutes'); var _pedidoRoutes2 = _interopRequireDefault(_pedidoRoutes);
 var _controleAcessoRoutes = require('./routes/controleAcessoRoutes'); var _controleAcessoRoutes2 = _interopRequireDefault(_controleAcessoRoutes);
 var _controleCarterinhaRoutes = require('./routes/controleCarterinhaRoutes'); var _controleCarterinhaRoutes2 = _interopRequireDefault(_controleCarterinhaRoutes);
+var _teologiaAlunoRoutes = require('./routes/teologiaAlunoRoutes'); var _teologiaAlunoRoutes2 = _interopRequireDefault(_teologiaAlunoRoutes);
+var _correioRoutes = require('./routes/correioRoutes'); var _correioRoutes2 = _interopRequireDefault(_correioRoutes);
+var _teologiaClasseRoutes = require('./routes/teologiaClasseRoutes'); var _teologiaClasseRoutes2 = _interopRequireDefault(_teologiaClasseRoutes);
 
 const whiteList = [
   // dados do servidor
@@ -75,6 +78,9 @@ class App {
     this.app.use("/pedido/", _pedidoRoutes2.default);
     this.app.use("/controleAcesso/", _controleAcessoRoutes2.default);
     this.app.use("/controleCarterinha/", _controleCarterinhaRoutes2.default);
+    this.app.use("/teologiaAluno/", _teologiaAlunoRoutes2.default);
+    this.app.use("/correio/", _correioRoutes2.default);
+    this.app.use("/teologiaClasse/", _teologiaClasseRoutes2.default);
   }
 }
 exports. default = new App().app;
