@@ -132,5 +132,6 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
   static associate(models) {
     this.belongsTo(models.TeologiaClasse, { foreignKey: "classe_id" });
     this.hasMany(models.TeologiaChamada, { foreignKey: "aluno_id" });
+    this.hasMany(models.TeologiaLivro, { foreignKey: "aluno_id" });
   }
 } exports.default = TeologiaAluno;

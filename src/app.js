@@ -30,6 +30,7 @@ import teologiaAlunoRoutes from "./routes/teologiaAlunoRoutes";
 import correioRoutes from "./routes/correioRoutes";
 import teologiaClasseRoutes from "./routes/teologiaClasseRoutes";
 import teologiaChamadaRoutes from "./routes/teologiaChamadaRoutes";
+import teologiaLivroRoutes from "./routes/teologiaLivroRoutes";
 
 const whiteList = [
   // dados do servidor
@@ -83,6 +84,7 @@ class App {
     this.app.use("/correio/", correioRoutes);
     this.app.use("/teologiaClasse/", teologiaClasseRoutes);
     this.app.use("/teologiaChamada/", teologiaChamadaRoutes);
+    this.app.use("/teologiaLivro/", teologiaLivroRoutes);
   }
 }
 export default new App().app;
