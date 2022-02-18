@@ -4,7 +4,7 @@ import loginRequered from "../middlewares/loginRequered";
 
 const router = new Router();
 
-router.put("/:id", loginRequered, MembroController.update);
+router.put("/:id", MembroController.update);
 router.post("/", MembroController.storage);
 router.get("/", MembroController.index);
 router.get("/maxId", MembroController.maxId);
