@@ -1,10 +1,10 @@
 /* eslint-disable indent */
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.addColumn('membros',
-    'nomeConjuge', {
-    type: Sequelize.STRING,
-    allowNull: true,
-  }),
+  up: (queryInterface, Sequelize) =>
+    queryInterface.addColumn("membros", "nome_conjuge", {
+      type: Sequelize.STRING,
+      allowNull: true,
+    }),
 
-  down: () => { },
+  down: () => {},
 };

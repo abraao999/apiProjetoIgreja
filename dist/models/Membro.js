@@ -83,6 +83,16 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
             },
           },
         },
+        nome_conjuge: {
+          type: _sequelize2.default.STRING,
+          defaultValue: "",
+          validate: {
+            len: {
+              args: [3, 50],
+              msg: "Campo profissão deve ter entre 3 e 50 caracteres",
+            },
+          },
+        },
         observacao: {
           type: _sequelize2.default.STRING,
           defaultValue: "",

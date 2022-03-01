@@ -83,6 +83,16 @@ export default class Membro extends Model {
             },
           },
         },
+        nome_conjuge: {
+          type: Sequelize.STRING,
+          defaultValue: "",
+          validate: {
+            len: {
+              args: [3, 50],
+              msg: "Campo profissão deve ter entre 3 e 50 caracteres",
+            },
+          },
+        },
         observacao: {
           type: Sequelize.STRING,
           defaultValue: "",
