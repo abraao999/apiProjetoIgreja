@@ -21,6 +21,6 @@ export default class Cargo extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.Membro, { foreignKey: "membro_id" });
+    this.hasMany(models.Membro, { foreignKey: "cargo_id" });
   }
 }

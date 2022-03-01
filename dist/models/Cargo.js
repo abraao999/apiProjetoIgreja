@@ -21,6 +21,6 @@
   }
 
   static associate(models) {
-    this.hasMany(models.Membro, { foreignKey: "membro_id" });
+    this.hasMany(models.Membro, { foreignKey: "cargo_id" });
   }
 } exports.default = Cargo;
