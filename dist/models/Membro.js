@@ -89,7 +89,7 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
           validate: {
             len: {
               args: [3, 50],
-              msg: "Campo profissão deve ter entre 3 e 50 caracteres",
+              msg: "Campo nome_conjuge deve ter entre 3 e 50 caracteres",
             },
           },
         },

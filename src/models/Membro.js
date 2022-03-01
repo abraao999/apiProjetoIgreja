@@ -89,7 +89,7 @@ export default class Membro extends Model {
           validate: {
             len: {
               args: [3, 50],
-              msg: "Campo profissão deve ter entre 3 e 50 caracteres",
+              msg: "Campo nome_conjuge deve ter entre 3 e 50 caracteres",
             },
           },
         },
