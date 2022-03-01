@@ -19,4 +19,8 @@
     );
     return this;
   }
+
+  static associate(models) {
+    this.hasMany(models.Membro, { foreignKey: "membro_id" });
+  }
 } exports.default = Cargo;

@@ -19,4 +19,8 @@ export default class Cargo extends Model {
     );
     return this;
   }
+
+  static associate(models) {
+    this.hasMany(models.Membro, { foreignKey: "membro_id" });
+  }
 }
