@@ -43,17 +43,18 @@ class MembroController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const response = await knex("membros")
-        .join("setors", "setor_id", "=", "setors.id")
-        .join("cargos", "cargo_id", "=", "cargos.id")
-        .where("membros.id", id)
-        .first()
-        .select(
-          "membros.*",
-          "setors.descricao as desc_setor",
-          "cargos.descricao as desc_cargo"
-        )
-        .orderBy("membros.nome");
+      // const response = await knex("membros")
+      //   .join("setors", "setor_id", "=", "setors.id")
+      //   .join("cargos", "cargo_id", "=", "cargos.id")
+      //   .where("membros.id", id)
+      //   .first()
+      //   .select(
+      //     "membros.*",
+      //     "setors.descricao as desc_setor",
+      //     "cargos.descricao as desc_cargo"
+      //   )
+      //   .orderBy("membros.nome");
+      const response = await Membro.findOne({ id });
       if (!response) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
