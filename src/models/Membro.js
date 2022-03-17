@@ -118,12 +118,6 @@ export default class Membro extends Model {
         bairro: {
           type: Sequelize.STRING,
           defaultValue: "",
-          validate: {
-            len: {
-              args: [3, 50],
-              msg: "Campo bairro deve ter entre 3 e 50 caracteres",
-            },
-          },
         },
         cidade: {
           type: Sequelize.STRING,

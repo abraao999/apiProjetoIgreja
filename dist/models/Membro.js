@@ -118,12 +118,6 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
         bairro: {
           type: _sequelize2.default.STRING,
           defaultValue: "",
-          validate: {
-            len: {
-              args: [3, 50],
-              msg: "Campo bairro deve ter entre 3 e 50 caracteres",
-            },
-          },
         },
         cidade: {
           type: _sequelize2.default.STRING,
