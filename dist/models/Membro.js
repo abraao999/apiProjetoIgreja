@@ -31,7 +31,7 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
           validate: {
             len: {
               args: [3, 16],
-              msg: "Campo CPF deve ter entre 3 e 16 caracteres",
+              msg: "Campo CPF deve ter entre 3 e 16 caractere",
             },
           },
         },
