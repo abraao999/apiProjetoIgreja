@@ -104,12 +104,6 @@ export default class Membro extends Model {
         numero: {
           type: Sequelize.STRING,
           defaultValue: "",
-          validate: {
-            len: {
-              args: [1, 6],
-              msg: "Campo numero deve ter entre 1 e 6 caracteres",
-            },
-          },
         },
         complemento: {
           type: Sequelize.STRING,

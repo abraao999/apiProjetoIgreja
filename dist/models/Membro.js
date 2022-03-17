@@ -104,12 +104,6 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
         numero: {
           type: _sequelize2.default.STRING,
           defaultValue: "",
-          validate: {
-            len: {
-              args: [1, 6],
-              msg: "Campo numero deve ter entre 1 e 6 caracteres",
-            },
-          },
         },
         complemento: {
           type: _sequelize2.default.STRING,
