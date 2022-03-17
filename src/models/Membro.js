@@ -20,7 +20,7 @@ export default class Membro extends Model {
           defaultValue: "",
           validate: {
             len: {
-              args: [3, 12],
+              args: [3, 30],
               msg: "Campo RG deve ter entre 3 e 12 caracteres",
             },
           },

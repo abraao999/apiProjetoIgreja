@@ -20,7 +20,7 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
           defaultValue: "",
           validate: {
             len: {
-              args: [3, 12],
+              args: [3, 30],
               msg: "Campo RG deve ter entre 3 e 12 caracteres",
             },
           },
