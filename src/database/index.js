@@ -23,6 +23,7 @@ import TeologiaAluno from "../models/TeologiaAluno";
 import TeologiaClasse from "../models/TeologiaClasse";
 import TeologiaChamada from "../models/TeologiaChamada";
 import TeologiaLivro from "../models/TeologiaLivro";
+import LivrariaLivro from "../models/LivrariaLivro";
 
 const models = [
   Function,
@@ -47,6 +48,7 @@ const models = [
   TeologiaClasse,
   TeologiaChamada,
   TeologiaLivro,
+  LivrariaLivro
 ];
 const connection = new Sequelize(databaseConfig);
 models.forEach((model) => model.init(connection));
