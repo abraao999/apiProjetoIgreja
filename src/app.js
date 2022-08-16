@@ -31,7 +31,7 @@ import correioRoutes from "./routes/correioRoutes";
 import teologiaClasseRoutes from "./routes/teologiaClasseRoutes";
 import teologiaChamadaRoutes from "./routes/teologiaChamadaRoutes";
 import teologiaLivroRoutes from "./routes/teologiaLivroRoutes";
-import livrariaLivroRoutes from "./routes/livrariaLivroRoutes";
+import livrariaLivroRoutes from "./routes/Livraria/livrariaLivroRoutes";
 
 const whiteList = [
   // dados do servidor

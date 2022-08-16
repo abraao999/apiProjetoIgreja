@@ -1,11 +1,11 @@
-import Sequelize, { Model } from "sequelize";
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _sequelize = require('sequelize'); var _sequelize2 = _interopRequireDefault(_sequelize);
 
-export default class LivrariaLivro extends Model {
+ class LivrariaLivro extends _sequelize.Model {
   static init(sequelize) {
     super.init(
       {
         descricao: {
-          type: Sequelize.STRING,
+          type: _sequelize2.default.STRING,
           defaultValue: "",
           validate: {
             len: {
@@ -15,7 +15,7 @@ export default class LivrariaLivro extends Model {
           },
         },
         data_entrada: {
-          type: Sequelize.DATE,
+          type: _sequelize2.default.DATE,
           defaultValue: false,
           validate: {
             isDate: {
@@ -24,7 +24,16 @@ export default class LivrariaLivro extends Model {
           },
         },
         valor: {
-          type: Sequelize.FLOAT,
+          type: _sequelize2.default.FLOAT,
+          defaultValue: false,
+          validate: {
+            isFloat: {
+              msg: "Insira uma valor valido",
+            },
+          },
+        },
+        custo: {
+          type: _sequelize2.default.FLOAT,
           defaultValue: false,
           validate: {
             isFloat: {
@@ -33,7 +42,7 @@ export default class LivrariaLivro extends Model {
           },
         },
         quantidade: {
-          type: Sequelize.INTEGER,
+          type: _sequelize2.default.INTEGER,
           defaultValue: false,
           validate: {
             isInt: {
@@ -50,4 +59,4 @@ export default class LivrariaLivro extends Model {
   static associate(models) {
     // this.belongsTo(models.TeologiaAluno, { foreignKey: "aluno_id" });
   }
-}
+} exports.default = LivrariaLivro;

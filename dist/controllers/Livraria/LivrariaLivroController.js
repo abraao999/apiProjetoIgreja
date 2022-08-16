@@ -1,10 +1,10 @@
-import knex from "../config/knexfile";
-import LivrariaLivro from "../models/LivrariaLivro";
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _knexfile = require('../../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
+var _LivrariaLivro = require('../../models/Livraria/LivrariaLivro'); var _LivrariaLivro2 = _interopRequireDefault(_LivrariaLivro);
 
 class LivrariaLivroController {
   async storage(req, res) {
     try {
-      const dado = await LivrariaLivro.create(req.body);
+      const dado = await _LivrariaLivro2.default.create(req.body);
       if (!dado) {
         return res.status(400).json({ erros: ["livro ja existe"] });
       }
@@ -18,7 +18,7 @@ class LivrariaLivroController {
   }
 
   async index(req, res) {
-    const livro = await LivrariaLivro.findAll();
+    const livro = await _LivrariaLivro2.default.findAll();
     res.json(livro);
   }
 
@@ -29,7 +29,7 @@ class LivrariaLivroController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dado = await LivrariaLivro.findByPk(id);
+      const dado = await _LivrariaLivro2.default.findByPk(id);
       if (!dado) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
@@ -49,7 +49,7 @@ class LivrariaLivroController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dado = await LivrariaLivro.findByPk(id);
+      const dado = await _LivrariaLivro2.default.findByPk(id);
       if (!dado) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
@@ -69,7 +69,7 @@ class LivrariaLivroController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dado = await LivrariaLivro.findByPk(id);
+      const dado = await _LivrariaLivro2.default.findByPk(id);
       if (!dado) {
         return res.status(400).json({ erros: ["livro nao existe"] });
       }
@@ -89,7 +89,7 @@ class LivrariaLivroController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await knex("teologia_livros")
+      const dados = await _knexfile2.default.call(void 0, "teologia_livros")
         .join("teologia_alunos", "aluno_id", "=", "teologia_alunos.id")
         .select("teologia_livros.*", "teologia_alunos.nome as nome")
         .where("teologia_livros.aluno_id", id)
@@ -105,4 +105,4 @@ class LivrariaLivroController {
     }
   }
 }
-export default new LivrariaLivroController();
+exports. default = new LivrariaLivroController();

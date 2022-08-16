@@ -1,6 +1,6 @@
 import { Router } from "express";
-import LivrariaLivroController from "../controllers/LivrariaLivroController";
-import loginRequered from "../middlewares/loginRequered";
+import LivrariaLivroController from "../../controllers/Livraria/LivrariaLivroController";
+import loginRequered from "../../middlewares/loginRequered";
 
 const router = new Router();
 

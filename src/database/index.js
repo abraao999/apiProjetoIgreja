@@ -23,7 +23,7 @@ import TeologiaAluno from "../models/TeologiaAluno";
 import TeologiaClasse from "../models/TeologiaClasse";
 import TeologiaChamada from "../models/TeologiaChamada";
 import TeologiaLivro from "../models/TeologiaLivro";
-import LivrariaLivro from "../models/LivrariaLivro";
+import LivrariaLivro from "../models/Livraria/LivrariaLivro";
 
 const models = [
   Function,
