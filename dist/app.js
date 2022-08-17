@@ -32,6 +32,7 @@ var _teologiaClasseRoutes = require('./routes/teologiaClasseRoutes'); var _teolo
 var _teologiaChamadaRoutes = require('./routes/teologiaChamadaRoutes'); var _teologiaChamadaRoutes2 = _interopRequireDefault(_teologiaChamadaRoutes);
 var _teologiaLivroRoutes = require('./routes/teologiaLivroRoutes'); var _teologiaLivroRoutes2 = _interopRequireDefault(_teologiaLivroRoutes);
 var _livrariaLivroRoutes = require('./routes/Livraria/livrariaLivroRoutes'); var _livrariaLivroRoutes2 = _interopRequireDefault(_livrariaLivroRoutes);
+var _livrariaPedidoRoutes = require('./routes/Livraria/livrariaPedidoRoutes'); var _livrariaPedidoRoutes2 = _interopRequireDefault(_livrariaPedidoRoutes);
 
 const whiteList = [
   // dados do servidor
@@ -87,6 +88,7 @@ class App {
     this.app.use("/teologiaChamada/", _teologiaChamadaRoutes2.default);
     this.app.use("/teologiaLivro/", _teologiaLivroRoutes2.default);
     this.app.use("/livrariaLivro/", _livrariaLivroRoutes2.default);
+    this.app.use("/livrariaPedido/", _livrariaPedidoRoutes2.default);
   }
 }
 exports. default = new App().app;
