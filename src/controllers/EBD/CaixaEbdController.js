@@ -1,6 +1,6 @@
-import Departamento from "../models/Departamento";
-import CaixaEbd from "../models/CaixaEbd";
-import knex from "../config/knexfile";
+import Departamento from "../../models/Departamento";
+import CaixaEbd from "../../models/EBD/CaixaEbd";
+import knex from "../../config/knexfile";
 
 class CaixaEbdController {
   async storage(req, res) {

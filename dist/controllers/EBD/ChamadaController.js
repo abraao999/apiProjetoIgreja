@@ -1,10 +1,10 @@
-import Chamada from "../models/Chamada";
-import knex from "../config/knexfile";
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Chamada = require('../../models/EBD/Chamada'); var _Chamada2 = _interopRequireDefault(_Chamada);
+var _knexfile = require('../../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
 
 class ChamadaController {
   async storage(req, res) {
     try {
-      const dado = await Chamada.create(req.body);
+      const dado = await _Chamada2.default.create(req.body);
       if (!dado) {
         return res.status(400).json({ erros: ["Chamada ja existe"] });
       }
@@ -18,7 +18,7 @@ class ChamadaController {
   }
 
   async index(req, res) {
-    const dado = await knex("chamadas")
+    const dado = await _knexfile2.default.call(void 0, "chamadas")
       .join("alunos", "aluno_id", "=", "alunos.id")
       .join("classes", "classe_id", "=", "classes.id")
       .select(
@@ -39,7 +39,7 @@ class ChamadaController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dado = await knex("chamadas")
+      const dado = await _knexfile2.default.call(void 0, "chamadas")
         .join("alunos", "aluno_id", "=", "alunos.id")
         .join("classes", "classe_id", "=", "classes.id")
         .where("chadamas.id", id)
@@ -71,11 +71,11 @@ class ChamadaController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const chamada = await Chamada.findByPk(id);
+      const chamada = await _Chamada2.default.findByPk(id);
       if (!chamada) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
-      const novosDados = await Chamada.update(req.body);
+      const novosDados = await _Chamada2.default.update(req.body);
       return res.json(novosDados);
     } catch (error) {
       return res
@@ -91,11 +91,11 @@ class ChamadaController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await knex('chamadas').where('chamadas.id', id);
+      const dados = await _knexfile2.default.call(void 0, 'chamadas').where('chamadas.id', id);
       if (!dados) {
         return res.status(400).json({ erros: ["aluno nao existe"] });
       }
-      await knex('chamadas').where('chamadas.id', id).del();
+      await _knexfile2.default.call(void 0, 'chamadas').where('chamadas.id', id).del();
       return res.json({ apagado: true });
     } catch (error) {
       return res
@@ -104,4 +104,4 @@ class ChamadaController {
     }
   }
 }
-export default new ChamadaController();
+exports. default = new ChamadaController();

@@ -7,12 +7,12 @@ var _Setor = require('../models/Setor'); var _Setor2 = _interopRequireDefault(_S
 var _Departamento = require('../models/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
 var _Caixa = require('../models/Caixa'); var _Caixa2 = _interopRequireDefault(_Caixa);
 var _Membro = require('../models/Membro'); var _Membro2 = _interopRequireDefault(_Membro);
-var _Classe = require('../models/Classe'); var _Classe2 = _interopRequireDefault(_Classe);
-var _Aluno = require('../models/Aluno'); var _Aluno2 = _interopRequireDefault(_Aluno);
+var _Classe = require('../models/EBD/Classe'); var _Classe2 = _interopRequireDefault(_Classe);
+var _Aluno = require('../models/EBD/Aluno'); var _Aluno2 = _interopRequireDefault(_Aluno);
 var _Abatimento = require('../models/Abatimento'); var _Abatimento2 = _interopRequireDefault(_Abatimento);
 var _Dizimo = require('../models/Dizimo'); var _Dizimo2 = _interopRequireDefault(_Dizimo);
-var _Chamada = require('../models/Chamada'); var _Chamada2 = _interopRequireDefault(_Chamada);
-var _CaixaEbd = require('../models/CaixaEbd'); var _CaixaEbd2 = _interopRequireDefault(_CaixaEbd);
+var _Chamada = require('../models/EBD/Chamada'); var _Chamada2 = _interopRequireDefault(_Chamada);
+var _CaixaEbd = require('../models/EBD/CaixaEbd'); var _CaixaEbd2 = _interopRequireDefault(_CaixaEbd);
 var _FamiliaVisitante = require('../models/FamiliaVisitante'); var _FamiliaVisitante2 = _interopRequireDefault(_FamiliaVisitante);
 var _NomeVisitantes = require('../models/NomeVisitantes'); var _NomeVisitantes2 = _interopRequireDefault(_NomeVisitantes);
 var _DescLancamento = require('../models/DescLancamento'); var _DescLancamento2 = _interopRequireDefault(_DescLancamento);

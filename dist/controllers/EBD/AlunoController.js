@@ -1,12 +1,10 @@
-import Departamento from "../models/Departamento";
-import Aluno from "../models/Aluno";
-import knex from "../config/knexfile";
-import Membro from "../models/Membro";
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Aluno = require('../../models/EBD/Aluno'); var _Aluno2 = _interopRequireDefault(_Aluno);
+var _knexfile = require('../../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
 
 class AlunoController {
   async storage(req, res) {
     try {
-      const dados = await Aluno.create(req.body);
+      const dados = await _Aluno2.default.create(req.body);
       if (!dados) {
         return res.status(400).json({ erros: ["departamento ja existe"] });
       }
@@ -20,7 +18,7 @@ class AlunoController {
   }
 
   async index(req, res) {
-    const response = await knex("alunos")
+    const response = await _knexfile2.default.call(void 0, "alunos")
       .join("classes", "classe_id", "=", "classes.id")
       .select(
         "alunos.*",
@@ -38,7 +36,7 @@ class AlunoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await knex("alunos")
+      const dados = await _knexfile2.default.call(void 0, "alunos")
         .join("setors", "setor_id", "=", "setors.id")
         .join("classes", "classe_id", "=", "classes.id")
         .where("alunos.id", id)
@@ -71,11 +69,11 @@ class AlunoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await knex('alunos').where('alunos.id', id);
+      const dados = await _knexfile2.default.call(void 0, 'alunos').where('alunos.id', id);
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
-      const novosDados = await knex('alunos').where('alunos.id', id).update({
+      const novosDados = await _knexfile2.default.call(void 0, 'alunos').where('alunos.id', id).update({
         nome, telefone, cpf, data_aniversario, setor_id, classe_id
       });
       return res.json({
@@ -95,11 +93,11 @@ class AlunoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await knex('alunos').where('alunos.id', id);
+      const dados = await _knexfile2.default.call(void 0, 'alunos').where('alunos.id', id);
       if (!dados) {
         return res.status(400).json({ erros: ["aluno nao existe"] });
       }
-      await knex('alunos').where('alunos.id', id).del();
+      await _knexfile2.default.call(void 0, 'alunos').where('alunos.id', id).del();
       return res.json({ apagado: true });
     } catch (error) {
       return res
@@ -108,4 +106,4 @@ class AlunoController {
     }
   }
 }
-export default new AlunoController();
+exports. default = new AlunoController();
