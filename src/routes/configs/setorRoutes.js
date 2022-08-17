@@ -1,6 +1,6 @@
 import { Router } from "express";
-import SetorController from "../controllers/SetorController";
-import loginRequered from "../middlewares/loginRequered";
+import SetorController from "../../controllers/configs/SetorController";
+import loginRequered from "../../middlewares/loginRequered";
 
 const router = new Router();
 

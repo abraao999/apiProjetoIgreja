@@ -1,14 +1,14 @@
-import Cargo from "../models/Cargo";
+import Function from "../../models/configs/Function";
 
-class CargoController {
+class FunctionController {
   async storage(req, res) {
     try {
-      const cargo = await Cargo.create(req.body);
-      if (!cargo) {
-        return res.status(400).json({ erros: ["cargo ja existe"] });
+      const funcao = await Function.create(req.body);
+      if (!funcao) {
+        return res.status(400).json({ erros: ["funcao ja existe"] });
       }
 
-      return res.json(cargo);
+      return res.json(funcao);
     } catch (er) {
       return res
         .status(400)
@@ -17,8 +17,8 @@ class CargoController {
   }
 
   async index(req, res) {
-    const cargo = await Cargo.findAll();
-    res.json(cargo);
+    const funcao = await Function.findAll();
+    res.json(funcao);
   }
 
   async show(req, res) {
@@ -28,7 +28,7 @@ class CargoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const funcoes = await Cargo.findByPk(id);
+      const funcoes = await Function.findByPk(id);
       if (!funcoes) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
@@ -48,11 +48,11 @@ class CargoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const cargo = await Cargo.findByPk(id);
-      if (!cargo) {
+      const funcao = await Function.findByPk(id);
+      if (!funcao) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
-      const novosDados = await cargo.update(req.body);
+      const novosDados = await funcao.update(req.body);
       return res.json(novosDados);
     } catch (error) {
       return res
@@ -68,11 +68,11 @@ class CargoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const cargo = await Cargo.findByPk(id);
-      if (!cargo) {
-        return res.status(400).json({ erros: ["cargo nao existe"] });
+      const funcao = await Function.findByPk(id);
+      if (!funcao) {
+        return res.status(400).json({ erros: ["funcao nao existe"] });
       }
-      await cargo.destroy();
+      await funcao.destroy();
       return res.json({ apagado: true });
     } catch (error) {
       return res
@@ -81,4 +81,4 @@ class CargoController {
     }
   }
 }
-export default new CargoController();
+export default new FunctionController();

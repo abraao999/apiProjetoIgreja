@@ -1,5 +1,4 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Departamento = require('../models/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
-var _Caixa = require('../models/Caixa'); var _Caixa2 = _interopRequireDefault(_Caixa);
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Caixa = require('../models/Caixa'); var _Caixa2 = _interopRequireDefault(_Caixa);
 var _knexfile = require('../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
 
 class CaixaController {

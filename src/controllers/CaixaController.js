@@ -1,4 +1,3 @@
-import Departamento from "../models/Departamento";
 import Caixa from "../models/Caixa";
 import knex from "../config/knexfile";
 

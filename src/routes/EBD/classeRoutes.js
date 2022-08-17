@@ -1,5 +1,5 @@
 import { Router } from "express";
-import ClasseController from "../../controllers/ClasseController";
+import ClasseController from "../../controllers/EBD/ClasseController";
 import loginRequered from "../../middlewares/loginRequered";
 
 const router = new Router();

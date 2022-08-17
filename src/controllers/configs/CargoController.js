@@ -1,15 +1,14 @@
-import knex from "../config/knexfile";
-import Setor from "../models/Setor";
+import Cargo from "../../models/configs/Cargo";
 
-class SetorController {
+class CargoController {
   async storage(req, res) {
     try {
-      const setor = await Setor.create(req.body);
-      if (!setor) {
-        return res.status(400).json({ erros: ["setor ja existe"] });
+      const cargo = await Cargo.create(req.body);
+      if (!cargo) {
+        return res.status(400).json({ erros: ["cargo ja existe"] });
       }
 
-      return res.json(setor);
+      return res.json(cargo);
     } catch (er) {
       return res
         .status(400)
@@ -18,8 +17,8 @@ class SetorController {
   }
 
   async index(req, res) {
-    const setor = await knex('setors');
-    res.json(setor);
+    const cargo = await Cargo.findAll();
+    res.json(cargo);
   }
 
   async show(req, res) {
@@ -29,12 +28,12 @@ class SetorController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dado = await knex('setors').where('setors.id', id).first();
-      if (!dado) {
+      const funcoes = await Cargo.findByPk(id);
+      if (!funcoes) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
 
-      return res.json(dado);
+      return res.json(funcoes);
     } catch (error) {
       return res
         .status(400)
@@ -49,11 +48,11 @@ class SetorController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const setor = await Setor.findByPk(id);
-      if (!setor) {
+      const cargo = await Cargo.findByPk(id);
+      if (!cargo) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
-      const novosDados = await setor.update(req.body);
+      const novosDados = await cargo.update(req.body);
       return res.json(novosDados);
     } catch (error) {
       return res
@@ -69,11 +68,11 @@ class SetorController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const setor = await Setor.findByPk(id);
-      if (!setor) {
-        return res.status(400).json({ erros: ["setor nao existe"] });
+      const cargo = await Cargo.findByPk(id);
+      if (!cargo) {
+        return res.status(400).json({ erros: ["cargo nao existe"] });
       }
-      await setor.destroy();
+      await cargo.destroy();
       return res.json({ apagado: true });
     } catch (error) {
       return res
@@ -82,4 +81,4 @@ class SetorController {
     }
   }
 }
-export default new SetorController();
+export default new CargoController();

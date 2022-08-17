@@ -1,6 +1,6 @@
 import { Router } from "express";
-import DepartamentoController from "../controllers/DepartamentoController";
-import loginRequered from "../middlewares/loginRequered";
+import DepartamentoController from "../../controllers/configs/DepartamentoController";
+import loginRequered from "../../middlewares/loginRequered";
 
 const router = new Router();
 

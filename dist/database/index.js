@@ -1,10 +1,10 @@
 "use strict"; function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _sequelize = require('sequelize'); var _sequelize2 = _interopRequireDefault(_sequelize);
 
 var _database = require('../config/database'); var _database2 = _interopRequireDefault(_database);
-var _Function = require('../models/Function'); var _Function2 = _interopRequireDefault(_Function);
-var _Cargo = require('../models/Cargo'); var _Cargo2 = _interopRequireDefault(_Cargo);
-var _Setor = require('../models/Setor'); var _Setor2 = _interopRequireDefault(_Setor);
-var _Departamento = require('../models/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
+var _Function = require('../models/configs/Function'); var _Function2 = _interopRequireDefault(_Function);
+var _Cargo = require('../models/configs/Cargo'); var _Cargo2 = _interopRequireDefault(_Cargo);
+var _Setor = require('../models/configs/Setor'); var _Setor2 = _interopRequireDefault(_Setor);
+var _Departamento = require('../models/configs/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
 var _Caixa = require('../models/Caixa'); var _Caixa2 = _interopRequireDefault(_Caixa);
 var _Membro = require('../models/Membro'); var _Membro2 = _interopRequireDefault(_Membro);
 var _Classe = require('../models/EBD/Classe'); var _Classe2 = _interopRequireDefault(_Classe);

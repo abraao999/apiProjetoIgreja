@@ -1,5 +1,5 @@
 import { Router } from "express";
-import ChamadaController from "../../controllers/ChamadaController";
+import ChamadaController from "../../controllers/EBD/ChamadaController";
 import loginRequered from "../../middlewares/loginRequered";
 
 const router = new Router();

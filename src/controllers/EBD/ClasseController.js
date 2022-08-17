@@ -1,14 +1,15 @@
-import Function from "../models/Function";
+import Classe from "../../models/EBD/Classe";
+import knex from '../../config/knexfile';
 
-class FunctionController {
+class ClasseController {
   async storage(req, res) {
     try {
-      const funcao = await Function.create(req.body);
-      if (!funcao) {
-        return res.status(400).json({ erros: ["funcao ja existe"] });
+      const dados = await Classe.create(req.body);
+      if (!dados) {
+        return res.status(400).json({ erros: ["departamento ja existe"] });
       }
 
-      return res.json(funcao);
+      return res.json(dados);
     } catch (er) {
       return res
         .status(400)
@@ -17,8 +18,8 @@ class FunctionController {
   }
 
   async index(req, res) {
-    const funcao = await Function.findAll();
-    res.json(funcao);
+    const dados = await knex('classes');
+    res.json(dados);
   }
 
   async show(req, res) {
@@ -28,12 +29,12 @@ class FunctionController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const funcoes = await Function.findByPk(id);
-      if (!funcoes) {
+      const dados = await knex('classes').where('classes.id', id).first();
+      if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
 
-      return res.json(funcoes);
+      return res.json(dados);
     } catch (error) {
       return res
         .status(400)
@@ -44,15 +45,17 @@ class FunctionController {
   async update(req, res) {
     try {
       const { id } = req.params;
+      const { descricao, setor_id } = req.body;
       if (!id) {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const funcao = await Function.findByPk(id);
-      if (!funcao) {
+      const dados = await knex('classes').where('classes.id', id).first();
+      if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
-      const novosDados = await funcao.update(req.body);
+      const novosDados = await knex('classes').where('classes.id', id)
+        .update({ descricao, setor_id });
       return res.json(novosDados);
     } catch (error) {
       return res
@@ -68,11 +71,11 @@ class FunctionController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const funcao = await Function.findByPk(id);
-      if (!funcao) {
-        return res.status(400).json({ erros: ["funcao nao existe"] });
+      const dados = await Classe.findByPk(id);
+      if (!dados) {
+        return res.status(400).json({ erros: ["departamento nao existe"] });
       }
-      await funcao.destroy();
+      await dados.destroy();
       return res.json({ apagado: true });
     } catch (error) {
       return res
@@ -81,4 +84,4 @@ class FunctionController {
     }
   }
 }
-export default new FunctionController();
+export default new ClasseController();

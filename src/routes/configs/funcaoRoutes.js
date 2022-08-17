@@ -1,6 +1,6 @@
 import { Router } from "express";
-import FunctionController from "../controllers/FunctionController";
-import loginRequered from "../middlewares/loginRequered";
+import FunctionController from "../../controllers/configs/FunctionController";
+import loginRequered from "../../middlewares/loginRequered";
 
 const router = new Router();
 

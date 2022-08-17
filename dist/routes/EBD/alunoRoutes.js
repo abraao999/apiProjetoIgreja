@@ -1,5 +1,5 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _express = require('express');
-var _AlunoController = require('../../controllers/AlunoController'); var _AlunoController2 = _interopRequireDefault(_AlunoController);
+var _AlunoController = require('../../controllers/EBD/AlunoController'); var _AlunoController2 = _interopRequireDefault(_AlunoController);
 var _loginRequered = require('../../middlewares/loginRequered'); var _loginRequered2 = _interopRequireDefault(_loginRequered);
 
 const router = new (0, _express.Router)();

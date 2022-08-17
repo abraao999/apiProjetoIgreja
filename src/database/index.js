@@ -1,10 +1,10 @@
 import Sequelize from "sequelize";
 
 import databaseConfig from "../config/database";
-import Function from "../models/Function";
-import Cargo from "../models/Cargo";
-import Setor from "../models/Setor";
-import Departamento from "../models/Departamento";
+import Function from "../models/configs/Function";
+import Cargo from "../models/configs/Cargo";
+import Setor from "../models/configs/Setor";
+import Departamento from "../models/configs/Departamento";
 import Caixa from "../models/Caixa";
 import Membro from "../models/Membro";
 import Classe from "../models/EBD/Classe";

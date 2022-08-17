@@ -1,16 +1,14 @@
-import Departamento from "../models/Departamento";
-import Classe from "../models/Classe";
-import knex from '../config/knexfile';
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Cargo = require('../../models/configs/Cargo'); var _Cargo2 = _interopRequireDefault(_Cargo);
 
-class ClasseController {
+class CargoController {
   async storage(req, res) {
     try {
-      const dados = await Classe.create(req.body);
-      if (!dados) {
-        return res.status(400).json({ erros: ["departamento ja existe"] });
+      const cargo = await _Cargo2.default.create(req.body);
+      if (!cargo) {
+        return res.status(400).json({ erros: ["cargo ja existe"] });
       }
 
-      return res.json(dados);
+      return res.json(cargo);
     } catch (er) {
       return res
         .status(400)
@@ -19,8 +17,8 @@ class ClasseController {
   }
 
   async index(req, res) {
-    const dados = await knex('classes');
-    res.json(dados);
+    const cargo = await _Cargo2.default.findAll();
+    res.json(cargo);
   }
 
   async show(req, res) {
@@ -30,12 +28,12 @@ class ClasseController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await knex('classes').where('classes.id', id).first();
-      if (!dados) {
+      const funcoes = await _Cargo2.default.findByPk(id);
+      if (!funcoes) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
 
-      return res.json(dados);
+      return res.json(funcoes);
     } catch (error) {
       return res
         .status(400)
@@ -46,17 +44,15 @@ class ClasseController {
   async update(req, res) {
     try {
       const { id } = req.params;
-      const { descricao, setor_id } = req.body;
       if (!id) {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await knex('classes').where('classes.id', id).first();
-      if (!dados) {
+      const cargo = await _Cargo2.default.findByPk(id);
+      if (!cargo) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
-      const novosDados = await knex('classes').where('classes.id', id)
-        .update({ descricao, setor_id });
+      const novosDados = await cargo.update(req.body);
       return res.json(novosDados);
     } catch (error) {
       return res
@@ -72,11 +68,11 @@ class ClasseController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await Classe.findByPk(id);
-      if (!dados) {
-        return res.status(400).json({ erros: ["departamento nao existe"] });
+      const cargo = await _Cargo2.default.findByPk(id);
+      if (!cargo) {
+        return res.status(400).json({ erros: ["cargo nao existe"] });
       }
-      await dados.destroy();
+      await cargo.destroy();
       return res.json({ apagado: true });
     } catch (error) {
       return res
@@ -85,4 +81,4 @@ class ClasseController {
     }
   }
 }
-export default new ClasseController();
+exports. default = new CargoController();

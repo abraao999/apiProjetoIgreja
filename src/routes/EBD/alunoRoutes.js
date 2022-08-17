@@ -1,5 +1,5 @@
 import { Router } from "express";
-import AlunoController from "../../controllers/AlunoController";
+import AlunoController from "../../controllers/EBD/AlunoController";
 import loginRequered from "../../middlewares/loginRequered";
 
 const router = new Router();

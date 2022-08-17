@@ -1,16 +1,16 @@
-import Departamento from "../../models/configs/Departamento";
-import CaixaEbd from "../../models/EBD/CaixaEbd";
 import knex from "../../config/knexfile";
+import Departamento from "../../models/configs/Departamento";
+import Setor from "../../models/configs/Setor";
 
-class CaixaEbdController {
+class DepartamentoController {
   async storage(req, res) {
     try {
-      const dados = await CaixaEbd.create(req.body);
-      if (!dados) {
+      const departamento = await Departamento.create(req.body);
+      if (!departamento) {
         return res.status(400).json({ erros: ["departamento ja existe"] });
       }
 
-      return res.json(dados);
+      return res.json(departamento);
     } catch (er) {
       return res
         .status(400)
@@ -19,12 +19,16 @@ class CaixaEbdController {
   }
 
   async index(req, res) {
-    const dados = await knex("caixa_ebds")
-      .join("setors", "setor_id", "=", "setors.id")
-      .select("caixa_ebds.*", "setors.descricao as desc_setor")
-      .orderBy("asc caixa_ebds.data_operacao");
+    const response = await knex("departamentos")
+      .join("setors", "departamentos.setor_id", "=", "setors.id")
+      .select(
+        "departamentos.id as id",
+        "departamentos.descricao as descricao",
+        "setors.id as setor_id",
+        "setors.descricao as setor_descricao"
+      );
 
-    res.json(dados);
+    return res.json(response);
   }
 
   async show(req, res) {
@@ -34,14 +38,14 @@ class CaixaEbdController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await CaixaEbd.findByPk(id, {
-        include: { model: Departamento, attributes: ["descricao"] },
+      const funcoes = await Departamento.findByPk(id, {
+        include: { model: Setor, attributes: ["descricao"] },
       });
-      if (!dados) {
+      if (!funcoes) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
 
-      return res.json(dados);
+      return res.json(funcoes);
     } catch (error) {
       return res
         .status(400)
@@ -56,11 +60,11 @@ class CaixaEbdController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await CaixaEbd.findByPk(id);
-      if (!dados) {
+      const departamento = await Departamento.findByPk(id);
+      if (!departamento) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
-      const novosDados = await dados.update(req.body);
+      const novosDados = await departamento.update(req.body);
       return res.json(novosDados);
     } catch (error) {
       return res
@@ -76,11 +80,11 @@ class CaixaEbdController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await CaixaEbd.findByPk(id);
-      if (!dados) {
+      const departamento = await Departamento.findByPk(id);
+      if (!departamento) {
         return res.status(400).json({ erros: ["departamento nao existe"] });
       }
-      await dados.destroy();
+      await departamento.destroy();
       return res.json({ apagado: true });
     } catch (error) {
       return res
@@ -88,19 +92,5 @@ class CaixaEbdController {
         .json({ erros: error.erros.map((es) => es.message) });
     }
   }
-
-  async maxId(req, res) {
-    try {
-      const dado = await CaixaEbd.max("id");
-      if (!dado) {
-        return res.status(400).json({ erros: ["Tabela vazia"] });
-      }
-      return res.json(dado);
-    } catch (error) {
-      return res
-        .status(400)
-        .json({ erros: error.erros.map((es) => es.message) });
-    }
-  }
 }
-export default new CaixaEbdController();
+export default new DepartamentoController();

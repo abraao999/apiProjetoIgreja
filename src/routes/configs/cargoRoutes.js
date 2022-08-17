@@ -1,6 +1,6 @@
 import { Router } from "express";
-import CargoController from "../controllers/CargoController";
-import loginRequered from "../middlewares/loginRequered";
+import CargoController from "../../controllers/configs/CargoController";
+import loginRequered from "../../middlewares/loginRequered";
 
 const router = new Router();
 

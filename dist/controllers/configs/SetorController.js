@@ -1,16 +1,15 @@
-import knex from "../config/knexfile";
-import Departamento from "../models/Departamento";
-import Setor from "../models/Setor";
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _knexfile = require('../../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
+var _Setor = require('../../models/configs/Setor'); var _Setor2 = _interopRequireDefault(_Setor);
 
-class DepartamentoController {
+class SetorController {
   async storage(req, res) {
     try {
-      const departamento = await Departamento.create(req.body);
-      if (!departamento) {
-        return res.status(400).json({ erros: ["departamento ja existe"] });
+      const setor = await _Setor2.default.create(req.body);
+      if (!setor) {
+        return res.status(400).json({ erros: ["setor ja existe"] });
       }
 
-      return res.json(departamento);
+      return res.json(setor);
     } catch (er) {
       return res
         .status(400)
@@ -19,16 +18,8 @@ class DepartamentoController {
   }
 
   async index(req, res) {
-    const response = await knex("departamentos")
-      .join("setors", "departamentos.setor_id", "=", "setors.id")
-      .select(
-        "departamentos.id as id",
-        "departamentos.descricao as descricao",
-        "setors.id as setor_id",
-        "setors.descricao as setor_descricao"
-      );
-
-    return res.json(response);
+    const setor = await _knexfile2.default.call(void 0, 'setors');
+    res.json(setor);
   }
 
   async show(req, res) {
@@ -38,14 +29,12 @@ class DepartamentoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const funcoes = await Departamento.findByPk(id, {
-        include: { model: Setor, attributes: ["descricao"] },
-      });
-      if (!funcoes) {
+      const dado = await _knexfile2.default.call(void 0, 'setors').where('setors.id', id).first();
+      if (!dado) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
 
-      return res.json(funcoes);
+      return res.json(dado);
     } catch (error) {
       return res
         .status(400)
@@ -60,11 +49,11 @@ class DepartamentoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const departamento = await Departamento.findByPk(id);
-      if (!departamento) {
+      const setor = await _Setor2.default.findByPk(id);
+      if (!setor) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
-      const novosDados = await departamento.update(req.body);
+      const novosDados = await setor.update(req.body);
       return res.json(novosDados);
     } catch (error) {
       return res
@@ -80,11 +69,11 @@ class DepartamentoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const departamento = await Departamento.findByPk(id);
-      if (!departamento) {
-        return res.status(400).json({ erros: ["departamento nao existe"] });
+      const setor = await _Setor2.default.findByPk(id);
+      if (!setor) {
+        return res.status(400).json({ erros: ["setor nao existe"] });
       }
-      await departamento.destroy();
+      await setor.destroy();
       return res.json({ apagado: true });
     } catch (error) {
       return res
@@ -93,4 +82,4 @@ class DepartamentoController {
     }
   }
 }
-export default new DepartamentoController();
+exports. default = new SetorController();

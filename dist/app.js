@@ -7,10 +7,10 @@ var _express = require('express'); var _express2 = _interopRequireDefault(_expre
 var _cors = require('cors'); var _cors2 = _interopRequireDefault(_cors);
 var _helmet = require('helmet'); var _helmet2 = _interopRequireDefault(_helmet);
 var _expressdelay = require('express-delay'); var _expressdelay2 = _interopRequireDefault(_expressdelay);
-var _funcaoRoutes = require('./routes/funcaoRoutes'); var _funcaoRoutes2 = _interopRequireDefault(_funcaoRoutes);
-var _cargoRoutes = require('./routes/cargoRoutes'); var _cargoRoutes2 = _interopRequireDefault(_cargoRoutes);
-var _setorRoutes = require('./routes/setorRoutes'); var _setorRoutes2 = _interopRequireDefault(_setorRoutes);
-var _departamentoRoutes = require('./routes/departamentoRoutes'); var _departamentoRoutes2 = _interopRequireDefault(_departamentoRoutes);
+var _funcaoRoutes = require('./routes/configs/funcaoRoutes'); var _funcaoRoutes2 = _interopRequireDefault(_funcaoRoutes);
+var _cargoRoutes = require('./routes/configs/cargoRoutes'); var _cargoRoutes2 = _interopRequireDefault(_cargoRoutes);
+var _setorRoutes = require('./routes/configs/setorRoutes'); var _setorRoutes2 = _interopRequireDefault(_setorRoutes);
+var _departamentoRoutes = require('./routes/configs/departamentoRoutes'); var _departamentoRoutes2 = _interopRequireDefault(_departamentoRoutes);
 var _caixaRoutes = require('./routes/caixaRoutes'); var _caixaRoutes2 = _interopRequireDefault(_caixaRoutes);
 var _membroRoutes = require('./routes/membroRoutes'); var _membroRoutes2 = _interopRequireDefault(_membroRoutes);
 var _classeRoutes = require('./routes/EBD/classeRoutes'); var _classeRoutes2 = _interopRequireDefault(_classeRoutes);

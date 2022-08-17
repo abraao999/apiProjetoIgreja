@@ -1,11 +1,10 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Departamento = require('../../models/configs/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
-var _CaixaEbd = require('../../models/EBD/CaixaEbd'); var _CaixaEbd2 = _interopRequireDefault(_CaixaEbd);
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Classe = require('../../models/EBD/Classe'); var _Classe2 = _interopRequireDefault(_Classe);
 var _knexfile = require('../../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
 
-class CaixaEbdController {
+class ClasseController {
   async storage(req, res) {
     try {
-      const dados = await _CaixaEbd2.default.create(req.body);
+      const dados = await _Classe2.default.create(req.body);
       if (!dados) {
         return res.status(400).json({ erros: ["departamento ja existe"] });
       }
@@ -19,11 +18,7 @@ class CaixaEbdController {
   }
 
   async index(req, res) {
-    const dados = await _knexfile2.default.call(void 0, "caixa_ebds")
-      .join("setors", "setor_id", "=", "setors.id")
-      .select("caixa_ebds.*", "setors.descricao as desc_setor")
-      .orderBy("asc caixa_ebds.data_operacao");
-
+    const dados = await _knexfile2.default.call(void 0, 'classes');
     res.json(dados);
   }
 
@@ -34,9 +29,7 @@ class CaixaEbdController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await _CaixaEbd2.default.findByPk(id, {
-        include: { model: _Departamento2.default, attributes: ["descricao"] },
-      });
+      const dados = await _knexfile2.default.call(void 0, 'classes').where('classes.id', id).first();
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
@@ -52,15 +45,17 @@ class CaixaEbdController {
   async update(req, res) {
     try {
       const { id } = req.params;
+      const { descricao, setor_id } = req.body;
       if (!id) {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await _CaixaEbd2.default.findByPk(id);
+      const dados = await _knexfile2.default.call(void 0, 'classes').where('classes.id', id).first();
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
-      const novosDados = await dados.update(req.body);
+      const novosDados = await _knexfile2.default.call(void 0, 'classes').where('classes.id', id)
+        .update({ descricao, setor_id });
       return res.json(novosDados);
     } catch (error) {
       return res
@@ -76,7 +71,7 @@ class CaixaEbdController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await _CaixaEbd2.default.findByPk(id);
+      const dados = await _Classe2.default.findByPk(id);
       if (!dados) {
         return res.status(400).json({ erros: ["departamento nao existe"] });
       }
@@ -88,19 +83,5 @@ class CaixaEbdController {
         .json({ erros: error.erros.map((es) => es.message) });
     }
   }
-
-  async maxId(req, res) {
-    try {
-      const dado = await _CaixaEbd2.default.max("id");
-      if (!dado) {
-        return res.status(400).json({ erros: ["Tabela vazia"] });
-      }
-      return res.json(dado);
-    } catch (error) {
-      return res
-        .status(400)
-        .json({ erros: error.erros.map((es) => es.message) });
-    }
-  }
 }
-exports. default = new CaixaEbdController();
+exports. default = new ClasseController();

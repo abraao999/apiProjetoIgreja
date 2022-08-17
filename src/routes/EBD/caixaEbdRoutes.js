@@ -1,5 +1,5 @@
 import { Router } from "express";
-import CaixaEbcController from "../../controllers/CaixaEbdController";
+import CaixaEbcController from "../../controllers/EBD/CaixaEbdController";
 import loginRequered from "../../middlewares/loginRequered";
 
 const router = new Router();
