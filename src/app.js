@@ -33,6 +33,8 @@ import teologiaChamadaRoutes from "./routes/teologiaChamadaRoutes";
 import teologiaLivroRoutes from "./routes/teologiaLivroRoutes";
 import livrariaLivroRoutes from "./routes/Livraria/livrariaLivroRoutes";
 import livrariaPedidoRoutes from "./routes/Livraria/livrariaPedidoRoutes";
+import livrariaVendaRoutes from "./routes/Livraria/livrariaVendaRoutes";
+import livrariaVendaItenRoutes from "./routes/Livraria/livrariaVendaItenRoutes";
 
 const whiteList = [
   // dados do servidor
@@ -89,6 +91,8 @@ class App {
     this.app.use("/teologiaLivro/", teologiaLivroRoutes);
     this.app.use("/livrariaLivro/", livrariaLivroRoutes);
     this.app.use("/livrariaPedido/", livrariaPedidoRoutes);
+    this.app.use("/livrariaVenda/", livrariaVendaRoutes);
+    this.app.use("/livrariaVendaIten/", livrariaVendaItenRoutes);
   }
 }
 export default new App().app;

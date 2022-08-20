@@ -16,7 +16,7 @@
         },
         data_pedido: {
           type: _sequelize2.default.DATE,
-          defaultValue: false,
+          defaultValue: null,
           validate: {
             isDate: {
               msg: "Insira uma data de pedido valido",
@@ -25,28 +25,10 @@
         },
         data_pagamento: {
           type: _sequelize2.default.DATE,
-          defaultValue: false,
+          defaultValue: null,
           validate: {
             isDate: {
               msg: "Insira uma data validas",
-            },
-          },
-        },
-        valor: {
-          type: _sequelize2.default.FLOAT,
-          defaultValue: false,
-          validate: {
-            isFloat: {
-              msg: "Insira uma valor valido",
-            },
-          },
-        },
-        custo: {
-          type: _sequelize2.default.FLOAT,
-          defaultValue: false,
-          validate: {
-            isFloat: {
-              msg: "Insira uma valor valido",
             },
           },
         },
@@ -64,8 +46,8 @@
           defaultValue: "",
           validate: {
             len: {
-              args: [3, 16],
-              msg: "Campo Nome deve ter entre 3 e 16 caracteres",
+              args: [3, 255],
+              msg: "Campo Nome deve ter entre 3 e 255 caracteres",
             },
           },
         },
@@ -86,6 +68,16 @@
             len: {
               args: [3, 16],
               msg: "Campo tipo de pagamento deve ter entre 3 e 16 caracteres",
+            },
+          },
+        },
+        status: {
+          type: _sequelize2.default.STRING,
+          defaultValue: null,
+          validate: {
+            len: {
+              args: [3, 16],
+              msg: "Campo status deve ter entre 3 e 16 caracteres",
             },
           },
         },

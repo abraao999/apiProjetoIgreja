@@ -1,22 +1,12 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _sequelize = require('sequelize'); var _sequelize2 = _interopRequireDefault(_sequelize);
 
- class LivrariaLivro extends _sequelize.Model {
+ class LivrariaVenda extends _sequelize.Model {
   static init(sequelize) {
     super.init(
       {
-        descricao: {
-          type: _sequelize2.default.STRING,
-          defaultValue: "",
-          validate: {
-            len: {
-              args: [3, 50],
-              msg: "Campo descrição deve ter entre 3 e 50 caracteres",
-            },
-          },
-        },
-        data_entrada: {
+        data_venda: {
           type: _sequelize2.default.DATE,
-          defaultValue: false,
+          defaultValue: null,
           validate: {
             isDate: {
               msg: "Insira uma data validas",
@@ -32,21 +22,23 @@
             },
           },
         },
-        custo: {
-          type: _sequelize2.default.FLOAT,
-          defaultValue: false,
+        tipo_pagamento: {
+          type: _sequelize2.default.STRING,
+          defaultValue: "",
           validate: {
-            isFloat: {
-              msg: "Insira uma valor valido",
+            len: {
+              args: [3, 50],
+              msg: "Campo descrição deve ter entre 3 e 50 caracteres",
             },
           },
         },
-        quantidade: {
-          type: _sequelize2.default.INTEGER,
-          defaultValue: false,
+        nome_cliente: {
+          type: _sequelize2.default.STRING,
+          defaultValue: "",
           validate: {
-            isInt: {
-              msg: "Insira uma valor valido",
+            len: {
+              args: [3, 50],
+              msg: "Campo descrição deve ter entre 3 e 50 caracteres",
             },
           },
         },
@@ -57,6 +49,7 @@
   }
 
   static associate(models) {
-    this.hasMany(models.LivrariaVendaIten, { foreignKey: "livro_id" });
+    this.belongsTo(models.Membro, { foreignKey: "membro_id" });
+    this.belongsTo(models.LivrariaVendaIten, { foreignKey: "livro_id" });
   }
-} exports.default = LivrariaLivro;
+} exports.default = LivrariaVenda;

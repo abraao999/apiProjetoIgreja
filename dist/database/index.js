@@ -25,6 +25,8 @@ var _TeologiaChamada = require('../models/TeologiaChamada'); var _TeologiaChamad
 var _TeologiaLivro = require('../models/TeologiaLivro'); var _TeologiaLivro2 = _interopRequireDefault(_TeologiaLivro);
 var _LivrariaLivro = require('../models/Livraria/LivrariaLivro'); var _LivrariaLivro2 = _interopRequireDefault(_LivrariaLivro);
 var _LivrariaPedido = require('../models/Livraria/LivrariaPedido'); var _LivrariaPedido2 = _interopRequireDefault(_LivrariaPedido);
+var _LivrariaVenda = require('../models/Livraria/LivrariaVenda'); var _LivrariaVenda2 = _interopRequireDefault(_LivrariaVenda);
+var _LivrariaVendaIten = require('../models/Livraria/LivrariaVendaIten'); var _LivrariaVendaIten2 = _interopRequireDefault(_LivrariaVendaIten);
 
 const models = [
   _Function2.default,
@@ -49,7 +51,10 @@ const models = [
   _TeologiaClasse2.default,
   _TeologiaChamada2.default,
   _TeologiaLivro2.default,
-  _LivrariaLivro2.default, _LivrariaPedido2.default
+  _LivrariaLivro2.default,
+  _LivrariaPedido2.default,
+  _LivrariaVenda2.default,
+  _LivrariaVendaIten2.default,
 ];
 const connection = new (0, _sequelize2.default)(_database2.default);
 models.forEach((model) => model.init(connection));

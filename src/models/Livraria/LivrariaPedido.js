@@ -16,7 +16,7 @@ export default class LivrariaPedido extends Model {
         },
         data_pedido: {
           type: Sequelize.DATE,
-          defaultValue: false,
+          defaultValue: null,
           validate: {
             isDate: {
               msg: "Insira uma data de pedido valido",
@@ -25,28 +25,10 @@ export default class LivrariaPedido extends Model {
         },
         data_pagamento: {
           type: Sequelize.DATE,
-          defaultValue: false,
+          defaultValue: null,
           validate: {
             isDate: {
               msg: "Insira uma data validas",
-            },
-          },
-        },
-        valor: {
-          type: Sequelize.FLOAT,
-          defaultValue: false,
-          validate: {
-            isFloat: {
-              msg: "Insira uma valor valido",
-            },
-          },
-        },
-        custo: {
-          type: Sequelize.FLOAT,
-          defaultValue: false,
-          validate: {
-            isFloat: {
-              msg: "Insira uma valor valido",
             },
           },
         },
@@ -64,8 +46,8 @@ export default class LivrariaPedido extends Model {
           defaultValue: "",
           validate: {
             len: {
-              args: [3, 16],
-              msg: "Campo Nome deve ter entre 3 e 16 caracteres",
+              args: [3, 255],
+              msg: "Campo Nome deve ter entre 3 e 255 caracteres",
             },
           },
         },
@@ -86,6 +68,16 @@ export default class LivrariaPedido extends Model {
             len: {
               args: [3, 16],
               msg: "Campo tipo de pagamento deve ter entre 3 e 16 caracteres",
+            },
+          },
+        },
+        status: {
+          type: Sequelize.STRING,
+          defaultValue: null,
+          validate: {
+            len: {
+              args: [3, 16],
+              msg: "Campo status deve ter entre 3 e 16 caracteres",
             },
           },
         },
