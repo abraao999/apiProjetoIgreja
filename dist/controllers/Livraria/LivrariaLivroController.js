@@ -18,7 +18,7 @@ class LivrariaLivroController {
   }
 
   async index(req, res) {
-    const livro = await _LivrariaLivro2.default.findAll();
+    const livro = await _LivrariaLivro2.default.findAll({ order: ["descricao", "asc"] });
     res.json(livro);
   }
 
