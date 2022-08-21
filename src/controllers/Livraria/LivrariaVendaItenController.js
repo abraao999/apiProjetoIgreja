@@ -22,7 +22,8 @@ class LivrariaVendaItenController {
       .join("livraria_livros", "livro_id", "=", "livraria_livros.id")
       .select(
         "livraria_venda_itens.*",
-        "livraria_livros.descricao as descricao"
+        "livraria_livros.descricao as descricao",
+        "livraria_livros.valor as valor"
       );
 
     res.json(dados);
