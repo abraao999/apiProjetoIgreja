@@ -35,6 +35,7 @@ var _livrariaLivroRoutes = require('./routes/Livraria/livrariaLivroRoutes'); var
 var _livrariaPedidoRoutes = require('./routes/Livraria/livrariaPedidoRoutes'); var _livrariaPedidoRoutes2 = _interopRequireDefault(_livrariaPedidoRoutes);
 var _livrariaVendaRoutes = require('./routes/Livraria/livrariaVendaRoutes'); var _livrariaVendaRoutes2 = _interopRequireDefault(_livrariaVendaRoutes);
 var _livrariaVendaItenRoutes = require('./routes/Livraria/livrariaVendaItenRoutes'); var _livrariaVendaItenRoutes2 = _interopRequireDefault(_livrariaVendaItenRoutes);
+var _livrariaCamisetaRoutes = require('./routes/Livraria/livrariaCamisetaRoutes'); var _livrariaCamisetaRoutes2 = _interopRequireDefault(_livrariaCamisetaRoutes);
 
 const whiteList = [
   // dados do servidor
@@ -93,6 +94,7 @@ class App {
     this.app.use("/livrariaPedido/", _livrariaPedidoRoutes2.default);
     this.app.use("/livrariaVenda/", _livrariaVendaRoutes2.default);
     this.app.use("/livrariaVendaIten/", _livrariaVendaItenRoutes2.default);
+    this.app.use("/livrariaCamiseta/", _livrariaCamisetaRoutes2.default);
   }
 }
 exports. default = new App().app;

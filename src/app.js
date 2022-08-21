@@ -35,6 +35,7 @@ import livrariaLivroRoutes from "./routes/Livraria/livrariaLivroRoutes";
 import livrariaPedidoRoutes from "./routes/Livraria/livrariaPedidoRoutes";
 import livrariaVendaRoutes from "./routes/Livraria/livrariaVendaRoutes";
 import livrariaVendaItenRoutes from "./routes/Livraria/livrariaVendaItenRoutes";
+import livrariaCamisetaRoutes from "./routes/Livraria/livrariaCamisetaRoutes";
 
 const whiteList = [
   // dados do servidor
@@ -93,6 +94,7 @@ class App {
     this.app.use("/livrariaPedido/", livrariaPedidoRoutes);
     this.app.use("/livrariaVenda/", livrariaVendaRoutes);
     this.app.use("/livrariaVendaIten/", livrariaVendaItenRoutes);
+    this.app.use("/livrariaCamiseta/", livrariaCamisetaRoutes);
   }
 }
 export default new App().app;
