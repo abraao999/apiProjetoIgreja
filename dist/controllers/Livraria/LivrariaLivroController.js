@@ -18,7 +18,7 @@ class LivrariaLivroController {
   }
 
   async index(req, res) {
-    const livro = await _LivrariaLivro2.default.findAll({ order: ["descricao", "asc"] });
+    const livro = await _knexfile2.default.call(void 0, "livraria_livros").orderBy("descricao", "asc");
     res.json(livro);
   }
 
