@@ -1,4 +1,5 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _LivrariaVendaIten = require('../../models/Livraria/LivrariaVendaIten'); var _LivrariaVendaIten2 = _interopRequireDefault(_LivrariaVendaIten);
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _knexfile = require('../../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
+var _LivrariaVendaIten = require('../../models/Livraria/LivrariaVendaIten'); var _LivrariaVendaIten2 = _interopRequireDefault(_LivrariaVendaIten);
 
 class LivrariaVendaItenController {
   async storage(req, res) {
@@ -17,8 +18,13 @@ class LivrariaVendaItenController {
   }
 
   async index(req, res) {
-    const dado = await _LivrariaVendaIten2.default.findAll();
-    res.json(dado);
+    const dados = await _knexfile2.default.call(void 0, "livraria_venda_itens")
+      .join("livraria_livros", "livro_id", "=", "livraria_livros.id")
+      .select(
+        "livraria_venda_itens.*",
+        "livraria_livros.descricao as descricao"
+      );
+    res.json(dados);
   }
 
   async show(req, res) {

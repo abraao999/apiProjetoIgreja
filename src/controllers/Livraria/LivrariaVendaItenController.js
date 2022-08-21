@@ -1,3 +1,4 @@
+import knex from "../../config/knexfile";
 import LivrariaVendaIten from "../../models/Livraria/LivrariaVendaIten";
 
 class LivrariaVendaItenController {
@@ -17,8 +18,13 @@ class LivrariaVendaItenController {
   }
 
   async index(req, res) {
-    const dado = await LivrariaVendaIten.findAll();
-    res.json(dado);
+    const dados = await knex("livraria_venda_itens")
+      .join("livraria_livros", "livro_id", "=", "livraria_livros.id")
+      .select(
+        "livraria_venda_itens.*",
+        "livraria_livros.descricao as descricao"
+      );
+    res.json(dados);
   }
 
   async show(req, res) {
