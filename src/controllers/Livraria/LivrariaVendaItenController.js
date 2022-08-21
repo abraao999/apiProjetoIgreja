@@ -18,12 +18,18 @@ class LivrariaVendaItenController {
   }
 
   async index(req, res) {
-    const dados = await knex("livraria_venda_itens")
-      .join("livraria_livros", "livro_id", "=", "livraria_livros.id")
-      .select(
-        "livraria_venda_itens.*",
-        "livraria_livros.descricao as descricao"
-      );
+    // const dados = await knex("livraria_venda_itens")
+    //   .join("livraria_livros", "livro_id", "=", "livraria_livros.id")
+    //   .select(
+    //     "livraria_venda_itens.*",
+    //     "livraria_livros.descricao as descricao"
+    //   );
+    const dados = await knex("livraria_venda_itens");
+    // .join("livraria_livros", "livro_id", "=", "livraria_livros.id")
+    // .select(
+    //   "livraria_venda_itens.*",
+    //   "livraria_livros.descricao as descricao"
+    // );
     res.json(dados);
   }
 
