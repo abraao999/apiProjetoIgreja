@@ -1,10 +1,10 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _knexfile = require('../../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
-var _LivrariaCamiseta = require('../../models/Livraria/LivrariaCamiseta'); var _LivrariaCamiseta2 = _interopRequireDefault(_LivrariaCamiseta);
+var _LivrariaCamisetas = require('../../models/Livraria/LivrariaCamisetas'); var _LivrariaCamisetas2 = _interopRequireDefault(_LivrariaCamisetas);
 
 class LivrariaCamisetaController {
   async storage(req, res) {
     try {
-      const dado = await _LivrariaCamiseta2.default.create(req.body);
+      const dado = await _LivrariaCamisetas2.default.create(req.body);
       if (!dado) {
         return res.status(400).json({ erros: ["livro ja existe"] });
       }
@@ -29,7 +29,7 @@ class LivrariaCamisetaController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dado = await _LivrariaCamiseta2.default.findByPk(id);
+      const dado = await _LivrariaCamisetas2.default.findByPk(id);
       if (!dado) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
@@ -49,7 +49,7 @@ class LivrariaCamisetaController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dado = await _LivrariaCamiseta2.default.findByPk(id);
+      const dado = await _LivrariaCamisetas2.default.findByPk(id);
       if (!dado) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
@@ -69,7 +69,7 @@ class LivrariaCamisetaController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dado = await _LivrariaCamiseta2.default.findByPk(id);
+      const dado = await _LivrariaCamisetas2.default.findByPk(id);
       if (!dado) {
         return res.status(400).json({ erros: ["livro nao existe"] });
       }

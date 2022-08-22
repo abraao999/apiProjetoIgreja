@@ -1,5 +1,5 @@
 import knex from "../../config/knexfile";
-import LivrariaCamiseta from "../../models/Livraria/LivrariaCamiseta";
+import LivrariaCamiseta from "../../models/Livraria/LivrariaCamisetas";
 
 class LivrariaCamisetaController {
   async storage(req, res) {
