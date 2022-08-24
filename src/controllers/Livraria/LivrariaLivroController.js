@@ -32,12 +32,12 @@ class LivrariaLivroController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      // const dado = await knex("livraria_livros")
-      //   .join("livraria_fotos", "foto_id", "=", "livraria_fotos.id")
-      //   .where("livraria_livros.id", id)
-      //   .first()
-      //   .select("livraria_livros.*", "livraria_fotos.url as url");
-      const dado = await LivrariaLivro.findByPk(id);
+      const dado = await knex("livraria_livros")
+        .join("livraria_fotos", "foto_id", "=", "livraria_fotos.id")
+        .where("livraria_livros.id", id)
+        .first()
+        .select("livraria_livros.*", "livraria_fotos.url as url");
+      // const dado = await LivrariaLivro.findByPk(id);
       if (!dado) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
