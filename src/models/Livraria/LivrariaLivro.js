@@ -50,6 +50,10 @@ export default class LivrariaLivro extends Model {
             },
           },
         },
+        autor: {
+          type: Sequelize.STRING,
+          defaultValue: false,
+        },
       },
       { sequelize }
     );

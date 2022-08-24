@@ -50,6 +50,10 @@
             },
           },
         },
+        autor: {
+          type: _sequelize2.default.STRING,
+          defaultValue: false,
+        },
       },
       { sequelize }
     );
