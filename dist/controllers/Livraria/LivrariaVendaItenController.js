@@ -49,6 +49,34 @@ class LivrariaVendaItenController {
     }
   }
 
+  async getVenda(req, res) {
+    try {
+      const { id } = req.params;
+      if (!id) {
+        return res.status(400).json({ erros: ["faltando id"] });
+      }
+
+      const dado = await _knexfile2.default.call(void 0, "livraria_venda_itens")
+        .join("livraria_vendas", "venda_id", "=", "livraria_vendas.id")
+        .join("livraria_livros", "livro_id", "=", "livraria_livros.id")
+        .where("livraria_venda_itens.venda_id", id)
+        .select(
+          "livraria_venda_itens.*",
+          "livraria_livros.descricao",
+          "livraria_livros.valor"
+        );
+      if (!dado) {
+        return res.status(400).json({ erros: ["Função não existe"] });
+      }
+
+      return res.json(dado);
+    } catch (error) {
+      return res
+        .status(400)
+        .json({ erros: error.erros.map((es) => es.message) });
+    }
+  }
+
   async update(req, res) {
     try {
       const { id } = req.params;

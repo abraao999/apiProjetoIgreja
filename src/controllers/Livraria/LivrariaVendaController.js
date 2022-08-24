@@ -32,7 +32,11 @@ class LivrariaVendaController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dado = await LivrariaVenda.findByPk(id);
+      const dado = await knex("livraria_vendas")
+        .join("membros", "membro_id", "=", "membros.id")
+        .where("livraria_vendas.id", id)
+        .first()
+        .select("livraria_vendas.*", "membros.nome as nome");
       if (!dado) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }

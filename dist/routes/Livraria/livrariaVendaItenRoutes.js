@@ -8,5 +8,6 @@ router.put("/:id", _loginRequered2.default, _LivrariaVendaItenController2.defaul
 router.post("/", _loginRequered2.default, _LivrariaVendaItenController2.default.storage);
 router.get("/", _LivrariaVendaItenController2.default.index);
 router.get("/:id", _LivrariaVendaItenController2.default.show);
+router.get("/getItens/:id", _LivrariaVendaItenController2.default.getVenda);
 router.delete("/:id", _loginRequered2.default, _LivrariaVendaItenController2.default.delete);
 exports. default = router;
