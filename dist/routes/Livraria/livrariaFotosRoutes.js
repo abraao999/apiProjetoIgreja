@@ -31,7 +31,7 @@ router.post(
       key,
       url: url || aux,
     });
-    return res.json({ dado });
+    return res.send(dado);
   }
 );
 router.get("/", async (req, res) => {

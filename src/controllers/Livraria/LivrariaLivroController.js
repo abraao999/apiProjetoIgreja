@@ -18,8 +18,11 @@ class LivrariaLivroController {
   }
 
   async index(req, res) {
-    const livro = await knex("livraria_livros").orderBy("descricao", "asc");
-    res.json(livro);
+    const dados = await knex("livraria_livros")
+      .join("livraria_fotos", "foto_id", "=", "livraria_fotos.id")
+      .select("livraria_livros.*", "livraria_fotos.url as url")
+      .orderBy("descricao", "asc");
+    res.json(dados);
   }
 
   async show(req, res) {
@@ -29,7 +32,11 @@ class LivrariaLivroController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dado = await LivrariaLivro.findByPk(id);
+      const dado = await knex("livraria_livros")
+        .join("livraria_fotos", "foto_id", "=", "livraria_fotos.id")
+        .where("livraria_livros.id", id)
+        .first()
+        .select("livraria_livros.*", "livraria_fotos.url as url");
       if (!dado) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
