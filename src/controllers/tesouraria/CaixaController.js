@@ -1,10 +1,10 @@
-import Abatimento from "../models/Abatimento";
-import knex from "../config/knexfile";
+import Caixa from "../../models/tesouraria/Caixa";
+import knex from "../../config/knexfile";
 
-class AbatimentoController {
+class CaixaController {
   async storage(req, res) {
     try {
-      const dados = await Abatimento.create(req.body);
+      const dados = await Caixa.create(req.body);
       if (!dados) {
         return res.status(400).json({ erros: ["departamento ja existe"] });
       }
@@ -18,10 +18,17 @@ class AbatimentoController {
   }
 
   async index(req, res) {
-    const dados = await knex("abatimentos")
+    const dados = await knex("caixas")
       .join("setors", "setor_id", "=", "setors.id")
-      .select("abatimentos.*", "setors.descricao as desc_setor")
-      .orderBy("abatimentos.data_operacao");
+      .join("departamentos", "departamento_id", "=", "departamentos.id")
+      .join("desc_caixas", "desc_id", "=", "desc_caixas.id")
+      .select(
+        "caixas.*",
+        "setors.descricao as desc_setor",
+        "departamentos.descricao as desc_departamento",
+        "desc_caixas.descricao as descricao"
+      )
+      .orderBy("caixas.data_operacao", "desc");
 
     res.json(dados);
   }
@@ -33,7 +40,18 @@ class AbatimentoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await Abatimento.findByPk(id);
+      const dados = await knex("caixas")
+        .join("setors", "setor_id", "=", "setors.id")
+        .join("departamentos", "departamento_id", "=", "departamentos.id")
+        .join("desc_caixas", "desc_id", "=", "desc_caixas.id")
+        .select(
+          "caixas.*",
+          "setors.descricao as desc_setor",
+          "departamentos.descricao as desc_departamento",
+          "desc_caixas.descricao as descricao"
+        )
+        .where("caixas.id", id)
+        .first();
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
@@ -53,7 +71,7 @@ class AbatimentoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await Abatimento.findByPk(id);
+      const dados = await Caixa.findByPk(id);
       if (!dados) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
@@ -73,9 +91,9 @@ class AbatimentoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await Abatimento.findByPk(id);
+      const dados = await Caixa.findByPk(id);
       if (!dados) {
-        return res.status(400).json({ erros: ["abatimento nao existe"] });
+        return res.status(400).json({ erros: ["departamento nao existe"] });
       }
       await dados.destroy();
       return res.json({ apagado: true });
@@ -88,7 +106,7 @@ class AbatimentoController {
 
   async maxId(req, res) {
     try {
-      const dado = await Abatimento.max("id");
+      const dado = await Caixa.max("id");
       if (!dado) {
         return res.status(400).json({ erros: ["Tabela vazia"] });
       }
@@ -100,4 +118,4 @@ class AbatimentoController {
     }
   }
 }
-export default new AbatimentoController();
+export default new CaixaController();

@@ -5,17 +5,17 @@ var _Function = require('../models/configs/Function'); var _Function2 = _interop
 var _Cargo = require('../models/configs/Cargo'); var _Cargo2 = _interopRequireDefault(_Cargo);
 var _Setor = require('../models/configs/Setor'); var _Setor2 = _interopRequireDefault(_Setor);
 var _Departamento = require('../models/configs/Departamento'); var _Departamento2 = _interopRequireDefault(_Departamento);
-var _Caixa = require('../models/Caixa'); var _Caixa2 = _interopRequireDefault(_Caixa);
+var _Caixa = require('../models/tesouraria/Caixa'); var _Caixa2 = _interopRequireDefault(_Caixa);
 var _Membro = require('../models/Membro'); var _Membro2 = _interopRequireDefault(_Membro);
 var _Classe = require('../models/EBD/Classe'); var _Classe2 = _interopRequireDefault(_Classe);
 var _Aluno = require('../models/EBD/Aluno'); var _Aluno2 = _interopRequireDefault(_Aluno);
-var _Abatimento = require('../models/Abatimento'); var _Abatimento2 = _interopRequireDefault(_Abatimento);
-var _Dizimo = require('../models/Dizimo'); var _Dizimo2 = _interopRequireDefault(_Dizimo);
+var _Abatimento = require('../models/tesouraria/Abatimento'); var _Abatimento2 = _interopRequireDefault(_Abatimento);
+var _Dizimo = require('../models/tesouraria/Dizimo'); var _Dizimo2 = _interopRequireDefault(_Dizimo);
 var _Chamada = require('../models/EBD/Chamada'); var _Chamada2 = _interopRequireDefault(_Chamada);
 var _CaixaEbd = require('../models/EBD/CaixaEbd'); var _CaixaEbd2 = _interopRequireDefault(_CaixaEbd);
 var _FamiliaVisitante = require('../models/FamiliaVisitante'); var _FamiliaVisitante2 = _interopRequireDefault(_FamiliaVisitante);
 var _NomeVisitantes = require('../models/NomeVisitantes'); var _NomeVisitantes2 = _interopRequireDefault(_NomeVisitantes);
-var _DescLancamento = require('../models/DescLancamento'); var _DescLancamento2 = _interopRequireDefault(_DescLancamento);
+var _DescLancamento = require('../models/tesouraria/DescLancamento'); var _DescLancamento2 = _interopRequireDefault(_DescLancamento);
 var _Pedido = require('../models/Pedido'); var _Pedido2 = _interopRequireDefault(_Pedido);
 var _ControleAcesso = require('../models/ControleAcesso'); var _ControleAcesso2 = _interopRequireDefault(_ControleAcesso);
 var _ControleCarterinha = require('../models/ControleCarterinha'); var _ControleCarterinha2 = _interopRequireDefault(_ControleCarterinha);
@@ -29,6 +29,8 @@ var _LivrariaVenda = require('../models/Livraria/LivrariaVenda'); var _LivrariaV
 var _LivrariaVendaIten = require('../models/Livraria/LivrariaVendaIten'); var _LivrariaVendaIten2 = _interopRequireDefault(_LivrariaVendaIten);
 var _LivrariaCamisetas = require('../models/Livraria/LivrariaCamisetas'); var _LivrariaCamisetas2 = _interopRequireDefault(_LivrariaCamisetas);
 var _LivrariaFotos = require('../models/Livraria/LivrariaFotos'); var _LivrariaFotos2 = _interopRequireDefault(_LivrariaFotos);
+var _LivrariaVendaCamiseta = require('../models/Livraria/LivrariaVendaCamiseta'); var _LivrariaVendaCamiseta2 = _interopRequireDefault(_LivrariaVendaCamiseta);
+var _LivrariaVendaItenCamiseta = require('../models/Livraria/LivrariaVendaItenCamiseta'); var _LivrariaVendaItenCamiseta2 = _interopRequireDefault(_LivrariaVendaItenCamiseta);
 
 const models = [
   _Function2.default,
@@ -59,6 +61,8 @@ const models = [
   _LivrariaVendaIten2.default,
   _LivrariaCamisetas2.default,
   _LivrariaFotos2.default,
+  _LivrariaVendaCamiseta2.default,
+  _LivrariaVendaItenCamiseta2.default,
 ];
 const connection = new (0, _sequelize2.default)(_database2.default);
 models.forEach((model) => model.init(connection));

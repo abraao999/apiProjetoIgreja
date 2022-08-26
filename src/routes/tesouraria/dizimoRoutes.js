@@ -1,6 +1,6 @@
 import { Router } from "express";
-import DizimoController from "../controllers/DizimoController";
-import loginRequered from "../middlewares/loginRequered";
+import DizimoController from "../../controllers/tesouraria/DizimoController";
+import loginRequered from "../../middlewares/loginRequered";
 
 const router = new Router();
 

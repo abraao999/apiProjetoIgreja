@@ -61,6 +61,8 @@
   }
 
   static associate(models) {
-    // this.hasMany(models.LivrariaVendaIten, { foreignKey: "livro_id" });
+    this.hasMany(models.LivrariaVendaItenCamisetas, {
+      foreignKey: "camiseta_id",
+    });
   }
 } exports.default = LivrariaCamisetas;

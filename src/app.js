@@ -11,18 +11,18 @@ import funcaoRoutes from "./routes/configs/funcaoRoutes";
 import cargoRoutes from "./routes/configs/cargoRoutes";
 import setorRoutes from "./routes/configs/setorRoutes";
 import departamentoRoutes from "./routes/configs/departamentoRoutes";
-import caixaRoutes from "./routes/caixaRoutes";
+import caixaRoutes from "./routes/tesouraria/caixaRoutes";
 import membroRoutes from "./routes/membroRoutes";
 import classeRoutes from "./routes/EBD/classeRoutes";
 import alunoRoutes from "./routes/EBD/alunoRoutes";
 import tokemRoutes from "./routes/tokemRoutes";
-import abatimentoRoutes from "./routes/abatimentoRoutes";
-import dizimoRoutes from "./routes/dizimoRoutes";
+import abatimentoRoutes from "./routes/tesouraria/abatimentoRoutes";
+import dizimoRoutes from "./routes/tesouraria/dizimoRoutes";
 import chamadaRoutes from "./routes/EBD/chamadaRoutes";
 import caixaEbdRoutes from "./routes/EBD/caixaEbdRoutes";
 import familiaVisitanteRoutes from "./routes/familiaVisitanteRoutes";
 import nomesVisitanteRoutes from "./routes/nomesVisitanteRoutes";
-import descCaixaRoutes from "./routes/descCaixaRoutes";
+import descCaixaRoutes from "./routes/tesouraria/descCaixaRoutes";
 import pedidoRoutes from "./routes/pedidoRoutes";
 import controleAcessoRoutes from "./routes/controleAcessoRoutes";
 import controleCarterinhaRoutes from "./routes/controleCarterinhaRoutes";
@@ -37,6 +37,8 @@ import livrariaVendaRoutes from "./routes/Livraria/livrariaVendaRoutes";
 import livrariaVendaItenRoutes from "./routes/Livraria/livrariaVendaItenRoutes";
 import livrariaCamisetaRoutes from "./routes/Livraria/livrariaCamisetaRoutes";
 import livrariaFotosRoutes from "./routes/Livraria/livrariaFotosRoutes";
+import livrariaVendaCamisetaRoutes from "./routes/Livraria/livrariaVendaCamisetaRoutes";
+import livrariaVendaItenCamisetaRoutes from "./routes/Livraria/livrariaVendaItenCamisetaRoutes";
 
 const whiteList = [
   // dados do servidor
@@ -97,6 +99,11 @@ class App {
     this.app.use("/livrariaVendaIten/", livrariaVendaItenRoutes);
     this.app.use("/livrariaCamiseta/", livrariaCamisetaRoutes);
     this.app.use("/livrariaFotos/", livrariaFotosRoutes);
+    this.app.use("/livrariaVendaCamiseta/", livrariaVendaCamisetaRoutes);
+    this.app.use(
+      "/livrariaVendaItenCamiseta/",
+      livrariaVendaItenCamisetaRoutes
+    );
   }
 }
 export default new App().app;

@@ -61,6 +61,8 @@ export default class LivrariaCamisetas extends Model {
   }
 
   static associate(models) {
-    // this.hasMany(models.LivrariaVendaIten, { foreignKey: "livro_id" });
+    this.hasMany(models.LivrariaVendaItenCamisetas, {
+      foreignKey: "camiseta_id",
+    });
   }
 }

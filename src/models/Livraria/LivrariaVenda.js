@@ -50,6 +50,6 @@ export default class LivrariaVenda extends Model {
 
   static associate(models) {
     this.belongsTo(models.Membro, { foreignKey: "membro_id" });
-    this.belongsTo(models.LivrariaVendaIten, { foreignKey: "livro_id" });
+    this.hasMany(models.LivrariaVendaIten, { foreignKey: "livro_id" });
   }
 }

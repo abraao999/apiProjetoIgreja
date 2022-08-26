@@ -1,5 +1,5 @@
-import Dizimo from "../models/Dizimo";
-import knex from "../config/knexfile";
+import Dizimo from "../../models/tesouraria/Dizimo";
+import knex from "../../config/knexfile";
 
 class DizimoController {
   async storage(req, res) {

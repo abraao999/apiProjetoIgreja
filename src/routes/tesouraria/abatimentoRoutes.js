@@ -1,6 +1,6 @@
 import { Router } from "express";
-import AbatimentoController from "../controllers/AbatimentoController";
-import loginRequered from "../middlewares/loginRequered";
+import AbatimentoController from "../../controllers/tesouraria/AbatimentoController";
+import loginRequered from "../../middlewares/loginRequered";
 
 const router = new Router();
 

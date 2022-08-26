@@ -1,6 +1,6 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _sequelize = require('sequelize'); var _sequelize2 = _interopRequireDefault(_sequelize);
 
- class LivrariaVenda extends _sequelize.Model {
+ class LivrariaVendaCamisetas extends _sequelize.Model {
   static init(sequelize) {
     super.init(
       {
@@ -50,6 +50,8 @@
 
   static associate(models) {
     this.belongsTo(models.Membro, { foreignKey: "membro_id" });
-    this.hasMany(models.LivrariaVendaIten, { foreignKey: "livro_id" });
+    this.hasMany(models.LivrariaVendaItenCamisetas, {
+      foreignKey: "venda_id",
+    });
   }
-} exports.default = LivrariaVenda;
+} exports.default = LivrariaVendaCamisetas;

@@ -11,18 +11,18 @@ var _funcaoRoutes = require('./routes/configs/funcaoRoutes'); var _funcaoRoutes2
 var _cargoRoutes = require('./routes/configs/cargoRoutes'); var _cargoRoutes2 = _interopRequireDefault(_cargoRoutes);
 var _setorRoutes = require('./routes/configs/setorRoutes'); var _setorRoutes2 = _interopRequireDefault(_setorRoutes);
 var _departamentoRoutes = require('./routes/configs/departamentoRoutes'); var _departamentoRoutes2 = _interopRequireDefault(_departamentoRoutes);
-var _caixaRoutes = require('./routes/caixaRoutes'); var _caixaRoutes2 = _interopRequireDefault(_caixaRoutes);
+var _caixaRoutes = require('./routes/tesouraria/caixaRoutes'); var _caixaRoutes2 = _interopRequireDefault(_caixaRoutes);
 var _membroRoutes = require('./routes/membroRoutes'); var _membroRoutes2 = _interopRequireDefault(_membroRoutes);
 var _classeRoutes = require('./routes/EBD/classeRoutes'); var _classeRoutes2 = _interopRequireDefault(_classeRoutes);
 var _alunoRoutes = require('./routes/EBD/alunoRoutes'); var _alunoRoutes2 = _interopRequireDefault(_alunoRoutes);
 var _tokemRoutes = require('./routes/tokemRoutes'); var _tokemRoutes2 = _interopRequireDefault(_tokemRoutes);
-var _abatimentoRoutes = require('./routes/abatimentoRoutes'); var _abatimentoRoutes2 = _interopRequireDefault(_abatimentoRoutes);
-var _dizimoRoutes = require('./routes/dizimoRoutes'); var _dizimoRoutes2 = _interopRequireDefault(_dizimoRoutes);
+var _abatimentoRoutes = require('./routes/tesouraria/abatimentoRoutes'); var _abatimentoRoutes2 = _interopRequireDefault(_abatimentoRoutes);
+var _dizimoRoutes = require('./routes/tesouraria/dizimoRoutes'); var _dizimoRoutes2 = _interopRequireDefault(_dizimoRoutes);
 var _chamadaRoutes = require('./routes/EBD/chamadaRoutes'); var _chamadaRoutes2 = _interopRequireDefault(_chamadaRoutes);
 var _caixaEbdRoutes = require('./routes/EBD/caixaEbdRoutes'); var _caixaEbdRoutes2 = _interopRequireDefault(_caixaEbdRoutes);
 var _familiaVisitanteRoutes = require('./routes/familiaVisitanteRoutes'); var _familiaVisitanteRoutes2 = _interopRequireDefault(_familiaVisitanteRoutes);
 var _nomesVisitanteRoutes = require('./routes/nomesVisitanteRoutes'); var _nomesVisitanteRoutes2 = _interopRequireDefault(_nomesVisitanteRoutes);
-var _descCaixaRoutes = require('./routes/descCaixaRoutes'); var _descCaixaRoutes2 = _interopRequireDefault(_descCaixaRoutes);
+var _descCaixaRoutes = require('./routes/tesouraria/descCaixaRoutes'); var _descCaixaRoutes2 = _interopRequireDefault(_descCaixaRoutes);
 var _pedidoRoutes = require('./routes/pedidoRoutes'); var _pedidoRoutes2 = _interopRequireDefault(_pedidoRoutes);
 var _controleAcessoRoutes = require('./routes/controleAcessoRoutes'); var _controleAcessoRoutes2 = _interopRequireDefault(_controleAcessoRoutes);
 var _controleCarterinhaRoutes = require('./routes/controleCarterinhaRoutes'); var _controleCarterinhaRoutes2 = _interopRequireDefault(_controleCarterinhaRoutes);
@@ -37,6 +37,8 @@ var _livrariaVendaRoutes = require('./routes/Livraria/livrariaVendaRoutes'); var
 var _livrariaVendaItenRoutes = require('./routes/Livraria/livrariaVendaItenRoutes'); var _livrariaVendaItenRoutes2 = _interopRequireDefault(_livrariaVendaItenRoutes);
 var _livrariaCamisetaRoutes = require('./routes/Livraria/livrariaCamisetaRoutes'); var _livrariaCamisetaRoutes2 = _interopRequireDefault(_livrariaCamisetaRoutes);
 var _livrariaFotosRoutes = require('./routes/Livraria/livrariaFotosRoutes'); var _livrariaFotosRoutes2 = _interopRequireDefault(_livrariaFotosRoutes);
+var _livrariaVendaCamisetaRoutes = require('./routes/Livraria/livrariaVendaCamisetaRoutes'); var _livrariaVendaCamisetaRoutes2 = _interopRequireDefault(_livrariaVendaCamisetaRoutes);
+var _livrariaVendaItenCamisetaRoutes = require('./routes/Livraria/livrariaVendaItenCamisetaRoutes'); var _livrariaVendaItenCamisetaRoutes2 = _interopRequireDefault(_livrariaVendaItenCamisetaRoutes);
 
 const whiteList = [
   // dados do servidor
@@ -97,6 +99,11 @@ class App {
     this.app.use("/livrariaVendaIten/", _livrariaVendaItenRoutes2.default);
     this.app.use("/livrariaCamiseta/", _livrariaCamisetaRoutes2.default);
     this.app.use("/livrariaFotos/", _livrariaFotosRoutes2.default);
+    this.app.use("/livrariaVendaCamiseta/", _livrariaVendaCamisetaRoutes2.default);
+    this.app.use(
+      "/livrariaVendaItenCamiseta/",
+      _livrariaVendaItenCamisetaRoutes2.default
+    );
   }
 }
 exports. default = new App().app;

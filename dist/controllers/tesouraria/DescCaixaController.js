@@ -1,10 +1,10 @@
-import knex from "../config/knexfile";
-import DescLancamento from "../models/DescLancamento";
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _knexfile = require('../../config/knexfile'); var _knexfile2 = _interopRequireDefault(_knexfile);
+var _DescLancamento = require('../../models/tesouraria/DescLancamento'); var _DescLancamento2 = _interopRequireDefault(_DescLancamento);
 
 class DescCaixaController {
   async storage(req, res) {
     try {
-      const descCaixa = await DescLancamento.create(req.body);
+      const descCaixa = await _DescLancamento2.default.create(req.body);
       if (!descCaixa) {
         return res.status(400).json({ erros: ["descrição ja existe"] });
       }
@@ -18,7 +18,7 @@ class DescCaixaController {
   }
 
   async index(req, res) {
-    const descCaixa = await knex("desc_caixas").orderBy(
+    const descCaixa = await _knexfile2.default.call(void 0, "desc_caixas").orderBy(
       "desc_caixas.descricao",
       "asc"
     );
@@ -32,7 +32,7 @@ class DescCaixaController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const funcoes = await DescLancamento.findByPk(id);
+      const funcoes = await _DescLancamento2.default.findByPk(id);
       if (!funcoes) {
         return res.status(400).json({ erros: ["descrição não existe"] });
       }
@@ -52,7 +52,7 @@ class DescCaixaController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const descCaixa = await DescLancamento.findByPk(id);
+      const descCaixa = await _DescLancamento2.default.findByPk(id);
       if (!descCaixa) {
         return res.status(400).json({ erros: ["descrição não existe"] });
       }
@@ -72,7 +72,7 @@ class DescCaixaController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const descCaixa = await DescLancamento.findByPk(id);
+      const descCaixa = await _DescLancamento2.default.findByPk(id);
       if (!descCaixa) {
         return res.status(400).json({ erros: ["a descrição não existe"] });
       }
@@ -85,4 +85,4 @@ class DescCaixaController {
     }
   }
 }
-export default new DescCaixaController();
+exports. default = new DescCaixaController();

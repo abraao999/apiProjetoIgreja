@@ -1,11 +1,11 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _sequelize = require('sequelize'); var _sequelize2 = _interopRequireDefault(_sequelize);
+import Sequelize, { Model } from "sequelize";
 
- class LivrariaVenda extends _sequelize.Model {
+export default class LivrariaVendaCamisetas extends Model {
   static init(sequelize) {
     super.init(
       {
         data_venda: {
-          type: _sequelize2.default.DATE,
+          type: Sequelize.DATE,
           defaultValue: null,
           validate: {
             isDate: {
@@ -14,7 +14,7 @@
           },
         },
         valor: {
-          type: _sequelize2.default.FLOAT,
+          type: Sequelize.FLOAT,
           defaultValue: false,
           validate: {
             isFloat: {
@@ -23,7 +23,7 @@
           },
         },
         tipo_pagamento: {
-          type: _sequelize2.default.STRING,
+          type: Sequelize.STRING,
           defaultValue: "",
           validate: {
             len: {
@@ -33,7 +33,7 @@
           },
         },
         nome_cliente: {
-          type: _sequelize2.default.STRING,
+          type: Sequelize.STRING,
           defaultValue: "",
           validate: {
             len: {
@@ -50,6 +50,8 @@
 
   static associate(models) {
     this.belongsTo(models.Membro, { foreignKey: "membro_id" });
-    this.hasMany(models.LivrariaVendaIten, { foreignKey: "livro_id" });
+    this.hasMany(models.LivrariaVendaItenCamisetas, {
+      foreignKey: "venda_id",
+    });
   }
-} exports.default = LivrariaVenda;
+}
