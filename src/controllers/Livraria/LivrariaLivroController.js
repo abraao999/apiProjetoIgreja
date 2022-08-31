@@ -19,8 +19,8 @@ class LivrariaLivroController {
 
   async index(req, res) {
     const dados = await knex("livraria_livros")
-      // .join("livraria_fotos", "foto_id", "=", "livraria_fotos.id")
-      // .select("livraria_livros.*", "livraria_fotos.url as url")
+      .join("livraria_fotos", "foto_id", "=", "livraria_fotos.id")
+      .select("livraria_livros.*", "livraria_fotos.url as url")
       .orderBy("descricao", "asc");
     res.json(dados);
   }
