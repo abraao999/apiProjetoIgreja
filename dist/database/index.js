@@ -31,6 +31,7 @@ var _LivrariaCamisetas = require('../models/Livraria/LivrariaCamisetas'); var _L
 var _LivrariaFotos = require('../models/Livraria/LivrariaFotos'); var _LivrariaFotos2 = _interopRequireDefault(_LivrariaFotos);
 var _LivrariaVendaCamiseta = require('../models/Livraria/LivrariaVendaCamiseta'); var _LivrariaVendaCamiseta2 = _interopRequireDefault(_LivrariaVendaCamiseta);
 var _LivrariaVendaItenCamiseta = require('../models/Livraria/LivrariaVendaItenCamiseta'); var _LivrariaVendaItenCamiseta2 = _interopRequireDefault(_LivrariaVendaItenCamiseta);
+var _LivrariaReserva = require('../models/Livraria/LivrariaReserva'); var _LivrariaReserva2 = _interopRequireDefault(_LivrariaReserva);
 
 const models = [
   _Function2.default,
@@ -63,6 +64,7 @@ const models = [
   _LivrariaFotos2.default,
   _LivrariaVendaCamiseta2.default,
   _LivrariaVendaItenCamiseta2.default,
+  _LivrariaReserva2.default,
 ];
 const connection = new (0, _sequelize2.default)(_database2.default);
 models.forEach((model) => model.init(connection));

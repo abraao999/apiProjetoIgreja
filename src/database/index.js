@@ -31,6 +31,7 @@ import LivrariaCamisetas from "../models/Livraria/LivrariaCamisetas";
 import LivrariaFoto from "../models/Livraria/LivrariaFotos";
 import LivrariaVendaCamisetas from "../models/Livraria/LivrariaVendaCamiseta";
 import LivrariaVendaItenCamisetas from "../models/Livraria/LivrariaVendaItenCamiseta";
+import LivrariaReserva from "../models/Livraria/LivrariaReserva";
 
 const models = [
   Function,
@@ -63,6 +64,7 @@ const models = [
   LivrariaFoto,
   LivrariaVendaCamisetas,
   LivrariaVendaItenCamisetas,
+  LivrariaReserva,
 ];
 const connection = new Sequelize(databaseConfig);
 models.forEach((model) => model.init(connection));

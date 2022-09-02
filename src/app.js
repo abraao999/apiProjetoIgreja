@@ -39,6 +39,8 @@ import livrariaCamisetaRoutes from "./routes/Livraria/livrariaCamisetaRoutes";
 import livrariaFotosRoutes from "./routes/Livraria/livrariaFotosRoutes";
 import livrariaVendaCamisetaRoutes from "./routes/Livraria/livrariaVendaCamisetaRoutes";
 import livrariaVendaItenCamisetaRoutes from "./routes/Livraria/livrariaVendaItenCamisetaRoutes";
+import livrariaReserva from "./routes/Livraria/livrariaReservaRoutes";
+import sendEmailRoutes from "./routes/sendEmailRoutes";
 
 const whiteList = [
   // dados do servidor
@@ -104,6 +106,9 @@ class App {
       "/livrariaVendaItenCamiseta/",
       livrariaVendaItenCamisetaRoutes
     );
+    this.app.use("/livrariaReserva/", livrariaReserva);
+    this.app.use("/livrariaReserva/", livrariaReserva);
+    this.app.use("/sendEmail/", sendEmailRoutes);
   }
 }
 export default new App().app;

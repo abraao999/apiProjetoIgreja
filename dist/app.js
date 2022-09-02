@@ -39,6 +39,8 @@ var _livrariaCamisetaRoutes = require('./routes/Livraria/livrariaCamisetaRoutes'
 var _livrariaFotosRoutes = require('./routes/Livraria/livrariaFotosRoutes'); var _livrariaFotosRoutes2 = _interopRequireDefault(_livrariaFotosRoutes);
 var _livrariaVendaCamisetaRoutes = require('./routes/Livraria/livrariaVendaCamisetaRoutes'); var _livrariaVendaCamisetaRoutes2 = _interopRequireDefault(_livrariaVendaCamisetaRoutes);
 var _livrariaVendaItenCamisetaRoutes = require('./routes/Livraria/livrariaVendaItenCamisetaRoutes'); var _livrariaVendaItenCamisetaRoutes2 = _interopRequireDefault(_livrariaVendaItenCamisetaRoutes);
+var _livrariaReservaRoutes = require('./routes/Livraria/livrariaReservaRoutes'); var _livrariaReservaRoutes2 = _interopRequireDefault(_livrariaReservaRoutes);
+var _sendEmailRoutes = require('./routes/sendEmailRoutes'); var _sendEmailRoutes2 = _interopRequireDefault(_sendEmailRoutes);
 
 const whiteList = [
   // dados do servidor
@@ -104,6 +106,9 @@ class App {
       "/livrariaVendaItenCamiseta/",
       _livrariaVendaItenCamisetaRoutes2.default
     );
+    this.app.use("/livrariaReserva/", _livrariaReservaRoutes2.default);
+    this.app.use("/livrariaReserva/", _livrariaReservaRoutes2.default);
+    this.app.use("/sendEmail/", _sendEmailRoutes2.default);
   }
 }
 exports. default = new App().app;

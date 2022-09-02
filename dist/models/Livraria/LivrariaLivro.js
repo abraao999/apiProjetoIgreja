@@ -62,6 +62,7 @@
 
   static associate(models) {
     this.hasMany(models.LivrariaVendaIten, { foreignKey: "livro_id" });
+    this.hasMany(models.LivrariaReserva, { foreignKey: "livro_id" });
     this.belongsTo(models.LivrariaFoto, { foreignKey: "foto_id" });
   }
 } exports.default = LivrariaLivro;
