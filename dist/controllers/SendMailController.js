@@ -18,7 +18,7 @@ class SendMailController {
     await transport.sendMail({
       from: "adbelemolimpialivraria@outlook.com",
       to: [email],
-      subject: "Novo pedido de orçamento",
+      subject: "Nova Reserva de livro",
       html: bodyHtml,
     });
     return res.status(200).send();
