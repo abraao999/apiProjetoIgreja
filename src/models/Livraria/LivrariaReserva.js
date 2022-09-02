@@ -33,6 +33,10 @@ export default class LivrariaReserva extends Model {
             },
           },
         },
+        status: {
+          type: Sequelize.STRING,
+          defaultValue: "",
+        },
       },
       { sequelize }
     );
@@ -40,7 +44,6 @@ export default class LivrariaReserva extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Membro, { foreignKey: "membro_id" });
     this.belongsTo(models.LivrariaLivro, {
       foreignKey: "livro_id",
     });

@@ -33,6 +33,10 @@
             },
           },
         },
+        status: {
+          type: _sequelize2.default.STRING,
+          defaultValue: "",
+        },
       },
       { sequelize }
     );
@@ -40,7 +44,6 @@
   }
 
   static associate(models) {
-    this.belongsTo(models.Membro, { foreignKey: "membro_id" });
     this.belongsTo(models.LivrariaLivro, {
       foreignKey: "livro_id",
     });

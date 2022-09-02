@@ -19,13 +19,8 @@ class LivrariaReservaController {
 
   async index(req, res) {
     const dados = await _knexfile2.default.call(void 0, "livraria_reservas")
-      .join("membros", "membro_id", "=", "membros.id")
       .join("livraria_livros", "livro_id", "=", "livraria_livros.id")
-      .select(
-        "livraria_venda_camisetas.*",
-        "membros.nome as nome",
-        "livraria_livros.descricao as descricao"
-      )
+      .select("livraria_reservas.*", "livraria_livros.descricao as descricao")
       .orderBy("livraria_reservas.data_reserva", "desc");
 
     res.json(dados);
