@@ -64,12 +64,6 @@
         tipo_pagamento: {
           type: _sequelize2.default.STRING,
           defaultValue: "",
-          validate: {
-            len: {
-              args: [3, 16],
-              msg: "Campo tipo de pagamento deve ter entre 3 e 16 caracteres",
-            },
-          },
         },
         status: {
           type: _sequelize2.default.STRING,
