@@ -22,7 +22,7 @@ class CaixaEbdController {
     const dados = await knex("caixa_ebds")
       .join("setors", "setor_id", "=", "setors.id")
       .select("caixa_ebds.*", "setors.descricao as desc_setor")
-      .orderBy("asc caixa_ebds.data_operacao");
+      .orderBy("caixa_ebds.data_operacao", "desc");
 
     res.json(dados);
   }
@@ -34,14 +34,17 @@ class CaixaEbdController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await CaixaEbd.findByPk(id, {
-        include: { model: Departamento, attributes: ["descricao"] },
-      });
-      if (!dados) {
+      const dado = await knex("caixa_ebds")
+        .join("setors", "setor_id", "=", "setors.id")
+        .where("caixa_ebds.id", id)
+        .first()
+        .select("caixa_ebds.*", "setors.descricao as desc_setor");
+
+      if (!dado) {
         return res.status(400).json({ erros: ["Função não existe"] });
       }
 
-      return res.json(dados);
+      return res.json(dado);
     } catch (error) {
       return res
         .status(400)
