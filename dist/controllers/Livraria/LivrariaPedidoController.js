@@ -18,7 +18,9 @@ class LivroPedidoController {
   }
 
   async index(req, res) {
-    const dado = await _LivrariaPedido2.default.findAll();
+    const dado = await _LivrariaPedido2.default.findAll({
+      order: [["data_pedido", "desc"]],
+    });
     res.json(dado);
   }
 
