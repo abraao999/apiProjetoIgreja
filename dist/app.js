@@ -41,6 +41,7 @@ var _livrariaVendaCamisetaRoutes = require('./routes/Livraria/livrariaVendaCamis
 var _livrariaVendaItenCamisetaRoutes = require('./routes/Livraria/livrariaVendaItenCamisetaRoutes'); var _livrariaVendaItenCamisetaRoutes2 = _interopRequireDefault(_livrariaVendaItenCamisetaRoutes);
 var _livrariaReservaRoutes = require('./routes/Livraria/livrariaReservaRoutes'); var _livrariaReservaRoutes2 = _interopRequireDefault(_livrariaReservaRoutes);
 var _sendEmailRoutes = require('./routes/sendEmailRoutes'); var _sendEmailRoutes2 = _interopRequireDefault(_sendEmailRoutes);
+var _livrariaRevistaRoutes = require('./routes/Livraria/livrariaRevistaRoutes'); var _livrariaRevistaRoutes2 = _interopRequireDefault(_livrariaRevistaRoutes);
 
 const whiteList = [
   // dados do servidor
@@ -107,8 +108,8 @@ class App {
       _livrariaVendaItenCamisetaRoutes2.default
     );
     this.app.use("/livrariaReserva/", _livrariaReservaRoutes2.default);
-    this.app.use("/livrariaReserva/", _livrariaReservaRoutes2.default);
     this.app.use("/sendEmail/", _sendEmailRoutes2.default);
+    this.app.use("/livrariaRevista/", _livrariaRevistaRoutes2.default);
   }
 }
 exports. default = new App().app;

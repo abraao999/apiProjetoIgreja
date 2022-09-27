@@ -26,5 +26,6 @@ export default class Setor extends Model {
     this.hasMany(models.CaixaEbd, { foreignKey: "setor_id" });
     this.hasMany(models.Aluno, { foreignKey: "setor_id" });
     this.hasMany(models.Classe, { foreignKey: "setor_id" });
+    this.hasMany(models.LivrariaRevistas, { foreignKey: "setor_id" });
   }
 }

@@ -9,8 +9,8 @@ export default class LivrariaLivro extends Model {
           defaultValue: "",
           validate: {
             len: {
-              args: [3, 50],
-              msg: "Campo descrição deve ter entre 3 e 50 caracteres",
+              args: [3, 100],
+              msg: "Campo descrição deve ter entre 3 e 100 caracteres",
             },
           },
         },

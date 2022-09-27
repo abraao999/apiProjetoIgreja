@@ -23,5 +23,6 @@
   static associate(models) {
     this.hasMany(models.Aluno, { foreignKey: "classe_id" });
     this.hasOne(models.Setor, { foreignKey: "setor_id" });
+    this.hasMany(models.LivrariaRevistas, { foreignKey: "classe_id" });
   }
 } exports.default = Classe;
