@@ -15,6 +15,7 @@ var _caixaRoutes = require('./routes/tesouraria/caixaRoutes'); var _caixaRoutes2
 var _membroRoutes = require('./routes/membroRoutes'); var _membroRoutes2 = _interopRequireDefault(_membroRoutes);
 var _classeRoutes = require('./routes/EBD/classeRoutes'); var _classeRoutes2 = _interopRequireDefault(_classeRoutes);
 var _alunoRoutes = require('./routes/EBD/alunoRoutes'); var _alunoRoutes2 = _interopRequireDefault(_alunoRoutes);
+var _ebdFotosRoutes = require('./routes/EBD/ebdFotosRoutes'); var _ebdFotosRoutes2 = _interopRequireDefault(_ebdFotosRoutes);
 var _tokemRoutes = require('./routes/tokemRoutes'); var _tokemRoutes2 = _interopRequireDefault(_tokemRoutes);
 var _abatimentoRoutes = require('./routes/tesouraria/abatimentoRoutes'); var _abatimentoRoutes2 = _interopRequireDefault(_abatimentoRoutes);
 var _dizimoRoutes = require('./routes/tesouraria/dizimoRoutes'); var _dizimoRoutes2 = _interopRequireDefault(_dizimoRoutes);
@@ -81,6 +82,7 @@ class App {
     this.app.use("/membro/", _membroRoutes2.default);
     this.app.use("/classe/", _classeRoutes2.default);
     this.app.use("/aluno/", _alunoRoutes2.default);
+    this.app.use("/ebdFoto/", _ebdFotosRoutes2.default);
     this.app.use("/tokem/", _tokemRoutes2.default);
     this.app.use("/abatimento/", _abatimentoRoutes2.default);
     this.app.use("/dizimo/", _dizimoRoutes2.default);

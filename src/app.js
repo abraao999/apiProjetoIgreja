@@ -15,6 +15,7 @@ import caixaRoutes from "./routes/tesouraria/caixaRoutes";
 import membroRoutes from "./routes/membroRoutes";
 import classeRoutes from "./routes/EBD/classeRoutes";
 import alunoRoutes from "./routes/EBD/alunoRoutes";
+import ebdFotoRoutes from "./routes/EBD/ebdFotosRoutes";
 import tokemRoutes from "./routes/tokemRoutes";
 import abatimentoRoutes from "./routes/tesouraria/abatimentoRoutes";
 import dizimoRoutes from "./routes/tesouraria/dizimoRoutes";
@@ -81,6 +82,7 @@ class App {
     this.app.use("/membro/", membroRoutes);
     this.app.use("/classe/", classeRoutes);
     this.app.use("/aluno/", alunoRoutes);
+    this.app.use("/ebdFoto/", ebdFotoRoutes);
     this.app.use("/tokem/", tokemRoutes);
     this.app.use("/abatimento/", abatimentoRoutes);
     this.app.use("/dizimo/", dizimoRoutes);

@@ -20,10 +20,7 @@ class AlunoController {
   async index(req, res) {
     const response = await _knexfile2.default.call(void 0, "alunos")
       .join("classes", "classe_id", "=", "classes.id")
-      .select(
-        "alunos.*",
-        "classes.descricao as desc_classes",
-      )
+      .select("alunos.*", "classes.descricao as desc_classes")
       .orderBy("alunos.nome");
 
     return res.json(response);
@@ -62,23 +59,16 @@ class AlunoController {
   async update(req, res) {
     try {
       const { id } = req.params;
-      const {
-        nome, telefone, cpf, data_aniversario, setor_id, classe_id
-      } = req.body;
+      // const {
+      //   nome, telefone, cpf, data_aniversario, setor_id, classe_id
+      // } = req.body;
       if (!id) {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await _knexfile2.default.call(void 0, 'alunos').where('alunos.id', id);
-      if (!dados) {
-        return res.status(400).json({ erros: ["Função não existe"] });
-      }
-      const novosDados = await _knexfile2.default.call(void 0, 'alunos').where('alunos.id', id).update({
-        nome, telefone, cpf, data_aniversario, setor_id, classe_id
-      });
-      return res.json({
-        nome, telefone, cpf, data_aniversario, setor_id, classe_id
-      });
+      await _knexfile2.default.call(void 0, "alunos").where("alunos.id", id).update(req.body);
+      const novosDados = await _knexfile2.default.call(void 0, "alunos").where("alunos.id", id);
+      return res.json(novosDados);
     } catch (error) {
       return res
         .status(400)
@@ -93,11 +83,11 @@ class AlunoController {
         return res.status(400).json({ erros: ["faltando id"] });
       }
 
-      const dados = await _knexfile2.default.call(void 0, 'alunos').where('alunos.id', id);
+      const dados = await _knexfile2.default.call(void 0, "alunos").where("alunos.id", id);
       if (!dados) {
         return res.status(400).json({ erros: ["aluno nao existe"] });
       }
-      await _knexfile2.default.call(void 0, 'alunos').where('alunos.id', id).del();
+      await _knexfile2.default.call(void 0, "alunos").where("alunos.id", id).del();
       return res.json({ apagado: true });
     } catch (error) {
       return res

@@ -33,6 +33,7 @@ var _LivrariaVendaCamiseta = require('../models/Livraria/LivrariaVendaCamiseta')
 var _LivrariaVendaItenCamiseta = require('../models/Livraria/LivrariaVendaItenCamiseta'); var _LivrariaVendaItenCamiseta2 = _interopRequireDefault(_LivrariaVendaItenCamiseta);
 var _LivrariaReserva = require('../models/Livraria/LivrariaReserva'); var _LivrariaReserva2 = _interopRequireDefault(_LivrariaReserva);
 var _LivrariaRevistas = require('../models/Livraria/LivrariaRevistas'); var _LivrariaRevistas2 = _interopRequireDefault(_LivrariaRevistas);
+var _EbdFotos = require('../models/EBD/EbdFotos'); var _EbdFotos2 = _interopRequireDefault(_EbdFotos);
 
 const models = [
   _Function2.default,
@@ -44,6 +45,7 @@ const models = [
   _Membro2.default,
   _Classe2.default,
   _Aluno2.default,
+  _EbdFotos2.default,
   _Abatimento2.default,
   _Dizimo2.default,
   _Chamada2.default,

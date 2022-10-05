@@ -33,6 +33,7 @@ import LivrariaVendaCamisetas from "../models/Livraria/LivrariaVendaCamiseta";
 import LivrariaVendaItenCamisetas from "../models/Livraria/LivrariaVendaItenCamiseta";
 import LivrariaReserva from "../models/Livraria/LivrariaReserva";
 import LivrariaRevistas from "../models/Livraria/LivrariaRevistas";
+import EbdFoto from "../models/EBD/EbdFotos";
 
 const models = [
   Function,
@@ -44,6 +45,7 @@ const models = [
   Membro,
   Classe,
   Aluno,
+  EbdFoto,
   Abatimento,
   Dizimo,
   Chamada,
