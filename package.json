@@ -36,6 +36,6 @@
     "mysql2": "^2.2.5",
     "node-correios": "^3.0.2",
     "nodemailer": "^6.7.8",
-    "sequelize": "^6.6.4"
+    "sequelize": "^5.x"
   }
 }
