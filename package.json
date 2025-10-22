@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines": {
-  "node": "18.x"
+ "engines": {
+    "npm": "7.6.3",
+    "node": "15.5.1"
   },
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server.js",
